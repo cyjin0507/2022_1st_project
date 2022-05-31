@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
 * {
     margin: 0 auto;
 }
 html,body {width:100%;height:100%;margin:0 auto;padding:0px;overflow:hidden;font-family:sans-serif;}
 #fullpage {position:relative;top:0px;z-index:9;width:100%;height:100%;}
 	.fullsection{width:100%;height:100%;position:relative;}
-	.full1{background-color: #0055ff;}
+	.full1{
+        background-image: url(https://makersquarter.com/wp-content/uploads/2019/06/broad.jpg);
+        background-position: center;
+        background-size: cover;
+    }
 	.full2{background:yellow;}
 	.full3{background:green;}
 	.full4{background:blue;}
@@ -22,33 +28,93 @@ header {
     width: 80%;
     display: flex;
     padding-top: 20px;
+    
+    /* background-color: red; */
 }
 
 #logo {
     font-size: 23px;
     color: white;
     font-weight: bold;
+    display: flex;
+    align-items: center;
 }
 
 #util {
     display: flex;
-    gap: 30px;
 }
 
 .btn {
-    border-radius: 10px;
     line-height: 2;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: bold;
 }
 
 .btn1 {
     color: white;
     text-decoration: none;
+    border: 1px solid white;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: -1px;
+    transition: all .5s;
+}
+
+.btn1:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 5px black;
 }
 
 #section1 {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    width: 80%;
+    width: 90%;
+}
+
+#section1 > div:nth-child(1) {
+    font-size: 110px;
+    margin-top: 250px;
+    text-align: center;
+    font-family: 'Nanum Pen Script';
+    color: rgb(0, 21, 78);
+}
+
+#section1 > div:nth-child(2) {
+    width: 92%;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: right;
+    color: white;
+}
+
+.scroll {
+    width: 40px;
+    color: white;
+    position: absolute;
+    /* transform: translate(-50); */
+    bottom: 10px;
+    left: 48%;
+    animation: scroll 1s linear infinite;
+}
+
+.scroll > i {
+    font-size: 50px;
+}
+
+.scroll > div {
+    font-size: 20px;
+    text-align: center;
+}
+
+@keyframes scroll {
+    0% {
+        bottom: 10px;
+    }
+
+    50% {
+        bottom: 30px;
+    }
+
+    100% {
+        bottom: 10px;
+    }
 }
