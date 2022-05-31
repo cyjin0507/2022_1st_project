@@ -22,7 +22,7 @@
 		ResultSet rs = stmt.executeQuery("select * from userTable");
 
 		while (rs.next()) {
-			out.print("id : " + rs.getString("id") + "\tpw : " + rs.getString(2) + "\t이름 : " + rs.getString(3)
+			out.print("id : " + rs.getString("idx") + "\tpw : " + rs.getString(2) + "\t이름 : " + rs.getString(3)
 					+ "\t닉네임 : " + rs.getString(4) + "\t전공 : " + rs.getString(5) + "\t" + "<br>");
 		}
 
