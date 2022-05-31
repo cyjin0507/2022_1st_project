@@ -32,18 +32,17 @@ public class MemberDAO {
 			Connection conn = JdbcUtil.getConnection();
 
 			Statement stmt = conn.createStatement();
-
+			// 최근에 넣은 idx 값 가져 오기
 			ResultSet rs = stmt.executeQuery("SELECT * FROM (SELECT idx FROM usertable ORDER BY idx DESC) WHERE ROWNUM=1");
 			
 			while (rs.next()) {
-				System.out.println("가져오기 성공");
+				System.out.println("idx 값 가져오기 성공");
 				a = rs.getInt("idx");
-				System.out.println(a);
 				
 			}
 			conn.close();
 		}catch(Exception e) {
-			System.out.println("오류 발생");
+			System.out.println("idx 값 가져오기 실패");
 		}
 		return a;
 		
