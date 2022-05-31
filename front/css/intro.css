@@ -78,6 +78,10 @@ header {
     color: rgb(0, 21, 78);
 }
 
+#section1 > div:nth-child(1) span {
+    color: rgb(235, 235, 235);
+}
+
 #section1 > div:nth-child(2) {
     width: 92%;
     font-weight: bold;
@@ -90,19 +94,13 @@ header {
     width: 40px;
     color: white;
     position: absolute;
-    /* transform: translate(-50); */
     bottom: 10px;
-    left: 48%;
+    left: 49%;
     animation: scroll 1s linear infinite;
 }
 
 .scroll > i {
     font-size: 50px;
-}
-
-.scroll > div {
-    font-size: 20px;
-    text-align: center;
 }
 
 @keyframes scroll {
@@ -118,3 +116,61 @@ header {
         bottom: 10px;
     }
 }
+
+/* section3 */
+#section3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+}
+
+#section3 > div:not(.scroll) {
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    transition: all .5s;
+}
+
+#section3 > div:nth-child(1) {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url('../resources/imgs/major1.jpg');
+}
+
+#section3 > div:nth-child(2) {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url('../resources/imgs/major2.jpg');
+}
+
+#section3 > div:nth-child(3) {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url('../resources/imgs/major3.jpg');
+}
+
+#section3 > div:nth-child(4) {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url('../resources/imgs/major4.jpg');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&display=swap');
+
+#section3 > div > div {
+    font-size: 45px;
+    color: white;
+    text-align: center;
+    margin-top: 22%;
+    font-weight: bold;
+}
+
+/* #section3 > div:not(.scroll):nth-child(1):hover {
+    background-image: url('../resources/imgs/major1.jpg');
+}
+
+#section3 > div:not(.scroll):nth-child(2):hover {
+    background-image: url('../resources/imgs/major2.jpg');
+}
+
+#section3 > div:not(.scroll):nth-child(3):hover {
+    background-image: url('../resources/imgs/major3.jpg');
+}
+
+#section3 > div:not(.scroll):nth-child(4):hover {
+    background-image: url('../resources/imgs/major4.jpg');
+} */
