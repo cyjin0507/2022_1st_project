@@ -62,6 +62,7 @@ public class MemberDAO {
 	
 		try {
 			pstmt = conn.prepareStatement(sql);
+			
 			System.out.println("idx : "+idx+"\t날짜 : " + start_date+"\tuserType : "+ userType+"\tgender : " + gender);
 			pstmt.setInt(1, idx);
 			pstmt.setString(2, userId);

@@ -8,14 +8,15 @@
 </head>
 <body>
 <form action="signUpProc.jsp" method="post">
-id : <input type="text" name="id"><br>
-pw : <input type="password" name="pw"><br>
-이름 : <input type="text" name="name"><br>
+id : <input type="text" name="userId"><br>
+비밀번호 : <input type="password" name="userPassword"><br>
+이름 : <input type="text" name="userName"><br>
 닉네임 : <input type="text" name="nickname"><br>
 전공 : <input type="text" name="major"><br>
 성별 : <input type="radio" name="gender" value="he">남성&nbsp;
-<input type="radio" value="she" name="gender">여성<br>
-직급? : <input type="radio" name="type" value="student">학생&nbsp;<input type="radio" name="type" value="teacher">교사<br>
+	<input type="radio" value="she" name="gender">여성<br>
+직급? : <input type="radio" name="userType" value="student">학생&nbsp;
+	<input type="radio" name="userType" value="teacher">교사<br>
 
 <input type="submit" value="회원가입">&nbsp;&nbsp;<input type="reset" value="취소"><br>
 </form><br>
