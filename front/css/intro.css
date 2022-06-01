@@ -11,10 +11,24 @@ html,body {width:100%;height:100%;margin:0 auto;padding:0px;overflow:hidden;font
         background-position: center;
         background-size: cover;
     }
-	.full2{background:yellow;}
-	.full3{background:green;}
-	.full4{background:blue;}
-	.full5{background:purple;}
+	.full2{
+        background-image: url('../resources/imgs/배경1.png');
+        background-position: center;
+        background-size: cover;
+    }
+
+    /* .full3 {
+        background-color: rgb(224, 242, 255);
+    }
+
+    .full4 {
+        background-color: rgb(233, 176, 255);
+    }
+
+    .full5 {
+        background-color: black;
+    } */
+
 	
 
 	ul, li{margin:0;padding:0;list-style:none}
@@ -33,11 +47,7 @@ header {
 }
 
 #logo {
-    font-size: 23px;
-    color: white;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
+    width: 250px;
 }
 
 #util {
@@ -117,60 +127,140 @@ header {
     }
 }
 
-/* section3 */
-#section3 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
-    height: 100%;
+/* section2 */
+#section2 {
+    width: 70%;
+    display: flex;
 }
 
-#section3 > div:not(.scroll) {
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    transition: all .5s;
+#section2 > img {
+    width: 580px;
+    height: 750px;
+    margin-top: 80px;
 }
 
-#section3 > div:nth-child(1) {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url('../resources/imgs/major1.jpg');
+#sec2-info {
+    margin-top: 300px;
+    padding-left: 40px;
+    color: white
 }
 
-#section3 > div:nth-child(2) {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url('../resources/imgs/major2.jpg');
-}
 
-#section3 > div:nth-child(3) {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url('../resources/imgs/major3.jpg');
-}
-
-#section3 > div:nth-child(4) {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url('../resources/imgs/major4.jpg');
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&display=swap');
-
-#section3 > div > div {
-    font-size: 45px;
-    color: white;
-    text-align: center;
-    margin-top: 22%;
+#sec2-info > div:nth-child(1) {
+    margin-top: 150px;
+    font-size: 40px;
     font-weight: bold;
 }
 
-/* #section3 > div:not(.scroll):nth-child(1):hover {
-    background-image: url('../resources/imgs/major1.jpg');
+#sec2-info > div:nth-child(2) {
+    margin-top: 15px;
+    font-size: 18px;
 }
 
-#section3 > div:not(.scroll):nth-child(2):hover {
-    background-image: url('../resources/imgs/major2.jpg');
+#sec2-info > div:nth-child(3) {
+    margin-top: 50px;
+    font-size: 15px;
+    line-height: 1.8;
 }
 
-#section3 > div:not(.scroll):nth-child(3):hover {
-    background-image: url('../resources/imgs/major3.jpg');
+/* section3 */
+#section3 {
+    width: 80%;
+    display: flex;
+    padding-top: 50px;
 }
 
-#section3 > div:not(.scroll):nth-child(4):hover {
-    background-image: url('../resources/imgs/major4.jpg');
-} */
+#sec3-img {
+    display: flex;
+    gap: 10px;
+}
+
+#sec3-img > img {
+    width: 350px;
+    height: 530px;
+}
+
+#sec3-img > img:nth-child(2) {
+    margin-top: 250px;
+}
+
+#sec3-info > div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#sec3-info > div > div:nth-child(1) {
+    font-size: 35px;
+    color: rgb(123, 123, 123);
+    font-family: 'Nanum Pen Script';
+}
+
+#sec3-info > div > div:nth-child(2) {
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(0, 21, 78);
+}
+
+#sec3-info > div:nth-child(1) {
+    position: absolute;
+    margin-left: -38%;
+    margin-top: 60px;
+}
+
+#sec3-info > div:nth-child(2) {
+    position: absolute;
+    margin-left: -20%;
+    margin-top: 450px;
+}
+
+/* section4 */
+#section4 {
+    width: 80%;
+    display: flex;
+    padding-top: 40px;
+}
+
+#sec4-img {
+    display: flex;
+    gap: 10px;
+}
+
+#sec4-img > img {
+    width: 350px;
+    height: 530px;
+}
+
+#sec4-img > img:nth-child(1) {
+    margin-top: 260px;
+}
+
+#sec4-info > div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#sec4-info > div > div:nth-child(1) {
+    font-size: 35px;
+    color: rgb(123, 123, 123);
+    font-family: 'Nanum Pen Script';
+}
+
+#sec4-info > div > div:nth-child(2) {
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(0, 21, 78);
+}
+
+#sec4-info > div:nth-child(1) {
+    position: absolute;
+    margin-top: 450px;
+    margin-left: 3%;
+}
+
+#sec4-info > div:nth-child(2) {
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 10%;
+}
