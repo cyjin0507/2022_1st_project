@@ -8,7 +8,7 @@
 </head>
 <body>
 <textarea rows="10" cols="30" name="content" placeholder="내용 입력"></textarea><br>
-<input>
+<input >
 
 
 <br><br>
