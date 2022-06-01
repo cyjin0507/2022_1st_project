@@ -1,3 +1,0 @@
-127.0.0.1 - - [10/May/2022:21:34:57 +0900] "GET / HTTP/1.1" 404 807
-0:0:0:0:0:0:0:1 - - [10/May/2022:21:34:59 +0900] "GET /OJDBC_20513/member.jsp HTTP/1.1" 200 1191
-0:0:0:0:0:0:0:1 - - [10/May/2022:21:35:10 +0900] "GET /OJDBC_20513/MeberServlet?id=aaa&pw=aaa&name=aa&hobby=sports&gender=male&religion=christionity&introduction=aa HTTP/1.1" 200 200

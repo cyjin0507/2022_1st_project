@@ -17,8 +17,9 @@
 	</form>
 	<script>
 		function clickBtn() {
-			$('#Action').submit();	
+			$('#Action').submit();
 		}
 	</script>
+	
 </body>
 </html>

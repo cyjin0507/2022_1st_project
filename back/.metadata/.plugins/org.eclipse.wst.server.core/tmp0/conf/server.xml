@@ -152,7 +152,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\Users\User\Desktop\TeamProject_1stSemester\2022_1st_project\back\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\TeamProject_1stSemester" path="/TeamProject_1stSemester" reloadable="true" source="org.eclipse.jst.jee.server:TeamProject_1stSemester"/><Context docBase="C:\Users\User\Desktop\TeamProject_1stSemester\2022_1st_project\back\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\teamProject" path="" reloadable="true" source="org.eclipse.jst.jee.server:teamProject"/></Host>
+      <Context docBase="C:\Users\User\Desktop\TeamProject_1stSemester\2022_1st_project\back\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\User\Desktop\TeamProject_1stSemester\2022_1st_project\back\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\teamProject" path="/teamProject" reloadable="true" source="org.eclipse.jst.jee.server:teamProject"/></Host>
     </Engine>
   </Service>
 </Server>
