@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="/login/signUp.jsp">회원가입</a><br>
-<a href="/upload/imageUploadIndex.jsp">사진 올리기</a>
+<a href="signUp.jsp">회원가입</a>
 </body>
 </html>
-
