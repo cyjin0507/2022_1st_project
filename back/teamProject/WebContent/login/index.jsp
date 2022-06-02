@@ -9,6 +9,5 @@
 <body>
 <a href="signUp.jsp">회원가입</a><br>
 <a href="/upload/imageUploadIndex.jsp">사진 올리기</a>
-<p>test</p>
 </body>
 </html>
