@@ -19,4 +19,4 @@ CHECK(gender IN('he', 'she')),
 PRIMARY KEY (idx)
 );
 
-insert into userTable values(0,'test','test','test','test','test','관리자','he',SYSDATE-2	,null,null);
+insert into userTable values(0,'test','test','test','test','test','관리자','he',SYSDATE-3,null,null);

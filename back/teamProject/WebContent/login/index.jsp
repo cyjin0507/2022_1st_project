@@ -8,7 +8,6 @@
 </head>
 <body>
 <a href="signUp.jsp">회원가입</a><br>
-<a href="/upload/imageUploadIndex.jsp">사진 올리기</a>
-<p>test commit</p>
+<a href="/upload/imageUploadIndex.jsp">test 사진 올리기(보기)</a><br>
 </body>
 </html>

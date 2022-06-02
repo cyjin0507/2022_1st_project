@@ -21,6 +21,7 @@
 			$('#Action').submit();
 		}
 	</script>
+	
 <br><br>
 <a href="/login/index.jsp">돌아가기</a>
 </body>
