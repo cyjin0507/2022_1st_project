@@ -11,17 +11,32 @@
 </head>
 
 <body>
+    
+    <div class="popup" id="pop1">
+        <div id="board-popup">
+            <div>새 게시글 만들기
+                <a href="#">&#10005;</a>
+            </div>
+            <form>
+                <i class="fa-solid fa-images"></i>
+                <div>사진과 동영상을 선택해주세요</div>
+                <input type="file" id="imgFile">
+                <label for="imgFile">컴퓨터에서 선택</label>
+            </form>
+        </div>
+    </div>
+
 
     <!-- 헤더 -->
     <header>
         <div id="header">
-            <img src="./resources/imgs/logo.png" alt="" id="logo">
+            <img src="./resources/imgs/logo-b.png" alt="" id="logo">
             <input type="text" placeholder="검색어를 입력하세요.">
             <nav>
-                <i class="fa-solid fa-house"></i>
-                <i class="fa-solid fa-square-plus"></i>
-                <i class="fa-solid fa-heart"></i>
-                <i class="fa-solid fa-circle-user"></i>
+                <a href=""><i class="fa-solid fa-house"></i></a>
+                <a href=""><i class="fa-solid fa-square-plus"></i></a>
+                <a href=""><i class="fa-solid fa-heart"></i></a>
+                <a href=""><i class="fa-solid fa-circle-user"></i></a>
             </nav>
         </div>
     </header>
