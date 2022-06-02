@@ -16,14 +16,14 @@ img {
 }
 
 header {
-    position: fixed;
+    /* position: fixed; */
     border-bottom: 1px solid rgb(235, 235, 235);
     padding-bottom: 15px;
     background-color: white;
 }
 
 #header {
-    width: 70%;
+    width: 60%;
     display: flex;
     padding-top: 25px;
     justify-content: space-between;
@@ -43,9 +43,13 @@ header {
     background-color: rgb(233, 233, 233);
 }
 
+#header input::placeholder {
+    padding-left: 10px;
+}
+
 nav {
     display: flex;
-    width: 300px;
+    width: 250px;
 }
 
 nav i {
@@ -55,14 +59,115 @@ nav i {
 
 /* section1 */
 #main-page {
-    width: 45%;
+    width: 42%;
     display: flex;
+    overflow: hidden;
+    height: 90vh;
+}
+
+#board-page {
+    height: 100%;
+    overflow-y: auto;
+}
+
+#board-page::-webkit-scrollbar {
+    display: none;
+}
+
+.board {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgb(233, 233, 233);
+}
+
+.board:not(:first-child) {
+    margin-top: 10px;
 }
 
 .board-img {
-    height: 600px;
+    height: 450px;
 }
 
 .board-content {
+    background-color: white;
+    margin-top: -3px;
+}
 
+.board-icons {
+    display: flex;
+    width: 90px;
+    padding-top: 10px;
+    margin-left: 0;
+}
+
+.board-icons > i {
+    width: auto;
+    font-size: 25px;
+}
+
+.board-like {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.content {
+    margin-top: 10px;
+    margin-left: 10px;
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+.tage {
+    margin-top: 15px;
+    margin-left: 10px;
+    font-size: 15px;
+    color: rgb(36, 36, 255);
+    line-height: 1.5;
+}
+
+.comment {
+    margin-left: 10px;
+    margin-top: 15px;
+    color: rgb(102, 102, 102);
+    font-size: 15px;
+}
+
+.time {
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #aaa;
+    font-size: 12px;
+}
+
+.comment-area {
+    margin-top: 15px;
+    border-top: 1px solid rgb(224, 224, 224);
+    display: flex;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.comment-area > input {
+    border: none;
+}
+
+.comment-area > i {
+    width: auto;
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+.comment-area > input::placeholder {
+    padding-left: 10px;
+}
+
+.comment-area > button {
+    width: 50px;
+    font-size: 13px;
+    font-weight: bold;
+    color: rgb(36, 36, 255);
+    border: none;
+    background-color: white;
 }
