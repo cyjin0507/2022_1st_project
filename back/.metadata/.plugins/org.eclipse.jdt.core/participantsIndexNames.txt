@@ -1,7 +1,0 @@
-INDEX VERSION 1.131
-C:\Users\User\Desktop\TeamProject_1stSemester\2022_1st_project\back\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4028822308.index
-\teamProject\src
-C:\Users\User\Desktop\TeamProject_1stSemester\2022_1st_project\back\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3791837821.index
-\teamProject\src
-C:\Users\User\Desktop\TeamProject_1stSemester\2022_1st_project\back\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2368796446.index
-\teamProject\src
