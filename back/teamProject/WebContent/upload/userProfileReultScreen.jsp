@@ -1,6 +1,6 @@
-<%@page import="common.JdbcUtil"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
+<%@page import="common.JdbcUtil"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -13,25 +13,34 @@
 <body>
 	<%
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		Connection conn = JdbcUtil.getConnection();
 
 		Statement stmt = conn.createStatement();
 
-		ResultSet rs = stmt.executeQuery("select * from userTable");
+		/*
+		*	일단은 idx 1만
+		*/
 
+		ResultSet rs = stmt.executeQuery("select userProfile from userTable where idx = 1");
+		String userProfile;
+		
 		while (rs.next()) {
-			System.out.print("idx : " + rs.getString("idx") + "\tid: " + rs.getString(2) + "\t비번 : "
-					+ rs.getString(3) + "\t이름 : " + rs.getString(4) + "\t닉네임 : " + rs.getString(5) + "\t전공 : "
-					+ rs.getString(6) + "\t직위? : " + rs.getString(7) + "\t성별 : " + rs.getString(8) + "\t날짜 : "
-					+ rs.getString(9) + "\t프사 경로 : " + rs.getString(10) + "<br>");
+			System.out.print("\n프사 경로 : " + rs.getString("userProfile"));
+			userProfile = rs.getString("userProfile");
+			
+		
+		%>
+		
+		<img alt="dsfas" src="<%= userProfile %>">
+		
+	<%
+		
 		}
-
 		stmt.close();
 		conn.close();
-
-		response.sendRedirect("/upload/imageUploadIndex.jsp");
 	%>
+<br><br>
+	<a href="/login/index.jsp">돌아가기</a>
 </body>
 </html>

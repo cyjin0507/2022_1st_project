@@ -10,18 +10,52 @@ import java.util.Date;
 public class MemberDAO {
 
 	public Date myDate() {
-		
+
 		Date date = new Date();
 		long timeINMilliSeconds = date.getTime();
-		
+
 		java.sql.Date date1 = new java.sql.Date(timeINMilliSeconds);
 		return date1;
-		
+
 	}
+
+//	public int setIdx() {
+//		int b=0;
+//		
+//		try {
+//			Class.forName("oracle.jdbc.driver.OracleDriver");
+//
+//			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+//			Connection conn = JdbcUtil.getConnection();
+//
+//			Statement stmt = conn.createStatement();
+//
+//			/*
+//			 *  일단은 idx 0만 가져오게 
+//			 *	 어떤 식으로 넣어줘야 될질 모르겠음
+//			*/
+//			ResultSet rs = stmt
+//					.executeQuery("SELECT idx FROM usertable where idx = 0");
+//
+//			while (rs.next()) {
+//				System.out.println("가져오기 성공");
+//				System.out.println("idx 값 가져오기 성공");
+//				b = rs.getInt("idx");
+//				System.out.println(b);
+//
+//			}
+//			conn.close();
+//		} catch (Exception e) {
+//			System.out.println("오류 발생");
+//			System.out.println("idx 값 가져오기 실패");
+//		}
+//		
+//		return b;
+//	}
 
 	public int getLastNumber() {
 		int a = 0;
-		
+
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
@@ -31,38 +65,38 @@ public class MemberDAO {
 			Statement stmt = conn.createStatement();
 
 			// 최근에 넣은 idx 값 가져 오기
-			ResultSet rs = stmt.executeQuery("SELECT * FROM (SELECT idx FROM usertable ORDER BY idx DESC) WHERE ROWNUM=1");
-			
+			ResultSet rs = stmt
+					.executeQuery("SELECT * FROM (SELECT idx FROM usertable ORDER BY idx DESC) WHERE ROWNUM=1");
+
 			while (rs.next()) {
 				System.out.println("가져오기 성공");
 				System.out.println("idx 값 가져오기 성공");
 				a = rs.getInt("idx");
 				System.out.println(a);
-				
+
 			}
 			conn.close();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println("오류 발생");
 			System.out.println("idx 값 가져오기 실패");
 		}
 		return a;
-		
-		
+
 	}
-	
-	public int insertMember(int idx, String userId, String userPassword, String userName, String nickname, String major,
+
+	public int insertUser(int idx, String userId, String userPassword, String userName, String nickname, String major,
 			String userType, String gender, Date start_date, String reserved1, String reserved2, String userProfile) {
-		int n = 0;
+		int c = 0;
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		
+
 		String sql = "insert into userTable values(?,?,?,?,?,?,?,?,?,?,?,?)";
 		conn = JdbcUtil.getConnection();
-	
+
 		try {
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setInt(1, idx);
 			pstmt.setString(2, userId);
 			pstmt.setString(3, userPassword);
@@ -76,16 +110,39 @@ public class MemberDAO {
 			pstmt.setString(11, reserved2);
 			pstmt.setString(12, userProfile);
 
-			n = pstmt.executeUpdate();
+			c = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			JdbcUtil.close(conn, pstmt);
 		}
-		return n;
+		return c;
 	}
-/*
-	public int inserP() {
+
+	public int inserProfile(String userProfile, int idx) {
+		int d = 0;
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		String sql = "UPDATE userTable SET userProfile = ? WHERE idx=?";
+		conn = JdbcUtil.getConnection();
+		System.out.println("insert READY");
+		try {
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, userProfile);
+			pstmt.setInt(2, idx);
+
+			d = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(conn, pstmt);
+			d = 1;
+		}
 		
-	}*/
+		return d;
+	}
 }

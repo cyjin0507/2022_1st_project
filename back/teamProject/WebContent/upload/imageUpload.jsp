@@ -1,3 +1,4 @@
+<%@page import="common.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="com.oreilly.servlet.MultipartRequest"%>
@@ -11,22 +12,33 @@
 </head>
 <body>
 	<%
+		String userProfile;
+		int idx = 0;
+		int d = 0;
+
+		MemberDAO dao = new MemberDAO();
+
 		//String n = "C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/back/teamProject/WebContent/image";
-		// 웹 프로젝트 위치에 넣어도 된다 (이클립스에서 사진 추가되는 것을 실시간으로 확인 가능)
 		MultipartRequest mr = new MultipartRequest(request,
 				"C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/back/teamProject/WebContent/image_test",
 				1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 
 		String fileName = mr.getFilesystemName("image");
-		System.out.println("사진 이름 : " + fileName);
+		System.out.println("\n사진 이름 : " + fileName);
 
+		userProfile = "/image_test/"
+				+ fileName;
+		idx = 1;
+
+		System.out.print("\n이미지 경로 : " + userProfile);
+		d = dao.inserProfile(userProfile, idx);
 		
-		%>
-	<img alt="몰루?" src="C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/back/teamProject/WebContent/image_test/<%=fileName%>">
-	<br><br>
-	
-<a href="/login/index.jsp">돌아가기</a>
-
+		if (d > 0) {
+			response.sendRedirect("/upload/userProfileReultScreen.jsp");
+		} else
+			out.print("버그");
+		out.print("<script> History.back() </script>");
+	%>
 
 </body>
 </html>

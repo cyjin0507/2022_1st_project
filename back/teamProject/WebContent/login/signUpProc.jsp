@@ -16,7 +16,7 @@
 		MemberDAO dao = new MemberDAO();
 		Date date;
 		date = dao.myDate();
-		int n = 0;
+		int c = 0;
 		idx = dao.getLastNumber() + 1;
 		userId = request.getParameter("userId");
 		userPassword = request.getParameter("userPassword");
@@ -29,18 +29,14 @@
 		reserved2 = "b";
 		userProfile = "C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/back/teamProject/WebContent/image_test/defaultProfile.jpeg";
 
-n = dao.insertMember(idx, userId, userPassword, userName, nickname, major, userType, gender, date, reserved1, reserved2,
+		c = dao.insertUser(idx, userId, userPassword, userName, nickname, major, userType, gender, date, reserved1, reserved2,
 		userProfile);		 
-	/*
-	(idx, userId, userPassword, userName, nickname, major, userType, gender, start_date,
-				reserved1, reserved2, userProfile);
-*/
-		if (n > 0)
-			response.sendRedirect("/login/reultScreen.jsp");
+
+		if (c > 0)
+			response.sendRedirect("/login/loginReultScreen.jsp");
 		else
 			out.print("버그");
 		out.print("<script> History.back() </script>");
 	%>
-
 </body>
 </html>
