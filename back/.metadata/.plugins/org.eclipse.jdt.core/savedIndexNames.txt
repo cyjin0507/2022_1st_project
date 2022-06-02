@@ -15,7 +15,6 @@ INDEX VERSION 1.131+C:\Users\User\Desktop\TeamProject_1stSemester\2022_1st_proje
 4030852577.index
 3298297436.index
 4224132738.index
-1872170996.index
 3892982593.index
 646750401.index
 3261968348.index

@@ -9,14 +9,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-<textarea rows="10" cols="30" name="content" placeholder="내용 입력"></textarea><br>
-<input type="file" name="inputImage">
-<button name="sendButton">보내기</button>
-<img alt="" src="" class="uploadImage">
-
-<%
-
-%>
+	<form id="Action" action="<%=request.getContextPath()%>/upload/imageUpload.jsp" method="post" enctype="multipart/form-data">
+		<div class="form-group">
+	        사진 : 
+	        <input type="file" name="image">
+	    </div>
+	    
+	    <button id="btn" onclick="clickBtn()">추가</button>
+	</form>
+	<script>
+		function clickBtn() {
+			$('#Action').submit();
+		}
+	</script>
 <br><br>
 <a href="/login/index.jsp">돌아가기</a>
 </body>
