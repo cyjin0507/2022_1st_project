@@ -1,65 +1,4 @@
-* {
-    width: 100%;
-    margin: 0 auto;
-    padding: auto;
-}
 
-body {
-    /* background-image: url('../resources/imgs/f685c9e9618868b3.jpg'); */
-    background-position: bottom;
-    background-size: cover;
-    overflow-y: hidden;
-    background-color: rgb(245, 245, 245);
-}
-
-img {
-    object-fit: cover;
-}
-
-header {
-    /* position: fixed; */
-    border-bottom: 1px solid rgb(235, 235, 235);
-    padding-bottom: 15px;
-    background-color: white;
-}
-
-#header {
-    width: 60%;
-    display: flex;
-    padding-top: 25px;
-    justify-content: space-between;
-}
-
-#logo {
-    width: 200px;
-    display: flex;
-}
-
-#header input {
-    height: 35px;
-    width: 350px;
-    border-radius: 10px;
-    border: 1px solid rgb(233, 233, 233);
-    background-color: rgb(233, 233, 233);
-}
-
-#header input::placeholder {
-    padding-left: 10px;
-}
-
-nav {
-    display: flex;
-    width: 250px;
-}
-
-nav a {
-    color: black;
-}
-
-nav i {
-    font-size: 30px;
-    width: auto;
-}
 
 /* popup */
 .popup {
@@ -77,8 +16,11 @@ nav i {
     width: 400px;
     height: 400px;
     background-color: white;
-    margin-top: 10%;
     border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #board-popup > div {
@@ -142,7 +84,8 @@ nav i {
 /* section1 */
 #main-page {
     width: 42%;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
     overflow: hidden;
     height: 90vh;
 }
@@ -160,6 +103,28 @@ nav i {
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid rgb(233, 233, 233);
+    background-color: white;
+}
+
+.user-info {
+    display: flex;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.user-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    margin-left: 10px;
+}
+
+.user-info > div {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .board:not(:first-child) {
@@ -253,3 +218,111 @@ nav i {
     border: none;
     background-color: white;
 }
+
+#my-info {
+    display: flex;
+    margin-top: 25px;
+    margin-left: 20px;
+}
+
+#my-profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+#my-info > div {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+#my-info > div > div:nth-child(1) {
+    margin-top: 4px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#my-info > div > div:nth-child(2) {
+    font-size: 14px;
+    margin-top: 2px;
+    color: rgb(117, 117, 117);
+}
+
+#list-info {
+    display: flex;
+    margin-top: 16px;
+    margin-left: 20px;
+    width: 90%;
+}
+
+#list-info > div {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#list-info > div:nth-child(1) {
+    color: rgb(117, 117, 117);
+}
+
+#list-info > div:nth-child(2) {
+    text-align: right;
+}
+
+#friend-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    gap: 20px;
+    max-height: 250px;
+    overflow: auto;
+    padding-bottom: 20px;
+    margin-left: 20px;
+    width: 90%;
+}
+
+.list-detail {
+    display: flex;
+}
+
+.friend-profile {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+}
+
+.list-detail {
+    display: flex;
+}
+
+.list-detail > div {
+    display: flex;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(24, 24, 24);
+}
+
+.list-detail > div > div {
+    display: flex;
+    align-items: center;
+    margin-left: 7px;
+}
+
+.list-detail > a {
+    color: rgb(0, 110, 255);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    text-align: right;
+    width: 50px;
+    margin-top: 7px;
+}
+
+footer {
+    font-size: 11px;
+    color: #aaa;
+    margin-left: 20px;
+}
+
+/* mypage.html */
