@@ -16,13 +16,17 @@
 		MultipartRequest mr = new MultipartRequest(request,
 				"C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/back/teamProject/WebContent/image_test",
 				1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
-		System.out.println("저장되는 경로(실제 서버) : " + mr);
 
 		String fileName = mr.getFilesystemName("image");
 		System.out.println("사진 이름 : " + fileName);
-	%>
+
+		
+		%>
 	<img alt="몰루?" src="C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/back/teamProject/WebContent/image_test/<%=fileName%>">
 	<br><br>
+	
 <a href="/login/index.jsp">돌아가기</a>
+
+
 </body>
 </html>

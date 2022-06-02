@@ -11,7 +11,8 @@
 <body>
 	<%
 		int idx = 0;
-		String userId, userPassword, userName, nickname, major, userType, gender, start_date, reserved1, reserved2;
+		String userId, userPassword, userName, nickname, major, userType, gender, reserved1, reserved2,
+				userProfile;
 		MemberDAO dao = new MemberDAO();
 		Date date;
 		date = dao.myDate();
@@ -24,12 +25,16 @@
 		major = request.getParameter("major");
 		userType = request.getParameter("userType");
 		gender = request.getParameter("gender");
-
 		reserved1 = "a";
 		reserved2 = "b";
+		userProfile = "C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/back/teamProject/WebContent/image_test/defaultProfile.jpeg";
 
-		n = dao.insertMember(idx, userId, userPassword, userName, nickname, major, userType, gender, date,
-				reserved1, reserved2);
+n = dao.insertMember(idx, userId, userPassword, userName, nickname, major, userType, gender, date, reserved1, reserved2,
+		userProfile);		 
+	/*
+	(idx, userId, userPassword, userName, nickname, major, userType, gender, start_date,
+				reserved1, reserved2, userProfile);
+*/
 		if (n > 0)
 			response.sendRedirect("/login/reultScreen.jsp");
 		else

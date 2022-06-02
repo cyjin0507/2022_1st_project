@@ -51,19 +51,18 @@ public class MemberDAO {
 	}
 	
 	public int insertMember(int idx, String userId, String userPassword, String userName, String nickname, String major,
-			String userType, String gender, Date start_date, String reserved1, String reserved2) {
+			String userType, String gender, Date start_date, String reserved1, String reserved2, String userProfile) {
 		int n = 0;
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "insert into userTable values(?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into userTable values(?,?,?,?,?,?,?,?,?,?,?,?)";
 		conn = JdbcUtil.getConnection();
 	
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			System.out.println("idx : "+idx+"\t날짜 : " + start_date+"\tuserType : "+ userType+"\tgender : " + gender);
 			pstmt.setInt(1, idx);
 			pstmt.setString(2, userId);
 			pstmt.setString(3, userPassword);
@@ -75,6 +74,7 @@ public class MemberDAO {
 			pstmt.setDate(9, (java.sql.Date) start_date);
 			pstmt.setString(10, reserved1);
 			pstmt.setString(11, reserved2);
+			pstmt.setString(12, userProfile);
 
 			n = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -84,5 +84,8 @@ public class MemberDAO {
 		}
 		return n;
 	}
-
+/*
+	public int inserP() {
+		
+	}*/
 }
