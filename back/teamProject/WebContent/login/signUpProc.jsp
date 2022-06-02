@@ -25,9 +25,9 @@
 		major = request.getParameter("major");
 		userType = request.getParameter("userType");
 		gender = request.getParameter("gender");
-		reserved1 = "a";
-		reserved2 = "b";
-		userProfile = "C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/back/teamProject/WebContent/image_test/defaultProfile.jpeg";
+		reserved1 = "";
+		reserved2 = "";
+		userProfile = "/image_test/defaultProfile.jpeg";
 
 		c = dao.insertUser(idx, userId, userPassword, userName, nickname, major, userType, gender, date, reserved1, reserved2,
 		userProfile);		 

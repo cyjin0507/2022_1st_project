@@ -1,3 +1,4 @@
+<%@page import="common.MemberDAO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="common.JdbcUtil"%>
@@ -18,29 +19,29 @@
 
 		Statement stmt = conn.createStatement();
 
-		/*
-		*	일단은 idx 1만
-		*/
+		int idx = 0;
+		MemberDAO dao = new MemberDAO();
 
-		ResultSet rs = stmt.executeQuery("select userProfile from userTable where idx = 1");
+		idx = dao.getLastNumber();
+
+		//가장 최근에 올린 idx
+		ResultSet rs = stmt.executeQuery("select userProfile from userTable where idx = " + idx);
 		String userProfile;
-		
+
 		while (rs.next()) {
 			System.out.print("\n프사 경로 : " + rs.getString("userProfile"));
 			userProfile = rs.getString("userProfile");
-			
-		
-		%>
-		
-		<img alt="dsfas" src="<%= userProfile %>">
-		
+	%>
+
+	<img alt="dsfas" src="<%=userProfile%>">
+
 	<%
-		
 		}
 		stmt.close();
 		conn.close();
 	%>
-<br><br>
+	<br>
+	<br>
 	<a href="/login/index.jsp">돌아가기</a>
 </body>
 </html>

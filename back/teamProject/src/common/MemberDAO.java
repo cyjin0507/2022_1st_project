@@ -16,42 +16,7 @@ public class MemberDAO {
 
 		java.sql.Date date1 = new java.sql.Date(timeINMilliSeconds);
 		return date1;
-
 	}
-
-//	public int setIdx() {
-//		int b=0;
-//		
-//		try {
-//			Class.forName("oracle.jdbc.driver.OracleDriver");
-//
-//			String url = "jdbc:oracle:thin:@localhost:1521:xe";
-//			Connection conn = JdbcUtil.getConnection();
-//
-//			Statement stmt = conn.createStatement();
-//
-//			/*
-//			 *  일단은 idx 0만 가져오게 
-//			 *	 어떤 식으로 넣어줘야 될질 모르겠음
-//			*/
-//			ResultSet rs = stmt
-//					.executeQuery("SELECT idx FROM usertable where idx = 0");
-//
-//			while (rs.next()) {
-//				System.out.println("가져오기 성공");
-//				System.out.println("idx 값 가져오기 성공");
-//				b = rs.getInt("idx");
-//				System.out.println(b);
-//
-//			}
-//			conn.close();
-//		} catch (Exception e) {
-//			System.out.println("오류 발생");
-//			System.out.println("idx 값 가져오기 실패");
-//		}
-//		
-//		return b;
-//	}
 
 	public int getLastNumber() {
 		int a = 0;
@@ -106,11 +71,12 @@ public class MemberDAO {
 			pstmt.setString(7, userType);
 			pstmt.setString(8, gender);
 			pstmt.setDate(9, (java.sql.Date) start_date);
-			pstmt.setString(10, reserved1);
-			pstmt.setString(11, reserved2);
-			pstmt.setString(12, userProfile);
+			pstmt.setString(10, userProfile);
+			pstmt.setString(11, reserved1);
+			pstmt.setString(12, reserved2);
 
 			c = pstmt.executeUpdate();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -142,7 +108,7 @@ public class MemberDAO {
 			JdbcUtil.close(conn, pstmt);
 			d = 1;
 		}
-		
+
 		return d;
 	}
 }
