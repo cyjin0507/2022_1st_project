@@ -20,13 +20,13 @@
 
 		//String n = "C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/back/teamProject/WebContent/image";
 		MultipartRequest mr = new MultipartRequest(request,
-				"C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/back/teamProject/WebContent/image_test",
+				"C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/back/teamProject/WebContent/imageProfile",
 				1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 
 		String fileName = mr.getFilesystemName("image");
 		System.out.println("\n사진 이름 : " + fileName);
 
-		userProfile = "/image_test/"
+		userProfile = "/imageProfile/"
 				+ fileName;
 		idx = 1;
 

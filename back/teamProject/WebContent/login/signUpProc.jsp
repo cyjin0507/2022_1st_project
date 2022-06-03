@@ -9,15 +9,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<%
 		int idx = 0;
-		String userId, userPassword, userName, nickname, major, userType, gender, reserved1, reserved2,
-				userProfile;
+		String userId, userPassword, userName, nickname, major, userType, gender, reserved1, reserved2, userProfile;
 		MemberDAO dao = new MemberDAO();
 		Date date;
 		date = dao.myDate();
 		int c = 0;
-		idx = dao.getLastNumber() + 1;
+		idx = dao.getLastIdxUser() + 1;
 		userId = request.getParameter("userId");
 		userPassword = request.getParameter("userPassword");
 		userName = request.getParameter("userName");
@@ -29,8 +29,8 @@
 		reserved2 = "";
 		userProfile = "/image_test/defaultProfile.jpeg";
 
-		c = dao.insertUser(idx, userId, userPassword, userName, nickname, major, userType, gender, date, reserved1, reserved2,
-		userProfile);		 
+		c = dao.insertUser(idx, userId, userPassword, userName, nickname, major, userType, gender, date, reserved1,
+				reserved2, userProfile);
 
 		if (c > 0)
 			response.sendRedirect("/login/loginReultScreen.jsp");
@@ -38,5 +38,6 @@
 			out.print("버그");
 		out.print("<script> History.back() </script>");
 	%>
+	
 </body>
 </html>

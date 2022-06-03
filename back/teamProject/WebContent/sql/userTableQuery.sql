@@ -4,7 +4,7 @@ DROP TABLE userTable;
 
 DELETE FROM usertable WHERE idx != 0;
 
-INSERT INTO boardtable VALUES (0, 0, '태그', 'test  내용','image','image','2022-05-30','','');
+--INSERT into usertable VALUES (0, 'test', 'test', 'test', 'test', '관리자', 'he', '2022-05-30', '/image_test/defaultProfile.jpeg', null, null);
 
 create table userTable (
 idx int not null,

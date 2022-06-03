@@ -1,7 +1,8 @@
 select * from boardtable;
 
---INSERT INTO boardtable VALUES (0, 0, '제목', '태그', 'test  내용','/image_test/defaultProfile.jpeg','image','2022-05-30','','');
+--INSERT INTO boardtable VALUES (0, 0, '태그', 'test  내용','image','image','2022-05-30','','');
 
+--DELETE FROM boardtable where idx != 0;
 
 DROP TABLE boardtable;
 

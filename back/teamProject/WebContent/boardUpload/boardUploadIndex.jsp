@@ -8,18 +8,22 @@
 </head>
 <body>
 	<form id="Action"
-		action="<%=request.getContextPath()%>/profileUpload/imageUpload.jsp"
+		action="/boardUpload/boardUploadProc.jsp"
 		method="post" enctype="multipart/form-data">
 		<div class="form-group">
-			사진 : <input type="file" name="image">
-		</div><button id="btn" onclick="clickBtn()">추가</button>
+			사진 : <input type="file" name="image"><br>
+		</div>
+		<textarea rows="5" cols="40" name="userContent"></textarea>
+		<br>
+		<textarea rows="3" cols="40" name="tage"></textarea>
+		<br>
+		<button id="btn" onclick="clickBtn()">추가</button>
+
 		<script>
 			function clickBtn() {
 				$('#Action').submit();
 			}
 		</script>
-		<br>
-		<textarea rows="7" cols="50" name="userContent">내용</textarea>
 	</form>
 
 	<br>
