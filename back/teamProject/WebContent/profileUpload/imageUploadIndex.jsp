@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form id="Action" action="<%=request.getContextPath()%>/upload/imageUpload.jsp" method="post" enctype="multipart/form-data">
+	<form id="Action" action="<%=request.getContextPath()%>/profileUpload/imageUpload.jsp" method="post" enctype="multipart/form-data">
 		<div class="form-group">
 	        사진 : 
 	        <input type="file" name="image">
