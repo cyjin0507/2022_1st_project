@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,14 +7,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="boardUpload" method="get">
-제목 : <textarea rows="" cols=""></textarea>
-게시물 사진 : 
-게시물 내용
-<textarea rows="10" cols="30"></textarea>
-</form>
+	<form id="Action"
+		action="<%=request.getContextPath()%>/profileUpload/imageUpload.jsp"
+		method="post" enctype="multipart/form-data">
+		<div class="form-group">
+			사진 : <input type="file" name="image">
+		</div><button id="btn" onclick="clickBtn()">추가</button>
+		<script>
+			function clickBtn() {
+				$('#Action').submit();
+			}
+		</script>
+		<br>
+		<textarea rows="7" cols="50" name="userContent">내용</textarea>
+	</form>
 
-<br><Br>
-<a href="/login/index.jsp">돌아가기</a>
+	<br>
+	<Br>
+
+	<a href="/login/index.jsp">돌아가기</a>
 </body>
 </html>
