@@ -34,7 +34,7 @@
 		d = dao.inserProfile(userProfile, idx);
 		
 		if (d > 0) {
-			response.sendRedirect("/upload/userProfileReultScreen.jsp");
+			response.sendRedirect("/profileUpload/userProfileReultScreen.jsp");
 		} else
 			out.print("버그");
 		out.print("<script> History.back() </script>");

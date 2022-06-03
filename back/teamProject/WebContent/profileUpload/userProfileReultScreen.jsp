@@ -29,7 +29,8 @@
 		String userProfile;
 
 		while (rs.next()) {
-			System.out.print("\n프사 경로 : " + rs.getString("userProfile"));
+			out.print("프사 경로 : " + rs.getString("userProfile"));
+			%><br><%
 			userProfile = rs.getString("userProfile");
 	%>
 
