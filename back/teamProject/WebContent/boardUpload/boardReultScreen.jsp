@@ -41,5 +41,9 @@
 		stmt.close();
 		conn.close();
 	%>
+	<br>
+	<Br>
+
+	<a href="/login/index.jsp">돌아가기</a>
 </body>
 </html>

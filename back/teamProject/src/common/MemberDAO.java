@@ -192,4 +192,32 @@ public class MemberDAO {
 		}
 		return c;
 	}
+	
+	public int updateContent(String userContent, String tage, int idx) {
+		int d = 0;
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		String sql = "UPDATE boardTable SET tage = ?, userContent = ? where idx=?;";
+		conn = JdbcUtil.getConnection();
+		System.out.println("insert READY");
+		try {
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, tage);
+			pstmt.setString(2, userContent);
+			pstmt.setInt(3, idx);
+
+			d = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(conn, pstmt);
+			d = 1;
+		}
+
+		return d;
+	}
 }
