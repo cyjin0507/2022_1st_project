@@ -24,3 +24,4 @@ CHECK(gender IN('he', 'she')),
 PRIMARY KEY (idx)
 );
 
+

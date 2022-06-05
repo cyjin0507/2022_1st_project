@@ -43,5 +43,4 @@ public class Follow extends HttpServlet {
 		String id = request.getParameter("id");
 		System.out.println("클라이언트가 전송한 문자열: "+ id);
 	}
-//내가 그린 배경 개 귀여워
 }
