@@ -38,6 +38,6 @@
 			out.print("버그");
 		out.print("<script> History.back() </script>");
 	%>
-	
+
 </body>
 </html>
