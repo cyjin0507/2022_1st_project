@@ -45,9 +45,10 @@
     text-decoration: none;
     font-size: 18px;
     position: absolute;
-    margin-left: -80px;
+    margin-left: 210px;
     margin-top: -3px;
     color: #aaa;
+    width: auto;
 }
 
 #board-popup input[type=file] {

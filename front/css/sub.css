@@ -53,6 +53,11 @@
     font-size: 15px;
 }
 
+#my-detail-info > div > div:nth-child(2) a {
+    color: black;
+    text-decoration: none;
+}
+
 #my-detail-info > div > div:nth-child(3) {
     margin-top: 22px;
     line-height: 1.6;
@@ -87,4 +92,98 @@
 }
 
 /* my-board-img */
+
+/* popup */
+
+#follower:target {
+    display: block;
+}
+
+#follow:target {
+    display: block;
+}
+
+.follow-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+.follow-popup > div:nth-child(1) {
+    text-align: center;
+    line-height: 2.5;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(183, 183, 183);
+}
+
+.follow-list {
+    margin-top: 10px;
+    height: 350px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.follow-list > div {
+    display: flex;
+    width: 80%
+}
+
+.follow-list > div > div:nth-child(1) {
+    display: flex;
+}
+
+.follow-list > div > div:nth-child(1) img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.follow-list > div > div:nth-child(1) > div {
+    margin-left: 10px;
+}
+
+.follow-list > div > div:nth-child(1) > div > div:nth-child(1) {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.follow-list > div > div:nth-child(1) > div > div:nth-child(2) {
+    font-size: 13px;
+    color: rgb(100, 100, 100);
+}
+
+.follow-list a {
+    margin-top: 5px;
+    width: 60px;
+    border-radius: 5px;
+    height: 25px;
+    padding-top: 5px;
+    border: 1px solid rgb(99, 99, 99);
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.follow-popup > div > a {
+    text-decoration: none;
+    font-size: 18px;
+    position: absolute;
+    margin-left: 140px;
+    margin-top: -3px;
+    color: #aaa;
+    width: auto;
+}
+
+/* popup */
+
 /* mypage.html */
