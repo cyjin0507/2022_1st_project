@@ -11,7 +11,7 @@
 	<a href="follow.jsp">test</a>
 	<%
 		MemberDAO dao = new MemberDAO();
-		String Select = "follo.jsp?id=";
+		String Select = "follow.jsp?id=";
 		
 	%>
 </body>
