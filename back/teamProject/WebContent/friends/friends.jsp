@@ -8,11 +8,7 @@
 <title>following friends</title>
 </head>
 <body>
-	<a href="follow.jsp">test</a>
-	<%
-		MemberDAO dao = new MemberDAO();
-		String Select = "follow.jsp?id=";
-		
-	%>
+	<a href="follow.jsp; ?id=12">test</a>
+	
 </body>
 </html>
