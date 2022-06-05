@@ -46,6 +46,63 @@ public class MemberDAO {
 		return a;
 
 	}
+	
+	public int getLastIdxBoard() {
+		int a = 0;
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+
+			String url = "jdbc:oracle:thin:@pukkuk.pp.ua:49161:xe";
+			Connection conn = JdbcUtil.getConnection();
+
+			Statement stmt = conn.createStatement();
+
+			// 최근에 넣은 idx 값 가져 오기
+			ResultSet rs = stmt
+					.executeQuery("SELECT * FROM (SELECT idx FROM boardTable ORDER BY idx DESC) WHERE ROWNUM=1");
+
+			while (rs.next()) {
+				System.out.println("\nidx (boardTable) 값 가져오기 성공");
+			a = rs.getInt("idx");
+			System.out.println("getLastIdxBoard_idx : " + a);
+			}
+			conn.close();
+		} catch (Exception e) {
+			System.out.println("idx (boardTable) 값 가져오기 실패");
+		}
+		return a;
+
+	}
+	
+	public int getLastUidxBoard() {
+		int a = 0;
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+
+			String url = "jdbc:oracle:thin:@pukkuk.pp.ua:49161:xe";
+			Connection conn = JdbcUtil.getConnection();
+
+			Statement stmt = conn.createStatement();
+
+			// 최근에 넣은 uidx 값 가져 오기
+			//로그인시 그 idx 값을 가져와야됨
+			ResultSet rs = stmt
+					.executeQuery("SELECT * FROM (SELECT uidx FROM boardTable ORDER BY uidx DESC) WHERE ROWNUM=1");
+
+			while (rs.next()) {
+				System.out.println("uidx (boardTable) 값 가져오기 성공");
+				a = rs.getInt("uidx");
+				System.out.println("getLastUidxBoard_uidx : " + a);
+			}
+			conn.close();
+		} catch (Exception e) {
+			System.out.println("uidx (boardTable) 값 가져오기 실패");
+		}
+		return a;
+
+	}
 
 	public int insertUser(int idx, String userId, String userPassword, String userName, String nickname, String major,
 			String userType, String gender, Date start_date, String reserved1, String reserved2, String userProfile) {
@@ -109,58 +166,6 @@ public class MemberDAO {
 		return d;
 	}
 	
-	public int getLastIdxBoard() {
-		int a = 0;
-
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-
-			String url = "jdbc:oracle:thin:@pukkuk.pp.ua:49161:xe";
-			Connection conn = JdbcUtil.getConnection();
-
-			Statement stmt = conn.createStatement();
-
-			// 최근에 넣은 idx 값 가져 오기
-			ResultSet rs = stmt
-					.executeQuery("SELECT * FROM (SELECT idx FROM boardTable ORDER BY idx DESC) WHERE ROWNUM=1");
-
-			while (rs.next()) {
-				System.out.println("\nidx (boardTable) 값 가져오기 성공");
-			}
-			conn.close();
-		} catch (Exception e) {
-			System.out.println("idx (boardTable) 값 가져오기 실패");
-		}
-		return a;
-
-	}
-	
-	public int getLastUidxBoard() {
-		int a = 0;
-
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-
-			String url = "jdbc:oracle:thin:@pukkuk.pp.ua:49161:xe";
-			Connection conn = JdbcUtil.getConnection();
-
-			Statement stmt = conn.createStatement();
-
-			// 최근에 넣은 idx 값 가져 오기
-			ResultSet rs = stmt
-					.executeQuery("SELECT * FROM (SELECT uidx FROM boardTable ORDER BY uidx DESC) WHERE ROWNUM=1");
-
-			while (rs.next()) {
-				System.out.println("uidx (boardTable) 값 가져오기 성공");
-			}
-			conn.close();
-		} catch (Exception e) {
-			System.out.println("uidx (boardTable) 값 가져오기 실패");
-		}
-		return a;
-
-	}
-	
 	public int insertBoard(int idx, int uidx, String tage, String userContent, String image, Date create_date, String reserved1, String reserved2) {
 		int c = 0;
 
@@ -199,7 +204,9 @@ public class MemberDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
-		String sql = "UPDATE boardTable SET tage = ?, userContent = ? where idx=?;";
+		String sql = "UPDATE boardTable SET tage = ?, userContent = ? where idx=?";
+		System.out.println("test_updateContent");
+		
 		conn = JdbcUtil.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);

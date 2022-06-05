@@ -10,7 +10,6 @@
 </head>
 <body>
 
-
 	<%
 		String tage, userContent;
 
@@ -20,10 +19,12 @@
 		MemberDAO dao = new MemberDAO();
 
 		idx = dao.getLastIdxBoard();
-		tage = request.getParameter("tage");
 		userContent = request.getParameter("userContent");
+		tage = request.getParameter("tage");
 		
 		c = dao.updateContent(userContent, tage, idx);
+		
+		System.out.println("test_userContent : "+userContent+"\ntest_tage : "+ tage);
 		
 		if (c > 0)
 			response.sendRedirect("/boardUpload/boardReultScreen.jsp");
@@ -31,5 +32,6 @@
 			out.print("버그");
 		out.print("<script> History.back() </script>");
 	%>
+	
 </body>
 </html>
