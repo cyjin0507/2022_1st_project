@@ -27,7 +27,7 @@
 		gender = request.getParameter("gender");
 		reserved1 = "";
 		reserved2 = "";
-		userProfile = "/image_test/defaultProfile.jpeg";
+		userProfile = "/imageProfile/defaultProfile.jpeg";
 
 		c = dao.insertUser(idx, userId, userPassword, userName, nickname, major, userType, gender, date, reserved1,
 				reserved2, userProfile);

@@ -10,7 +10,6 @@
 <a href="signUp.jsp">회원가입</a><br>
 <a href="/profileUpload/imageUploadIndex.jsp">test 사진 올리기(보기)</a><br>
 <a href="/boardUpload/boardUploadIndex.jsp">게시물</a><br>
-<!--<img src="/image_test/defaultProfile.jpeg">-->
 </body>
 </html>
 

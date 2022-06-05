@@ -24,7 +24,7 @@ public class MemberDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String url = "jdbc:oracle:thin:@pukkuk.pp.ua:49161:xe";
 			Connection conn = JdbcUtil.getConnection();
 
 			Statement stmt = conn.createStatement();
@@ -91,7 +91,6 @@ public class MemberDAO {
 
 		String sql = "UPDATE userTable SET userProfile = ? WHERE idx=?";
 		conn = JdbcUtil.getConnection();
-		System.out.println("insert READY");
 		try {
 			pstmt = conn.prepareStatement(sql);
 
@@ -116,7 +115,7 @@ public class MemberDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String url = "jdbc:oracle:thin:@pukkuk.pp.ua:49161:xe";
 			Connection conn = JdbcUtil.getConnection();
 
 			Statement stmt = conn.createStatement();
@@ -142,7 +141,7 @@ public class MemberDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String url = "jdbc:oracle:thin:@pukkuk.pp.ua:49161:xe";
 			Connection conn = JdbcUtil.getConnection();
 
 			Statement stmt = conn.createStatement();
@@ -173,6 +172,7 @@ public class MemberDAO {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
+			System.out.println("test_insertBoard");
 
 			pstmt.setInt(1, idx);
 			pstmt.setInt(2, uidx);
@@ -201,7 +201,6 @@ public class MemberDAO {
 
 		String sql = "UPDATE boardTable SET tage = ?, userContent = ? where idx=?;";
 		conn = JdbcUtil.getConnection();
-		System.out.println("insert READY");
 		try {
 			pstmt = conn.prepareStatement(sql);
 

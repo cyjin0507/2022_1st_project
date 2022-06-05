@@ -23,13 +23,7 @@
 		tage = request.getParameter("tage");
 		userContent = request.getParameter("userContent");
 		
-		System.out.println(tage+"\t" + userContent);
-
-		System.out.println("\nc : " +c);
-		
 		c = dao.updateContent(userContent, tage, idx);
-
-		System.out.println("test");
 		
 		if (c > 0)
 			response.sendRedirect("/boardUpload/boardReultScreen.jsp");
