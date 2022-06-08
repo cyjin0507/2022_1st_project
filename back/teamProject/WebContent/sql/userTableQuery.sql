@@ -1,11 +1,3 @@
-select * from userTable;
-delete userTable;
-DROP TABLE userTable;
-
-DELETE FROM usertable WHERE idx != 0;
-
---INSERT into usertable VALUES (0, 'test', 'test', 'test', 'test', '관리자', 'he', '2022-05-30', '/image_test/defaultProfile.jpeg', null, null);
-
 create table userTable (
 idx int not null,
 userId varchar(20) not null, --id

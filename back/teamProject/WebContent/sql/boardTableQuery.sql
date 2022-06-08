@@ -1,11 +1,3 @@
-select * from boardtable;
-
---INSERT INTO boardtable VALUES (0, 0, '태그', 'test  내용','image','image','2022-05-30','','');
-
---DELETE FROM boardtable where idx != 0;
-
-DROP TABLE boardtable;
-
 CREATE TABLE boardTable(
 idx int,
 uidx int,
@@ -19,3 +11,4 @@ reserved2 varchar(20),--추가 용
 CHECK(image_type IN('image', 'video')),
 PRIMARY KEY (idx)
 );
+

@@ -4,7 +4,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,9 +12,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
+	<%
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = "jdbc:oracle:thin:@pukkuk.pp.ua:49161:xe";
 		Connection conn = JdbcUtil.getConnection();
 
 		Statement stmt = conn.createStatement();
@@ -22,16 +22,18 @@
 		int idx = 0;
 		MemberDAO dao = new MemberDAO();
 
-		idx = dao.getLastIdxUser();
+		idx = dao.getLastIdxBoard();
 
 		//가장 최근에 올린 idx
 		ResultSet rs = stmt.executeQuery("select image from boardTable where idx = " + idx);
 		String image;
-
+		out.print("select_idx : " + idx);
+		
 		while (rs.next()) {
-			out.print("프사 경로 : " + rs.getString("image"));
-			%><br><%
-			image = rs.getString("image");
+			System.out.println("프사 경로 : " + rs.getString("image"));
+	%>&nbsp;
+	<%
+		image = rs.getString("image");
 	%>
 
 	<img alt="dsfas" src="<%=image%>">

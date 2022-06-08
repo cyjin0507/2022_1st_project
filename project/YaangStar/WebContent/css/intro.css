@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+* {
+    margin: 0 auto;
+}
+html,body {width:100%;height:100%;margin:0 auto;padding:0px;overflow:hidden;font-family:sans-serif;}
+#fullpage {position:relative;top:0px;z-index:9;width:100%;height:100%;}
+	.fullsection{width:100%;height:100%;position:relative;}
+	.full1{
+        background-image: url(https://makersquarter.com/wp-content/uploads/2019/06/broad.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+	.full2{
+        background-image: url('../resources/imgs/배경1.png');
+        background-position: center;
+        background-size: cover;
+    }
+
+    /* .full3 {
+        background-color: rgb(224, 242, 255);
+    }
+
+    .full4 {
+        background-color: rgb(233, 176, 255);
+    } */
+
+    .full5 {
+        background-color: rgb(67, 67, 67);
+    }
+
+	
+
+	ul, li{margin:0;padding:0;list-style:none}
+	.quick {position:fixed;right:20px;top:50%;transform:translateY(-50%); z-index:100000}
+	.quick li {width:10px;height:10px;margin-bottom:10px; border-radius:15px;border:2px solid #fff;cursor:pointer;}
+	.quick .on {background:#fff;}
+
+
+/* section1 */
+header {
+    width: 80%;
+    display: flex;
+    padding-top: 20px;
+    
+    /* background-color: red; */
+}
+
+#logo {
+    width: 250px;
+}
+
+#util {
+    display: flex;
+}
+
+.btn {
+    line-height: 2;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.btn1 {
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: -1px;
+    transition: all .5s;
+}
+
+.btn1:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 5px black;
+}
+
+#section1 {
+    width: 90%;
+}
+
+#section1 > div:nth-child(1) {
+    font-size: 110px;
+    margin-top: 250px;
+    text-align: center;
+    font-family: 'Nanum Pen Script';
+    color: rgb(0, 21, 78);
+}
+
+#section1 > div:nth-child(1) span {
+    color: rgb(235, 235, 235);
+}
+
+#section1 > div:nth-child(2) {
+    width: 92%;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: right;
+    color: white;
+}
+
+.scroll {
+    width: 40px;
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    left: 49%;
+    animation: scroll 1s linear infinite;
+}
+
+.scroll > i {
+    font-size: 50px;
+}
+
+@keyframes scroll {
+    0% {
+        bottom: 10px;
+    }
+
+    50% {
+        bottom: 30px;
+    }
+
+    100% {
+        bottom: 10px;
+    }
+}
+
+/* section2 */
+#section2 {
+    width: 70%;
+    display: flex;
+}
+
+#section2 > img {
+    width: 580px;
+    height: 750px;
+    margin-top: 80px;
+}
+
+#sec2-info {
+    margin-top: 300px;
+    padding-left: 40px;
+    color: white
+}
+
+
+#sec2-info > div:nth-child(1) {
+    margin-top: 150px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#sec2-info > div:nth-child(2) {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+#sec2-info > div:nth-child(3) {
+    margin-top: 50px;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* section3 */
+#section3 {
+    width: 80%;
+    display: flex;
+    padding-top: 50px;
+}
+
+#sec3-img {
+    display: flex;
+    gap: 10px;
+}
+
+#sec3-img > img {
+    width: 350px;
+    height: 530px;
+}
+
+#sec3-img > img:nth-child(2) {
+    margin-top: 250px;
+}
+
+#sec3-info > div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#sec3-info > div > div:nth-child(1) {
+    font-size: 35px;
+    color: rgb(123, 123, 123);
+    font-family: 'Nanum Pen Script';
+}
+
+#sec3-info > div > div:nth-child(2) {
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(0, 21, 78);
+}
+
+#sec3-info > div:nth-child(1) {
+    position: absolute;
+    margin-left: -38%;
+    margin-top: 60px;
+}
+
+#sec3-info > div:nth-child(2) {
+    position: absolute;
+    margin-left: -20%;
+    margin-top: 450px;
+}
+
+/* section4 */
+#section4 {
+    width: 80%;
+    display: flex;
+    padding-top: 40px;
+}
+
+#sec4-img {
+    display: flex;
+    gap: 10px;
+}
+
+#sec4-img > img {
+    width: 350px;
+    height: 530px;
+}
+
+#sec4-img > img:nth-child(1) {
+    margin-top: 260px;
+}
+
+#sec4-info > div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#sec4-info > div > div:nth-child(1) {
+    font-size: 35px;
+    color: rgb(123, 123, 123);
+    font-family: 'Nanum Pen Script';
+}
+
+#sec4-info > div > div:nth-child(2) {
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(0, 21, 78);
+}
+
+#sec4-info > div:nth-child(1) {
+    position: absolute;
+    margin-top: 450px;
+    margin-left: 3%;
+}
+
+#sec4-info > div:nth-child(2) {
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 10%;
+}
+
+/* section5 (footer) */
+
+footer {
+    width: 60%;
+    padding-top: 700px;
+}
+
+footer img {
+    width: 200px;
+    display: flex;
+}
+
+#copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}

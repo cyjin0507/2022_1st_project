@@ -17,13 +17,9 @@
 	        <input type="file" name="image">
 	    </div>
 	    
-	    <button id="btn" onclick="clickBtn()">추가</button>
+	    <button id="btn" type="submit">추가</button>
 	</form>
-	<script>
-		function clickBtn() {
-			$('#Action_').submit();
-		}
-	</script>
+	
 
 
 	<br>
