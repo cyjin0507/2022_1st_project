@@ -12,6 +12,11 @@
     display: block;
 }
 
+#board-img {
+    background-position: center;
+    background-size: cover;
+}
+
 #board-popup {
     width: 600px;
     height: 450px;
