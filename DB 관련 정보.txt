@@ -1,0 +1,4 @@
+주소 : pukkuk.pp.ua
+sid : xe
+포트 : 49161
+사용자 이름, 비밀번호 : hr, hr
