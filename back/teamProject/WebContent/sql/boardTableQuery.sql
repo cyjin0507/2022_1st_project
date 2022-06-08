@@ -11,3 +11,4 @@ reserved2 varchar(20),--추가 용
 CHECK(image_type IN('image', 'video')),
 PRIMARY KEY (idx)
 );
+

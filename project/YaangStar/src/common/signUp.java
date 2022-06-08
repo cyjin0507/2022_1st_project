@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.MemberDAO;
+
 @WebServlet("/signUp")
 public class signUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -47,7 +49,9 @@ public class signUp extends HttpServlet {
 		c = dao.insertUser(idx, userId, userPassword, userName, nickname, major, gender, date, reserved1,
 				reserved2, userProfile);
 
-		if (c < 0)
+		if (c > 0)
+			response.sendRedirect("login.jsp");
+		else
 			out.print("버그");
 		out.print("<script> History.back() </script>");
 

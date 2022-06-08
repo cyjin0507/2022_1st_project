@@ -1,4 +1,4 @@
-package common;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -46,7 +46,7 @@ public class MemberDAO {
 		return a;
 
 	}
-	
+
 	public int getLastIdxBoard() {
 		int a = 0;
 
@@ -64,8 +64,8 @@ public class MemberDAO {
 
 			while (rs.next()) {
 				System.out.println("\nidx (boardTable) 값 가져오기 성공");
-			a = rs.getInt("idx");
-			System.out.println("getLastIdxBoard_idx : " + a);
+				a = rs.getInt("idx");
+				System.out.println("getLastIdxBoard_idx : " + a);
 			}
 			conn.close();
 		} catch (Exception e) {
@@ -74,7 +74,7 @@ public class MemberDAO {
 		return a;
 
 	}
-	
+
 	public int getLastUidxBoard() {
 		int a = 0;
 
@@ -87,7 +87,7 @@ public class MemberDAO {
 			Statement stmt = conn.createStatement();
 
 			// 최근에 넣은 uidx 값 가져 오기
-			//로그인시 그 idx 값을 가져와야됨
+			// 로그인시 그 idx 값을 가져와야됨
 			ResultSet rs = stmt
 					.executeQuery("SELECT * FROM (SELECT uidx FROM boardTable ORDER BY uidx DESC) WHERE ROWNUM=1");
 
@@ -103,7 +103,7 @@ public class MemberDAO {
 		return a;
 
 	}
-	
+
 	public int getLastIdxComment() {
 		int a = 0;
 
@@ -133,7 +133,8 @@ public class MemberDAO {
 
 	}
 
-	public int insertUser(int idx, String userId, String userPassword, String userName, String nickname, String major, String gender, Date start_date, String reserved1, String reserved2, String userProfile) {
+	public int insertUser(int idx, String userId, String userPassword, String userName, String nickname, String major,
+			String gender, Date start_date, String reserved1, String reserved2, String userProfile) {
 		int c = 0;
 
 		Connection conn = null;
@@ -166,8 +167,9 @@ public class MemberDAO {
 		}
 		return c;
 	}
-	
-	public int insertBoard(int idx, int uidx, String tage, String userContent, String image, Date create_date, String reserved1, String reserved2) {
+
+	public int insertBoard(int idx, int uidx, String tage, String userContent, String image, Date create_date,
+			String reserved1, String reserved2) {
 		int c = 0;
 
 		Connection conn = null;
@@ -198,8 +200,9 @@ public class MemberDAO {
 		}
 		return c;
 	}
-	
-	public int insertComment(int idx, int uidx, int bidx,String commentContent, Date create_date, String reserved1, String reserved2) {
+
+	public int insertComment(int idx, int uidx, int bidx, String commentContent, Date create_date, String reserved1,
+			String reserved2) {
 		int c = 0;
 
 		Connection conn = null;
@@ -255,7 +258,7 @@ public class MemberDAO {
 
 		return d;
 	}
-	
+
 	public int updateContent(String userContent, String tage, int idx) {
 		int d = 0;
 
@@ -264,7 +267,7 @@ public class MemberDAO {
 
 		String sql = "UPDATE boardTable SET tage = ?, userContent = ? where idx=?";
 		System.out.println("test_updateContent");
-		
+
 		conn = JdbcUtil.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);

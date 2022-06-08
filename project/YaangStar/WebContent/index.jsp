@@ -93,9 +93,9 @@
                         댓글 19개 모두 보기
                     </div>
                     <div class="time">1시간 전</div>
-                    <form class="comment-area">
+                    <form class="comment-area" action="/commentInsert" method="post">
                         <i class="fa-solid fa-face-smile"></i>
-                        <input type="text" placeholder="댓글 달기...">
+                        <input type="text" placeholder="댓글 달기..." name="commentContent">
                         <button type="submit">게시</button>
                     </form>
                 </div>

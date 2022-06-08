@@ -24,7 +24,7 @@
             </div>
             <button class="login-btn">로그인</button>
             <div id="login-help">
-                <a href="">아직 회원이 아니신가요?</a>
+                <a href="join.jsp">아직 회원이 아니신가요?</a>
             </div>
         </div>
     </form>

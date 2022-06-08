@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import dao.MemberDAO;
+
 @WebServlet("/boardInsert")
 public class BoardInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -48,7 +50,7 @@ public class BoardInsert extends HttpServlet {
 		 * C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/project/
 		 * YaangStar/WebContent/resources/upload/imageBoard
 		 */
-		
+
 		MultipartRequest mr = new MultipartRequest(request,
 				"C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/project/YaangStar/WebContent/resources/upload/imageBoard",
 				1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
@@ -70,9 +72,12 @@ public class BoardInsert extends HttpServlet {
 
 		c = dao.insertBoard(idx, uidx, tage, userContent, image, create_date, reserved1, reserved2);
 
-		if (c < 0)
+		if (c > 0)
+			response.sendRedirect("index.jsp");
+		else
 			out.print("버그");
 		out.print("<script> History.back() </script>");
+
 	}
 
 }

@@ -55,7 +55,7 @@
                 <button type="submit">가입하기</button>
             </div>
             <div id="join-help">
-                <a href="index.jsp">이미 회원이신가요?</a>
+                <a href="login.jsp">이미 회원이신가요?</a>
             </div>
         </div>
     </form>
