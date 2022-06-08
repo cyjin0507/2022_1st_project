@@ -18,7 +18,7 @@
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 	
 		// db 서버 접속
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		Connection conn = DriverManager.getConnection(url, "hr", "hr");
 		
 		//stmt or pstmt 객체 생성
