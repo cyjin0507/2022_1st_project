@@ -1,0 +1,189 @@
+
+/* mypage.html */
+
+#myPage {
+    width: 55%;
+}
+
+#my-detail-info {
+    margin-top: 25px;
+    display: flex;
+    gap: 100px;
+}
+
+.my-profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+}
+
+#my-detail-info > div > div:nth-child(1) {
+    display: flex;
+    margin-top: 20px;
+    width: 600px;
+    margin-left: 0;
+}
+
+#my-detail-info > div > div:nth-child(1) > div:nth-child(1) {
+    font-size: 30px;
+    color: rgb(49, 49, 49);
+    font-weight: lighter;
+    margin-top: 5px;
+}
+
+#my-detail-info > div > div:nth-child(1) > a {
+    margin-top: 15px;
+    text-decoration: none;
+    color: rgb(92, 92, 92);
+    background-color: white;
+    border: 1px solid rgb(92, 92, 92);
+    line-height: 2.2;
+    width: 110px;
+    text-align: center;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+#my-detail-info > div > div:nth-child(2) {
+    display: flex;
+    width: 400px;
+    margin-top: 25px;
+    margin-left: 0;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#my-detail-info > div > div:nth-child(2) a {
+    color: black;
+    text-decoration: none;
+}
+
+#my-detail-info > div > div:nth-child(3) {
+    margin-top: 22px;
+    line-height: 1.6;
+    color: rgb(54, 54, 54);
+}
+
+#my-infos {
+    border-top: 1px solid rgb(207, 207, 207);
+    margin-top: 30px;
+}
+
+#my-infos > div:nth-child(1) {
+    width: 90px;
+    font-size: 17px;
+    font-weight: bold;
+    border-top: 1px solid black;
+    text-align: center;
+    padding-top: 5px;
+    margin-top: -1px;
+}
+
+#my-infos > div:nth-child(2) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+#my-infos > div:nth-child(2) > img {
+    width: 100%;
+    height: 290px;
+}
+
+/* my-board-img */
+
+/* popup */
+
+#follower:target {
+    display: block;
+}
+
+#follow:target {
+    display: block;
+}
+
+.follow-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+.follow-popup > div:nth-child(1) {
+    text-align: center;
+    line-height: 2.5;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(183, 183, 183);
+}
+
+.follow-list {
+    margin-top: 10px;
+    height: 350px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.follow-list > div {
+    display: flex;
+    width: 80%
+}
+
+.follow-list > div > div:nth-child(1) {
+    display: flex;
+}
+
+.follow-list > div > div:nth-child(1) img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.follow-list > div > div:nth-child(1) > div {
+    margin-left: 10px;
+}
+
+.follow-list > div > div:nth-child(1) > div > div:nth-child(1) {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.follow-list > div > div:nth-child(1) > div > div:nth-child(2) {
+    font-size: 13px;
+    color: rgb(100, 100, 100);
+}
+
+.follow-list a {
+    margin-top: 5px;
+    width: 60px;
+    border-radius: 5px;
+    height: 25px;
+    padding-top: 5px;
+    border: 1px solid rgb(99, 99, 99);
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.follow-popup > div > a {
+    text-decoration: none;
+    font-size: 18px;
+    position: absolute;
+    margin-left: 140px;
+    margin-top: -3px;
+    color: #aaa;
+    width: auto;
+}
+
+/* popup */
+
+/* mypage.html */
