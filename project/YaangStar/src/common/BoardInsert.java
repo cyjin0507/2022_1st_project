@@ -52,7 +52,7 @@ public class BoardInsert extends HttpServlet {
 		 */
 
 		MultipartRequest mr = new MultipartRequest(request,
-				"C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/project/YaangStar/WebContent/resources/upload/imageBoard",
+				"C:\\Users\\user\\Desktop\\2022_1st_project\\project\\YaangStar\\WebContent\\resources\\upload\\imageBoard",
 				1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 
 		String fileName = mr.getFilesystemName("image");
