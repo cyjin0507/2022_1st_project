@@ -21,11 +21,11 @@ public class SelectClass {
 			ResultSet rs, rs_1;
 
 			// 최근에 넣은 idx 값 가져 오기
-			rs = stmt.executeQuery("SELECT * FROM boardtable");
+			rs = stmt.executeQuery("SELECT userProfile FROM usertable where 0");
 
 			while (rs.next()) {
 				System.out.println("불러오기 성공");
-				n = rs.getInt("idx");
+				n = rs.getInt("userProfile");
 			}
 			conn.close();
 		} catch (Exception e) {

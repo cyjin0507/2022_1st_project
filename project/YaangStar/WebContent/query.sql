@@ -13,8 +13,6 @@ DROP TABLE boardtable;
 DROP TABLE commenttable;
 DROP TABLE friendTable;
 
-
-
 INSERT INTO usertable VALUES (0, 'id', '비번', '이름', '닉네임','소개글', '010-1234-5678', 'mail', '전공','he', '2022-05-30', 'resources/upload/imageProfile/defaultProfile.jpeg', null, null);
 INSERT INTO boardtable VALUES (0, 0, '태그', 'test  내용','image 경로','2022-06-02',null, null);
 INSERT INTO commenttable VALUES(0, 0, 0, 'test', '2022-06-07', null, null);
