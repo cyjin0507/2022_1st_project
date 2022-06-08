@@ -133,14 +133,13 @@ public class MemberDAO {
 
 	}
 
-	public int insertUser(int idx, String userId, String userPassword, String userName, String nickname, String major,
-			String userType, String gender, Date start_date, String reserved1, String reserved2, String userProfile) {
+	public int insertUser(int idx, String userId, String userPassword, String userName, String nickname, String major, String gender, Date start_date, String reserved1, String reserved2, String userProfile) {
 		int c = 0;
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
-		String sql = "insert into userTable values(?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into userTable values(?,?,?,?,?,?,?,?,?,?,?)";
 		conn = JdbcUtil.getConnection();
 
 		try {
@@ -152,12 +151,11 @@ public class MemberDAO {
 			pstmt.setString(4, userName);
 			pstmt.setString(5, nickname);
 			pstmt.setString(6, major);
-			pstmt.setString(7, userType);
-			pstmt.setString(8, gender);
-			pstmt.setDate(9, (java.sql.Date) start_date);
-			pstmt.setString(10, userProfile);
-			pstmt.setString(11, reserved1);
-			pstmt.setString(12, reserved2);
+			pstmt.setString(7, gender);
+			pstmt.setDate(8, (java.sql.Date) start_date);
+			pstmt.setString(9, userProfile);
+			pstmt.setString(10, reserved1);
+			pstmt.setString(11, reserved2);
 
 			c = pstmt.executeUpdate();
 
