@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/template.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./resources/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.min.css">
-    <title>Document</title>
+    <title>Yaang Star</title>
 </head>
 
 <body>
