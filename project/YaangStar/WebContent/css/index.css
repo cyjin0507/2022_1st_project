@@ -8,6 +8,11 @@
     display: none;
 }
 
+
+a {
+	width: auto;
+}
+
 #pop1:target {
     display: block;
 }

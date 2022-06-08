@@ -1,31 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/template.css">
-    <link rel="stylesheet" href="./css/sub.css">
-    <link rel="stylesheet" href="./resources/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.min.css">
-    <title>Document</title>
-</head>
-<body>
-
-        <!-- 헤더 -->
-        <header>
-            <div id="header">
-                <img src="./resources/imgs/logo-b.png" alt="" id="logo">
-                <input type="text" placeholder="검색어를 입력하세요.">
-                <nav>
-                    <a href=""><i class="fa-solid fa-house"></i></a>
-                    <a href="#pop1"><i class="fa-solid fa-square-plus"></i></a>
-                    <a href=""><i class="fa-solid fa-heart"></i></a>
-                    <a href=""><i class="fa-solid fa-circle-user"></i></a>
-                </nav>
-            </div>
-        </header>
+<jsp:include page="./header.jsp"/>
 
         <section id="userControl">
             <form action="">
