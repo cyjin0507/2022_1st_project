@@ -58,7 +58,7 @@ public class BoardInsert extends HttpServlet {
 		String fileName = mr.getFilesystemName("image");
 		System.out.println("사진 이름 : " + fileName);
 
-		image = "/resources/upload/imageBoard/" + fileName;
+		image = "resources/upload/imageProfile/" + fileName;
 		System.out.println("이미지 경로 : " + image);
 
 		tage = request.getParameter("tage");

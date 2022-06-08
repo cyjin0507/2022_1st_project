@@ -30,7 +30,7 @@ public class signUp extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		int idx = 0;
-		String userId, userPassword, userName, nickname, major, gender, reserved1, reserved2, userProfile;
+		String userId, userPassword, userName, nickname, major, gender, reserved1, reserved2, userProfile, mail, phoneNumber, introduce;
 		MemberDAO dao = new MemberDAO();
 		Date date;
 		date = dao.myDate();
@@ -42,12 +42,14 @@ public class signUp extends HttpServlet {
 		nickname = request.getParameter("nickname");
 		major = request.getParameter("major");
 		gender = request.getParameter("gender");
+		phoneNumber = request.getParameter("phoneNumber");
+		mail = request.getParameter("mail");
+		introduce = request.getParameter("introduce");
 		reserved1 = "";
 		reserved2 = "";
-		userProfile = "/imageProfile/defaultProfile.jpeg";
+		userProfile = "/resources/upload/imageBoard/defaultProfile.jpeg";
 
-		c = dao.insertUser(idx, userId, userPassword, userName, nickname, major, gender, date, reserved1,
-				reserved2, userProfile);
+		c = dao.insertUser(idx, userId, userPassword, userName, nickname, major, gender, date, reserved1, reserved2, userProfile, introduce, phoneNumber, mail);
 
 		if (c > 0)
 			response.sendRedirect("login.jsp");
