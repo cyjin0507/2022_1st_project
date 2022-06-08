@@ -11,6 +11,7 @@
 <a href="/profileUpload/imageUploadIndex.jsp">test 사진 올리기(보기)</a><br>
 <a href="/boardUpload/boardUploadIndex.jsp">게시물</a><br>
 <a href="/commentUpload/commentUploadIndex.jsp">댓글</a><br>
+
 </body>
 </html>
 
