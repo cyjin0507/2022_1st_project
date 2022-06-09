@@ -5,7 +5,6 @@
 
     <!-- SECTION -->
     <section id="main-page">
-
         <div id="board-page">
             <div class="board">
                 <div class="user-info">
