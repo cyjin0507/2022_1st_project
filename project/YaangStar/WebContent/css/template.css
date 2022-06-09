@@ -72,6 +72,58 @@ nav > a:hover {
     color: #aaa;
 }
 
+#user-info-pop {
+    display: none;
+    position: absolute;
+    margin-top: 0px;
+    /* border-top: none; */
+    width: 200px;
+    margin-left: -80px;
+    padding-top: 29px;
+}
+
+#user-info-pop-inner {
+    background-color: white;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 0px 0px 10px 10px;
+    overflow: hidden;
+}
+
+#pop-user-name {
+    text-align: center;
+    line-height: 2.2;
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.user-pop-info {
+    text-align: center;
+    text-decoration: none;
+}
+
+.user-pop-info:nth-child(2) {
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.user-pop-info > a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 2.3;
+    margin-top: 5px;
+}
+
+.user-pop-info:hover {
+    background-color: rgb(228, 228, 228);
+}
+
+#user-pop {
+	width:auto;	
+}
+
+
 /* popup */
 .popup {
     position: fixed;
