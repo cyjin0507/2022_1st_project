@@ -217,7 +217,7 @@ public class MemberDAO {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			System.out.println("test_insertBoard");
+			System.out.println("test_insertComment");
 
 			pstmt.setInt(1, idx);
 			pstmt.setInt(2, uidx);

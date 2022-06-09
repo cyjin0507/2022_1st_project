@@ -69,7 +69,7 @@ public class BoardInsert extends HttpServlet {
 		image = "resources/upload/imageProfile/" + fileName;
 		System.out.println("이미지 경로 : " + image);
 		
-		tage = request.getParameter("tage");
+			   tage = request.getParameter("tage");
 		userContent = request.getParameter("userContent");
 
 		reserved1 = "";
@@ -77,7 +77,6 @@ public class BoardInsert extends HttpServlet {
 
 		System.out.println("tage : " + tage);
 		System.out.println("userContent : " + userContent);
-
 		System.out.println("idx : " + idx);
 		System.out.println("uidx : " + uidx);
 		
