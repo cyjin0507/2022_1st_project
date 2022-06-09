@@ -25,12 +25,12 @@
 		idx = dao.getLastIdxBoard();
 
 		//가장 최근에 올린 idx
-		ResultSet rs = stmt.executeQuery("select image from boardTable where idx = " + idx);
+		ResultSet rs = stmt.executeQuery("select image, tage, userContent from boardTable where idx = " + idx);
 		String image;
 		out.print("select_idx : " + idx);
 		
 		while (rs.next()) {
-			System.out.println("프사 경로 : " + rs.getString("image"));
+			out.println("\t프사 경로 : " + rs.getString("image")+"\tage : " + rs.getString("tage")+"\tuserContent : " + rs.getString("userContent"));
 	%>&nbsp;
 	<%
 		image = rs.getString("image");

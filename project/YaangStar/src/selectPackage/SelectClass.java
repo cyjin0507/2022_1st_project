@@ -7,6 +7,7 @@ import java.sql.Statement;
 import dao.JdbcUtil;
 
 public class SelectClass {
+
 	public int setBoard() {
 
 		int n = 0;
@@ -30,38 +31,6 @@ public class SelectClass {
 			conn.close();
 		} catch (Exception e) {
 			System.out.println("불러오기 실패");
-		}
-		return n;
-	}
-
-	public int setUser() {
-
-		int n = 0;
-		String userId, userPassword;
-
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-
-			String url = "jdbc:oracle:thin:@pukkuk.pp.ua:49161:xe";
-			Connection conn = JdbcUtil.getConnection();
-
-			Statement stmt = conn.createStatement();
-			ResultSet rs;
-
-			// 최근에 넣은 idx 값 가져 오기
-			rs = stmt.executeQuery("SELECT userId, userPassword FROM usertable");
-
-			while (rs.next()) {
-				System.out.println("불러오기 성공");
-				n = rs.getInt("idx");
-				userId = rs.getString("userId");
-				userPassword = rs.getString("userPassword");
-			}
-			
-			conn.close();
-			
-		} catch (Exception e) {
-			System.out.println("불러오기 실패\t안해");
 		}
 		return n;
 	}

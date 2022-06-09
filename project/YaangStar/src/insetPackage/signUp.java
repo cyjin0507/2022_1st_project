@@ -47,7 +47,7 @@ public class signUp extends HttpServlet {
 		introduce = request.getParameter("introduce");
 		reserved1 = "";
 		reserved2 = "";
-		userProfile = "/resources/upload/imageBoard/defaultProfile.jpeg";
+		userProfile = "resources/upload/imageBoard/defaultProfile.jpeg";
 
 		c = dao.insertUser(idx, userId, userPassword, userName, nickname, major, gender, date, reserved1, reserved2, userProfile, introduce, phoneNumber, mail);
 

@@ -12,7 +12,6 @@
 </head>
 <body>
 
-	<form action="/boardUpload/boardUploadProc.jsp">
 	
 		<%
 			String image, tage, userContent, reserved1, reserved2;
@@ -50,17 +49,13 @@
 
 			c = dao.insertBoard(idx, uidx, tage, userContent, image, create_date, reserved1, reserved2);
 
-			if (c < 0)
+			if (c < 0){
 				out.print("버그");
 			out.print("<script> History.back() </script>");
+			}else
+				response.sendRedirect("/boardUpload/boardUploadProc.jsp");
 		%>
-		
-		<textarea rows="5" cols="40" name="userContent"></textarea>
-		<br>
-		<textarea rows="3" cols="40" name="tage"></textarea>
-		<br> <input type="submit" value="게시">&nbsp;&nbsp;<input
-			type="reset" value="내용_초기화"><br>
-	</form>
+
 
 	<br>
 	<Br>
