@@ -1,6 +1,7 @@
 package loginPackage;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -13,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.JdbcUtil;
-import selectPackage.SelectClass;
 
 @WebServlet("/Login")
 public class Login extends HttpServlet {
@@ -27,8 +27,13 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+
+		PrintWriter out = response.getWriter();
+
 		HttpSession session = request.getSession();
-		
+
 		String userId = request.getParameter("userId");
 		String userPassword = request.getParameter("userPassword");
 
@@ -50,22 +55,22 @@ public class Login extends HttpServlet {
 				System.out.println("불러오기 성공");
 				id = rs.getString("userId");
 				password = rs.getString("userPassword");
-				
+
 				if (userId.equals(id) && password.equals(password)) {
 					session.setAttribute("logOK", id);
 					response.sendRedirect("index.jsp");
+					break;
 				} else {
-					/*
-					 * <script> alert("로그인에 실패하였습니다."); history.go(-1); </script>
-					 */
+					out.println("<script> alert(\"로그인에 실패하였습니다.\"); history.go(-1); </script>");
+					break;
 				}
 			}
-			
+
 			conn.close();
-			
+
 		} catch (Exception e) {
 			System.out.println("불러오기 실패\t안해");
 		}
-	
+
 	}
 }

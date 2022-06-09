@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <form id="login-box">
+    <form id="login-box" method="post" action="/Login">
         <h2>LOGIN</h2>
         <div id="login-area">
             <div class="login-input">
