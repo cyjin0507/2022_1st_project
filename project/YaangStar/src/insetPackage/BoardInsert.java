@@ -69,6 +69,8 @@ public class BoardInsert extends HttpServlet {
 		image = "resources/upload/imageProfile/" + fileName;
 		System.out.println("이미지 경로 : " + image);
 
+		System.out.println("commit test용");
+		
 		tage = request.getParameter("tage");
 		userContent = request.getParameter("userContent");
 
