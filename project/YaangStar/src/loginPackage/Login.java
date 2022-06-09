@@ -34,10 +34,10 @@ public class Login extends HttpServlet {
 
 		HttpSession session = request.getSession();
 
-		String userId = request.getParameter("userId");
-		String userPassword = request.getParameter("userPassword");
+		String id = request.getParameter("userId");
+		String password = request.getParameter("userPassword");
 
-		String id, password;
+		String userId, userPassword;
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -53,12 +53,12 @@ public class Login extends HttpServlet {
 
 			while (rs.next()) {
 				System.out.println("불러오기 성공");
-				id = rs.getString("userId");
-				password = rs.getString("userPassword");
+				userId = rs.getString("userId");
+				userPassword = rs.getString("userPassword");
 
-				if (userId.equals(id) && password.equals(password)) {
+				if (id.equals(userId) && password.equals(userPassword)) {
 					session.setAttribute("logOK", id);
-					response.sendRedirect("index.jsp");
+					response.sendRedirect("main.jsp");
 					break;
 				} else {
 					out.println("<script> alert(\"로그인에 실패하였습니다.\"); history.go(-1); </script>");

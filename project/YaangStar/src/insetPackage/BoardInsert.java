@@ -79,7 +79,7 @@ public class BoardInsert extends HttpServlet {
 		c = dao.insertBoard(idx, uidx, tage, userContent, image, create_date, reserved1, reserved2);
 
 		if (c > 0)
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("main.jsp");
 		else
 			out.print("버그");
 		out.print("<script> History.back() </script>");
