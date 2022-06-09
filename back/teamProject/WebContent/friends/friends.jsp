@@ -4,7 +4,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="common.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +18,7 @@
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 	
 		// db 서버 접속
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 		Connection conn = DriverManager.getConnection(url, "hr", "hr");
 		
 		//stmt or pstmt 객체 생성
@@ -28,7 +28,8 @@
 		
 		stmt.close();
 		conn.close();
+		
 	%>
-	
+
 </body>
 </html>
