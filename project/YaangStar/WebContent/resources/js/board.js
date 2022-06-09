@@ -19,3 +19,11 @@ $("#img_control").on('change',()=>{
       document.querySelector("#img-control-img").src = file;
 
 })
+
+//header.jsp 유저 팝업
+     $('#user-pop').on('mouseover', ()=> {
+            $('#user-info-pop').css('display', 'block')
+        })
+        $('#user-pop').on('mouseleave', ()=> {
+            $('#user-info-pop').css('display', 'none')
+        })

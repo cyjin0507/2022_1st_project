@@ -209,13 +209,23 @@
     <!-- 헤더 -->
     <header>
         <div id="header">
-            <a href="/index.jsp"><img src="./resources/imgs/logo-b.png" alt="" id="logo"></a>
+            <img src="./resources/imgs/logo-b.png" alt="" id="logo">
             <input type="text" placeholder="검색어를 입력하세요.">
             <nav>
                 <a href=""><i class="fa-solid fa-house"></i></a>
                 <a href="#pop1"><i class="fa-solid fa-square-plus"></i></a>
                 <a href=""><i class="fa-solid fa-heart"></i></a>
-                <a href="./myPage.jsp"><i class="fa-solid fa-circle-user"></i></a>
+                <div id="user-pop">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <div id="user-info-pop">
+                        <div id="user-info-pop-inner">
+                            <div id="pop-user-name">dhnfsdh_3434</div>
+                            <div class="user-pop-info"><a href="">회원정보</a></div>
+                            <div class="user-pop-info"><a href="">로그아웃</a></div>
+                        </div>
+                    </div>
+                </div>
+                
             </nav>
         </div>
     </header>
