@@ -11,16 +11,6 @@
 </head>
 <body>
 
-<%
-
-
-long time = System.currentTimeMillis();
-System.out.println(time);
-SimpleDateFormat simpl = new SimpleDateFormat("yyyyMMddaahhmmss");
-String s = simpl.format(time) + (int)(Math.random()*100);
-%>
-
-<%= s %>
 
 </body>
 </html>

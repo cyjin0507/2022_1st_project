@@ -4,7 +4,7 @@ SELECT * FROM commenttable;
 SELECT * FROM friendTable;
 
 DELETE FROM usertable WHERE idx != 0;
-DELETE FROM boardtable WHERE idx != 0;
+DELETE FROM boardtable;
 DELETE FROM commenttable WHERE idx != 0;
 DELETE FROM friendTable WHERE idx != 0;
 
@@ -63,14 +63,7 @@ PRIMARY KEY (idx)
 );
 
 /* 팔로우 */
-CREATE TABLE friendTable(
-idx int,
-follow int,
-followers int,
-suggestion boolean,
-create_date date,
-PRIMARY KEY (idx)
-);
+
 
 /* A.I? usertable*/
 INSERT INTO usertable VALUES (0, 'id', '비번', '이름', '닉네임','소개글', '010-1234-5678', 'mail', '전공','he', '2022-05-30', 'resources/upload/imageProfile/defaultProfile.jpeg', null, null);
@@ -86,7 +79,15 @@ INSERT INTO boardtable VALUES (2, 1, '태그', '최서윤_그림','183f20641e785
 INSERT INTO boardtable VALUES (3, 2, '태그', '1학년 팀플 사진임_2','2_1.png',sysdate,null, null);
 INSERT INTO boardtable VALUES (4, 2, '태그', '1학년 팀플 사진임_3','3_1.png',sysdate,null, null);
 
+insert into friendTable values(1, 2, 3, 'true', '2022-02-20');
+drop table friendTable;
 
-
-
+CREATE TABLE friendTable(
+idx int,
+follow int,
+followers int,
+suggestion varchar(20),
+create_date date,
+PRIMARY KEY (idx)
+);
 
