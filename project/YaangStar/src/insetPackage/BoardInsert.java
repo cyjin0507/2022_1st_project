@@ -2,6 +2,7 @@ package insetPackage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -50,11 +51,18 @@ public class BoardInsert extends HttpServlet {
 		 * C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/project/
 		 * YaangStar/WebContent/resources/upload/imageBoard
 		 */
+//		long time = System.currentTimeMillis();
+//		SimpleDateFormat simpl = new SimpleDateFormat("yyyyMMddaahhmmss");
+//		String s = simpl.format(time) + (int)(Math.random()*100);
 
 		MultipartRequest mr = new MultipartRequest(request,
 				"C:\\Users\\user\\Desktop\\2022_1st_project\\project\\YaangStar\\WebContent\\resources\\upload\\imageBoard",
 				1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
+		
+		//
+		System.out.println(new DefaultFileRenamePolicy());
 
+		//
 		String fileName = mr.getFilesystemName("image");
 		System.out.println("사진 이름 : " + fileName);
 
