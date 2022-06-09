@@ -60,7 +60,7 @@ public class BoardInsert extends HttpServlet {
 				1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 		
 		//
-		System.out.println(new DefaultFileRenamePolicy());
+		System.out.println(new DefaultFileRenamePolicy()); //com.oreilly.servlet.multipart.DefaultFileRenamePolicy@307ad358
 
 		//
 		String fileName = mr.getFilesystemName("image");
@@ -68,8 +68,6 @@ public class BoardInsert extends HttpServlet {
 
 		image = "resources/upload/imageProfile/" + fileName;
 		System.out.println("이미지 경로 : " + image);
-
-		System.out.println("commit test용");
 		
 		tage = request.getParameter("tage");
 		userContent = request.getParameter("userContent");
@@ -77,9 +75,12 @@ public class BoardInsert extends HttpServlet {
 		reserved1 = "";
 		reserved2 = "";
 
+		System.out.println("tage : " + tage);
+		System.out.println("userContent : " + userContent);
+
 		System.out.println("idx : " + idx);
 		System.out.println("uidx : " + uidx);
-
+		
 		c = dao.insertBoard(idx, uidx, tage, userContent, image, create_date, reserved1, reserved2);
 
 		if (c > 0)
