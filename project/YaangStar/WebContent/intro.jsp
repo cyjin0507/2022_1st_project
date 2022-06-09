@@ -16,8 +16,8 @@
 			<header>
 				<img src="./resources/imgs/logo.png" alt="" id="logo">
 				<div id="util">
-					<a href="./login.html" class="btn btn1">로그인</a>
-					<a href="" class="btn btn1">회원가입</a>
+					<a href="./login.jsp" class="btn btn1">로그인</a>
+					<a href="./join.jsp" class="btn btn1">회원가입</a>
 				</div>
 			</header>
 

@@ -20,7 +20,7 @@
             <div>새 게시글 만들기
                 <a href="#">&#10005;</a>
             </div>
-            <form action="/boardInsert" method="post" enctype="multipart/form-data">
+            <form action="<%=request.getContextPath()%>/boardInsert" method="post" enctype="multipart/form-data">
                 <div id="board-img">
                     <i class="fa-solid fa-images"></i>
                     <div>사진과 동영상을 선택해주세요</div>
