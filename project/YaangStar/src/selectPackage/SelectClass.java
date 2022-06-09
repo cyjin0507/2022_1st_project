@@ -19,10 +19,10 @@ public class SelectClass {
 			Connection conn = JdbcUtil.getConnection();
 
 			Statement stmt = conn.createStatement();
-			ResultSet rs, rs_1;
+			ResultSet rs;
 
 			// 최근에 넣은 idx 값 가져 오기
-			rs = stmt.executeQuery("SELECT userProfile FROM usertable where 0");
+			rs = stmt.executeQuery("SELECT userProfile FROM usertable where idx = ");
 
 			while (rs.next()) {
 				System.out.println("불러오기 성공");

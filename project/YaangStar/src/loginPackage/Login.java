@@ -38,6 +38,7 @@ public class Login extends HttpServlet {
 		String password = request.getParameter("userPassword");
 
 		String userId, userPassword;
+		int idx_sess = 0;
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -49,15 +50,17 @@ public class Login extends HttpServlet {
 			ResultSet rs;
 
 			// 최근에 넣은 idx 값 가져 오기
-			rs = stmt.executeQuery("SELECT userId, userPassword FROM usertable");
+			rs = stmt.executeQuery("SELECT idx, userId, userPassword FROM usertable");
 
 			while (rs.next()) {
 				System.out.println("불러오기 성공");
 				userId = rs.getString("userId");
 				userPassword = rs.getString("userPassword");
+				idx_sess = rs.getInt("idx");
 
 				if (id.equals(userId) && password.equals(userPassword)) {
 					session.setAttribute("logOK", id);
+					session.setAttribute("idx_sess", idx_sess);
 					response.sendRedirect("main.jsp");
 					break;
 				} else {
