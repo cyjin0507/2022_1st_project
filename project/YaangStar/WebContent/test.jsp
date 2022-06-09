@@ -11,6 +11,12 @@
 </head>
 <body>
 
+<%
+HttpSession s = request.getSession();
+String id = (String)s.getAttribute("logOK");
 
+%>
+
+<%= id %>
 </body>
 </html>
