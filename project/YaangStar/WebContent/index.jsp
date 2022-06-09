@@ -4,7 +4,6 @@
 
 <%
 	// 자바스크립트를 쓰기 위한 스크립트릿
-	// 근데 이거 왜함? 여기선 안해도 될텐데?
 	PrintWriter outs = response.getWriter();
 
 	// 세션의 정보를 받아옴
@@ -15,7 +14,6 @@
 
 	// session이 있으면 즉 로그인 중이면 main.jsp로 가고 아니면 intro.jsp로 간다.
 	if (id != null) {
-		outs.println("<script> alert(\"로그인에 실패하였습니다.\"); history.go(-1); </script>");
 		outs.print("<script>window.location.href=\"./main.jsp\"</script>");
 	} else {
 		outs.print("<script> alert(\"로그아웃됨.\"); </script>");
