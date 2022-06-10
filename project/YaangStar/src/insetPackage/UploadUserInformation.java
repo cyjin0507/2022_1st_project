@@ -45,10 +45,12 @@ public class UploadUserInformation extends HttpServlet {
 		int idx = 0;
 		int c = 0;
 
+		/* 로그인시 idx > 0 이기땜에 idx < 0 == 로그인 중 X */
 		if (login_idx > 0) {
 			idx = login_idx;
+			System.out.println("로그인한 idx : " + idx);
 		} else {
-			out.println("<script> alert(\"로그인 상태가 아닙니다.\"); </script>");
+			out.println("<script> alert(\"로그인 상태가 아닙니다.\"); response.sendRedirect(\"login.jsp\"); </script>");
 		}
 
 		/*
