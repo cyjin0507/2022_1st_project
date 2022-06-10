@@ -58,7 +58,7 @@ public class TestTextClass extends HttpServlet {
 
 		// 이미지 넣는거
 		 mr = new MultipartRequest(request,
-				"C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/back/teamProject/WebContent/imageBoard",
+				"/imageBoard",
 				1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 
 		String fileName = mr.getFilesystemName("image");

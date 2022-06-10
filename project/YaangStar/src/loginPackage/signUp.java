@@ -1,4 +1,4 @@
-package insetPackage;
+package loginPackage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
