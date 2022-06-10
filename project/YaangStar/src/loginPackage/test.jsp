@@ -1,3 +1,4 @@
+<%@page import="dao.MemberDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="java.time.LocalDate"%>
@@ -13,10 +14,10 @@
 
 <%
 HttpSession s = request.getSession();
-String id = (String)s.getAttribute("logOK");
+
 
 %>
 
-<%= id %>
+<%= s.getAttribute("logOK").getClass().getName() %>
 </body>
 </html>
