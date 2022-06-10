@@ -33,7 +33,7 @@
                         <div>sdhnlghd_dbklaeh</div>
                     </div>
                     <textarea cols="30" rows="10" required class="content-textarea" name="content" placeholder="게시글 입력..."></textarea>
-                    <textarea cols="30" rows="10" required class="tage-textarea" name="tage" placeholder="태그 입력..."></textarea>
+                    <textarea cols="30" rows="10" required class="tage-textarea" name="userTage" placeholder="태그 입력..."></textarea>
                     <button class="board-btn">작성하기</button>
                 </div>
             </form>

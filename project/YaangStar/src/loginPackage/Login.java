@@ -38,7 +38,7 @@ public class Login extends HttpServlet {
 		String password = request.getParameter("userPassword");
 
 		String userId, userPassword;
-		int idx_sess = 0;
+		int logOK_idx = 0;
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -56,11 +56,11 @@ public class Login extends HttpServlet {
 				System.out.println("불러오기 성공");
 				userId = rs.getString("userId");
 				userPassword = rs.getString("userPassword");
-				idx_sess = rs.getInt("idx");
+				logOK_idx = rs.getInt("idx");
 
 				if (id.equals(userId) && password.equals(userPassword)) {
 					session.setAttribute("logOK", id);
-					session.setAttribute("idx_sess", idx_sess);
+					session.setAttribute("user", logOK_idx);
 					response.sendRedirect("main.jsp");
 					break;
 				} else {

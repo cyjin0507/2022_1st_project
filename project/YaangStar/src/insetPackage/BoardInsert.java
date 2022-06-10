@@ -3,6 +3,7 @@ package insetPackage;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,8 +32,9 @@ public class BoardInsert extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 
 		PrintWriter out = response.getWriter();
+		MultipartRequest mr;
 
-		String image, tage, userContent, reserved1, reserved2;
+		String image, tage = null, userContent = null, reserved1, reserved2, name, value;
 
 		int idx;
 		int uidx = 0;
@@ -43,21 +45,23 @@ public class BoardInsert extends HttpServlet {
 		create_date = dao.myDate();
 
 		idx = dao.getLastIdxBoard() + 1;
-		uidx = dao.getLastUidxBoard() + 1;
+		uidx = idx;
 
-		tage = request.getParameter("tage");
-		userContent = request.getParameter("content");
-				
+		/*
+		 * userContent = request.getParameter("content"); tage =
+		 * request.getParameter("tage");
+		 */
+
 		/*
 		 * 지정된 경로에 이미지 넣는거 지정된 경로 :
 		 * C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/project/
 		 * YaangStar/WebContent/resources/upload/imageBoard
 		 * 
 		 * C:\\Users\\user\\Desktop\\2022_1st_project\\project\\YaangStar\\WebContent\\
-		 * resources\\upload\\imageBoard
+		 * resources\\upload\\imageBoard 이 경로 버그남
 		 */
 
-		MultipartRequest mr = new MultipartRequest(request,
+		mr = new MultipartRequest(request,
 				"C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/project/YaangStar/WebContent/resources/upload/imageBoard",
 				1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 
@@ -68,16 +72,32 @@ public class BoardInsert extends HttpServlet {
 		image = "resources/upload/imageProfile/" + fileName;
 		System.out.println("이미지 경로 : " + image);
 
+		Enumeration<String> params = mr.getParameterNames();
+
+		while (params.hasMoreElements()) {
+			name = (String) params.nextElement(); // jsp name 부분 가져오기
+			value = mr.getParameter(name); // jsp name 부분의 내용 가져오기
+			if (name.equals("content")) { // jsp 에서 content 의 내용 가져오기
+				userContent = value;
+			} else if (name.equals("userTage")) { // jsp 에서 userTage 의 내용 가져오기
+				tage = value;
+			}
+		}
+
 		reserved1 = "";
 		reserved2 = "";
 
-		System.out.println("tage : " + request.getParameter("tage"));
+		System.out.println("tage : " + tage);
 		System.out.println("userContent : " + userContent);
 		System.out.println("idx : " + idx);
 		System.out.println("uidx : " + uidx);
-
-		c = dao.insertBoard(idx, uidx, tage, userContent, image, create_date, reserved1, reserved2);
-
+		
+		
+		if (!tage.equals(null) || !userContent.equals(null)) {
+			c = dao.insertBoard(idx, uidx, tage, userContent, image, create_date, reserved1, reserved2);
+		} else {
+			System.out.println("버그_배고파...");
+		}
 		if (c > 0)
 			response.sendRedirect("main.jsp");
 		else

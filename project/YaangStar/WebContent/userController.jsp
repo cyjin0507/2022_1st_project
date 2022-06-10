@@ -16,7 +16,7 @@
 		</div>
 		<div class="user-info-control">
 			<div>이름</div>
-			<input type="text">
+			<input type="text" name="name">
 		</div>
 		<div class="user-info-control">
 			<div>별명</div>
