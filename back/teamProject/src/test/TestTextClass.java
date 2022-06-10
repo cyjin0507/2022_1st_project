@@ -3,6 +3,7 @@ package test;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,14 +43,12 @@ public class TestTextClass extends HttpServlet {
 		int uidx = 0;
 
 		MemberDAO dao = new MemberDAO();
-
+		MultipartRequest mr;
+		
 		idx = dao.getLastIdxBoard();
-		userContent = request.getParameter("userContent");
-		tage = request.getParameter("tage");
 
-		c = dao.updateContent(userContent, tage, idx);
 
-		System.out.println("test_userContent : " + userContent + "\ntest_tage : " + tage);
+//		System.out.println("test_userContent : " + userContent + "\ntest_tage : " + tage);
 
 		Date create_date;
 		create_date = dao.myDate();
@@ -58,7 +57,7 @@ public class TestTextClass extends HttpServlet {
 		uidx = dao.getLastUidxBoard() + 1;
 
 		// 이미지 넣는거
-		MultipartRequest mr = new MultipartRequest(request,
+		 mr = new MultipartRequest(request,
 				"C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/back/teamProject/WebContent/imageBoard",
 				1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 
@@ -68,8 +67,18 @@ public class TestTextClass extends HttpServlet {
 		image = "/imageBoard/" + fileName;
 		System.out.println("이미지 경로 : " + image);
 
-		tage = "";
-		userContent = "";
+		//tage = "tage_null";
+		//userContent = "content_null";
+		userContent = request.getParameter("userContent");
+		tage = request.getParameter("tage");
+		
+		Enumeration<String> params = mr.getParameterNames();
+		 
+	    while(params.hasMoreElements()) {
+	        String name = (String) params.nextElement();
+	        String value = mr.getParameter(name);
+	        out.println(name + " : " + value);
+	    }
 
 		reserved1 = "";
 		reserved2 = "";
@@ -80,7 +89,8 @@ public class TestTextClass extends HttpServlet {
 		c = dao.insertBoard(idx, uidx, tage, userContent, image, create_date, reserved1, reserved2);
 
 		if (c > 0)
-			response.sendRedirect("/boardUpload/boardReultScreen.jsp");
+			out.println("성공");
+		//	response.sendRedirect("/boardUpload/boardReultScreen.jsp");
 		else
 			out.print("버그");
 		out.print("<script> History.back() </script>");
