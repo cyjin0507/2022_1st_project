@@ -57,10 +57,9 @@ public class Login extends HttpServlet {
 					out.print("<script>alert(\"로그인이 성공적으로 완료되었습니다.\")</script>");
 					response.sendRedirect("test.jsp");
 					break; 
-				} else {
-					out.println("<script> alert(\"로그인에 실패하였습니다.\"); history.go(-1); </script>");
-					break;
 				}
+			} if(!rs.next()) {
+				out.println("<script> alert(\"로그인에 실패하였습니다.\"); history.go(-1); </script>");
 			}
 
 			conn.close();

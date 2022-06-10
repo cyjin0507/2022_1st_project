@@ -22,7 +22,7 @@ public class SelectClass {
 			ResultSet rs;
 
 			// 최근에 넣은 idx 값 가져 오기
-			rs = stmt.executeQuery("SELECT userProfile FROM usertable where idx = ");
+			rs = stmt.executeQuery("SELECT userProfile FROM usertable where idx = ?");
 
 			while (rs.next()) {
 				System.out.println("불러오기 성공");
