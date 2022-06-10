@@ -220,7 +220,7 @@
                     <div id="user-info-pop">
                         <div id="user-info-pop-inner">
                             <div id="pop-user-name">dhnfsdh_3434</div>
-                            <div class="user-pop-info"><a href="./userController.jsp">회원정보</a></div>
+                            <div class="user-pop-info"><a href="./myPage.jsp">회원정보</a></div>
                             <div class="user-pop-info"><a href="./logOut.jsp">로그아웃</a></div>
                         </div>
                     </div>
