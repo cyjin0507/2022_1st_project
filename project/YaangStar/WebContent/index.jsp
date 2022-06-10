@@ -10,7 +10,7 @@
 	HttpSession s = request.getSession();
 
 	// 세션에서 logOk라는 세션 값을 id라는 변수에 담음
-	String id = (String) s.getAttribute("logOk");
+	String id = (String) s.getAttribute("logOK");
 
 	// session이 있으면 즉 로그인 중이면 main.jsp로 가고 아니면 intro.jsp로 간다.
 	if (id != null) {

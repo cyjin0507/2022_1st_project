@@ -15,9 +15,11 @@
 <%
 HttpSession s = request.getSession();
 
+MemberDAO dao = new MemberDAO();
+
 
 %>
 
-<%= s.getAttribute("logOK").getClass().getName() %>
+<%= dao.getMyData((Integer)s.getAttribute("logOK"), "userid") %>
 </body>
 </html>
