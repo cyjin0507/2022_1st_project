@@ -46,15 +46,17 @@ public class Login extends HttpServlet {
 			ResultSet rs;
 
 			// 최근에 넣은 idx 값 가져 오기
-			rs = stmt.executeQuery("SELECT * FROM usertable");
+			rs = stmt.executeQuery("SELECT * FROM usertable where userId ='" + id + "'and userPassword = '" + password + "'");
 
 			while (rs.next()) {
-				System.out.println("불러오기 성공");
-				if (id.equals(rs.getString("userId")) && password.equals(rs.getString("userPassword"))) {
+				System.out.println("g" + rs.getString("idx") + "g");
+				if(rs.getString("idx") != null) {
+					System.out.println("불러오기 성공");
 					String idx = rs.getString("idx");
 					session.setAttribute("logOK", idx);
+					out.print("<script>alert(\"로그인이 성공적으로 완료되었습니다.\")</script>");
 					response.sendRedirect("test.jsp");
-					break;
+					break; 
 				} else {
 					out.println("<script> alert(\"로그인에 실패하였습니다.\"); history.go(-1); </script>");
 					break;

@@ -99,6 +99,6 @@ insert into friendTable values(2, 2, 3, 'true', '2022-02-20');
 
 select DISTINCT u.* from userTable u, friendTable f WHERE u.idx != 1 and (u.idx != f.follow or u.idx != f.followers) and f.suggestion = 'true';
 
-
+SELECT * FROM usertable where userId = 'test' and userPassword = 'test' 
 
 
