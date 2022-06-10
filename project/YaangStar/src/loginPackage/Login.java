@@ -52,14 +52,9 @@ public class Login extends HttpServlet {
 			while (rs.next()) {
 				System.out.println("불러오기 성공");
 
-<<<<<<< HEAD
 				if (id.equals(rs.getString("userId")) && password.equals(rs.getString("userPassword"))) {
 					session.setAttribute("logOK", id);
 					session.setAttribute("user_idx", rs.getInt("idx"));
-=======
-				if (id.equals(userId) && password.equals(userPassword)) {
-					session.setAttribute("logOK", logOK_idx);
->>>>>>> cb523179ffb9ceade16c0fcf7bc9257b56298044
 					response.sendRedirect("main.jsp");
 					break;
 				} else {

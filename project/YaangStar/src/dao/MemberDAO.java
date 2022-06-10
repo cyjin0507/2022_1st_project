@@ -216,8 +216,8 @@ public class MemberDAO {
 		try {
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setString(1, );
-			pstmt.setInt(, idx);
+			pstmt.setString(1, null);
+			pstmt.setInt(2, idx);
 
 			d = pstmt.executeUpdate();
 
