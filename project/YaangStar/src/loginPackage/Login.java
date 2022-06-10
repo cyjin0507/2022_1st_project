@@ -59,8 +59,7 @@ public class Login extends HttpServlet {
 				logOK_idx = rs.getInt("idx");
 
 				if (id.equals(userId) && password.equals(userPassword)) {
-					session.setAttribute("logOK", id);
-					session.setAttribute("user", logOK_idx);
+					session.setAttribute("logOK", logOK_idx);
 					response.sendRedirect("main.jsp");
 					break;
 				} else {
