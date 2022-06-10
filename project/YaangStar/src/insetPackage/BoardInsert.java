@@ -91,8 +91,7 @@ public class BoardInsert extends HttpServlet {
 		System.out.println("userContent : " + userContent);
 		System.out.println("idx : " + idx);
 		System.out.println("uidx : " + uidx);
-		
-		
+
 		if (!tage.equals(null) || !userContent.equals(null)) {
 			c = dao.insertBoard(idx, uidx, tage, userContent, image, create_date, reserved1, reserved2);
 		} else {
