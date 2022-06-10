@@ -106,12 +106,15 @@ public class UploadUserInformation extends HttpServlet {
 					userGender, userMajor);
 		} else {
 			System.out.println("버그_배고파...");
+			out.println("<script> alert(\"null 값 있음\"); history.go(-1); </script>");
 		}
-		if (c > 0)
+		if (c > 0) {
+			out.println("<script> alert(\"정보 수정됨\");</script>");
 			response.sendRedirect("main.jsp");
-		else
+		} else {
 			out.print("버그");
-		out.print("<script> History.back() </script>");
-
+			out.print("<script> History.back() </script>");
+			out.println("<script> alert(\"수정 실패\"); history.go(-1); </script>");
+		}
 	}
 }

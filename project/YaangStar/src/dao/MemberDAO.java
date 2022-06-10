@@ -205,19 +205,28 @@ public class MemberDAO {
 		return c;
 	}
 
-	public int updateUser(int idx, String proFile, String name, String userNickname, String userIntroduce, String userMail, String userPhoneNumber, String userGender, String userMajor) {
+	public int updateUser(int idx, String proFile, String name, String userNickname, String userIntroduce,
+			String userMail, String userPhoneNumber, String userGender, String userMajor) {
 		int d = 0;
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
-		String sql = "UPDATE userTable SET userProfile = ? WHERE idx=?";
+		String sql = "UPDATE userTable SET UPDATE usertable SET userProfile=?, userName = ?, nickname =?, introduce = ?, mail = ?, phoneNumber = ?, gender = ?, major = ? WHERE idx = ?";
+
 		conn = JdbcUtil.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setString(1, null);
-			pstmt.setInt(2, idx);
+			pstmt.setString(1, proFile);
+			pstmt.setString(2, name);
+			pstmt.setString(3, userNickname);
+			pstmt.setString(4, userIntroduce);
+			pstmt.setString(5, userMail);
+			pstmt.setString(6, userPhoneNumber);
+			pstmt.setString(7, userGender);
+			pstmt.setString(8, userMajor);
+			pstmt.setInt(9, idx);
 
 			d = pstmt.executeUpdate();
 
@@ -259,8 +268,8 @@ public class MemberDAO {
 
 		return d;
 	}
-	
-	public String getMyData(int idx,String keyword) {
+
+	public String getMyData(int idx, String keyword) {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
@@ -270,7 +279,7 @@ public class MemberDAO {
 			Statement stmt = conn.createStatement();
 
 			// 최근에 넣은 idx 값 가져 오기
-			ResultSet rs = stmt.executeQuery("SELECT * FROM userTable WHERE idx="+ idx);
+			ResultSet rs = stmt.executeQuery("SELECT * FROM userTable WHERE idx=" + idx);
 			String returnData = null;
 			while (rs.next()) {
 				returnData = rs.getString(keyword);
@@ -280,9 +289,8 @@ public class MemberDAO {
 		} catch (Exception e) {
 			System.out.println("idx (commentTable) 값 가져오기 실패");
 		}
-		
-		
+
 		return "test";
 	}
-	
+
 }
