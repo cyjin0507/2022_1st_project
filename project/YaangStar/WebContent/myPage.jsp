@@ -12,10 +12,10 @@ MemberDAO dao = new MemberDAO();
 
     <section id="myPage">
         <div id="my-detail-info">
-            <img src="<%= dao.getMyData((Integer)s.getAttribute("logOK"), "userprofile") %>" alt="" class="my-profile-img">
+            <img src="<%= dao.getMyData((String)s.getAttribute("logOK"), "userprofile") %>" alt="" class="my-profile-img">
             <div>
                 <div>
-                    <div><%= dao.getMyData((Integer)s.getAttribute("logOK"), "username") %></div>
+                    <div><%= dao.getMyData((String)s.getAttribute("logOK"), "username") %></div>
                     <a href="./userController.jsp">프로필 편집</a>
                 </div>
                 <div>
@@ -24,7 +24,7 @@ MemberDAO dao = new MemberDAO();
                     <div><a href="#follow">팔로우 13</a></div>
                 </div>
                 <div>
-                    <%= dao.getMyData((Integer)s.getAttribute("logOK"), "introduce") %>
+                    <%= dao.getMyData((String)s.getAttribute("logOK"), "introduce") %>
                 </div>
             </div>
         </div>

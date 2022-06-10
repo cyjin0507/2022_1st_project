@@ -269,7 +269,7 @@ public class MemberDAO {
 		return d;
 	}
 
-	public String getMyData(int idx, String keyword) {
+	public String getMyData(String idx, String keyword) {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
@@ -279,7 +279,7 @@ public class MemberDAO {
 			Statement stmt = conn.createStatement();
 
 			// 최근에 넣은 idx 값 가져 오기
-			ResultSet rs = stmt.executeQuery("SELECT * FROM userTable WHERE idx=" + idx);
+			ResultSet rs = stmt.executeQuery("SELECT * FROM userTable WHERE idx='" + idx + "'");
 			String returnData = null;
 			while (rs.next()) {
 				returnData = rs.getString(keyword);
