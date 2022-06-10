@@ -15,7 +15,7 @@
 		session.removeAttribute("logOK");
 		response.sendRedirect("./index.jsp");
 	} else {
-		out.println("<script> alert(\"로그인 상태가 아님니다.\"); </script>");
+		out.println("<script> alert(\"로그인 상태가 아닙니다.\"); </script>");
 	}
 %>
 </body>

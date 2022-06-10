@@ -16,7 +16,6 @@
 	if (id != null) {
 		outs.print("<script>window.location.href=\"./main.jsp\"</script>");
 	} else {
-		outs.print("<script> alert(\"로그아웃됨.\"); </script>");
 		outs.print("<script>window.location.href=\"./intro.jsp\"</script>");
 	}
 %>
