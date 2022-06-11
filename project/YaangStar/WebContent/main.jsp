@@ -83,10 +83,10 @@ MemberDAO dao = new MemberDAO();
 
         <div id="user-info">
             <div id="my-info">
-                <img src="<%= dao.getMyData((String)s.getAttribute("logOK"), "userprofile") %>" alt="" id="my-profile">
+                <img src=" <%= dao.getMyData((String)s.getAttribute("logOK"), "userprofile") %> " alt="" id="my-profile">
                 <div>   
-                    <div><%= dao.getMyData((String)s.getAttribute("logOK"), "username") %></div>
-                    <div><%= dao.getMyData((String)s.getAttribute("logOK"), "nickname") %></div>
+                    <div> <%= dao.getMyData((String)s.getAttribute("logOK"), "username") %> </div>
+                    <div> <%= dao.getMyData((String)s.getAttribute("logOK"), "nickname") %></div>
                 </div>
             </div>
             <div id="list-info">
