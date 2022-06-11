@@ -9,10 +9,10 @@
 <body>
 
 <%
-
+HttpSession ss = request.getSession();
 %>
 
-<%= %>
+<%= ss.getAttribute("logOK") %>
 
 </body>
 </html>
