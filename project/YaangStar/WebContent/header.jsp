@@ -209,7 +209,7 @@
     <!-- 헤더 -->
     <header>
         <div id="header">
-            <img src="./resources/imgs/logo-b.png" alt="" id="logo">
+            <a href="index.jsp"><img src="./resources/imgs/logo-b.png" alt="" id="logo"></a>
             <input type="text" placeholder="검색어를 입력하세요.">
             <nav>
                 <a href=""><i class="fa-solid fa-house"></i></a>
