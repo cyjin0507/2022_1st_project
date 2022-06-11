@@ -1,6 +1,12 @@
+<%@page import="dao.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="./header.jsp" />
+
+<%
+MemberDAO dao = new MemberDAO();
+HttpSession s = request.getSession();
+%>
 
 <section id="userControl">
 	<form action="/UploadUser" method="post">
@@ -16,34 +22,34 @@
 		</div>
 		<div class="user-info-control">
 			<div>이름</div>
-			<input type="text" name="name">
+			<input type="text" name="name" required value="<%=dao.getMyData((String)s.getAttribute("logOK"), "username")%>">
 		</div>
 		<div class="user-info-control">
 			<div>별명</div>
-			<input type="text" name="userNickname">
+			<input type="text" name="userNickname" required value="<%=dao.getMyData((String)s.getAttribute("logOK"), "nickname")%>">
 		</div>
 		<div class="user-info-control">
 			<div>소개글</div>
-			<textarea name="userIntroduce" id="" cols="30" rows="10"></textarea>
+			<textarea name="userIntroduce" id="" cols="30" rows="10" required><%=dao.getMyData((String)s.getAttribute("logOK"), "introduce")%></textarea>
 		</div>
 		<div class="user-info-control">
 			<div>이메일</div>
-			<input type="text" name="userMail">
+			<input type="text" name="userMail" required value="<%=dao.getMyData((String)s.getAttribute("logOK"), "mail")%>">
 		</div>
 		<div class="user-info-control">
 			<div>전화번호</div>
-			<input type="text" name="userPhoneNumber">
+			<input type="text" name="userPhoneNumber" required value="<%=dao.getMyData((String)s.getAttribute("logOK"), "phoneNumber")%>">
 		</div>
 		<div class="user-info-control">
 			<div>성별</div>
 			<div class="major-control-outer">
 				<div class="major-control">
 					<div>
-						<input type="radio" name="userGender" id="male"> <label
+						<input type="radio" name="userGender" id="male" <%=dao.getMyData((String)s.getAttribute("logOK"), "gender") == "he" ? "checked" : ""%>> <label
 							for="male">남성</label>
 					</div>
 					<div>
-						<input type="radio" name="userGender" id="female"> <label
+						<input type="radio" name="userGender" id="female" <%=dao.getMyData((String)s.getAttribute("logOK"), "gender") == "she" ? "checked" : ""%>> <label
 							for="female">여성</label>
 					</div>
 				</div>

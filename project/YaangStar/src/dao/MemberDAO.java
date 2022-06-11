@@ -287,10 +287,10 @@ public class MemberDAO {
 			conn.close();
 			return returnData;
 		} catch (Exception e) {
-			System.out.println("idx (commentTable) 값 가져오기 실패");
+			System.out.println("idx (commentTable) getMydata 값 가져오기 실패");
 		}
 
-		return "test";
+		return null;
 	}
 
 }
