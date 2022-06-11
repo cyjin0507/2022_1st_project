@@ -40,13 +40,13 @@ public class UploadUserInformation extends HttpServlet {
 				userGender = null, userMajor = null, value, name_jsp;
 		MemberDAO dao = new MemberDAO();
 
-		int login_idx = (Integer) session.getAttribute("user_idx");
+		String login_idx = (String) session.getAttribute("logOK");
 
-		int idx = 0;
+		String idx = null;
 		int c = 0;
 
 		/* 로그인시 idx > 0 이기땜에 idx < 0 == 로그인 중 X */
-		if (login_idx > 0) {
+		if (login_idx != null) {
 			idx = login_idx;
 			System.out.println("로그인한 idx : " + idx);
 		} else {

@@ -38,17 +38,13 @@ MemberDAO dao = new MemberDAO();
  				String idx = dao.getMyData((String)s.getAttribute("logOK"), "idx");
  				for(int i=0; i<=100; i++) {
  					if(boardArr[i] == null) {
- 					
  	 					break;
  					}
- 					
  					%>
-
+					
+					<!-- get image -->
  					<img src="<%= myB.myboard(boardArr[i], "image") %>" class="my-board-img" alt="">
  					<%
-
-
- 					
  				}
             %>
 

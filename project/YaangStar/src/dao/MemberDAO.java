@@ -205,7 +205,7 @@ public class MemberDAO {
 		return c;
 	}
 
-	public int updateUser(int idx, String proFile, String name, String userNickname, String userIntroduce,
+	public int updateUser(String idx, String proFile, String name, String userNickname, String userIntroduce,
 			String userMail, String userPhoneNumber, String userGender, String userMajor) {
 		int d = 0;
 
@@ -226,7 +226,7 @@ public class MemberDAO {
 			pstmt.setString(6, userPhoneNumber);
 			pstmt.setString(7, userGender);
 			pstmt.setString(8, userMajor);
-			pstmt.setInt(9, idx);
+			pstmt.setString(9, idx);
 
 			d = pstmt.executeUpdate();
 

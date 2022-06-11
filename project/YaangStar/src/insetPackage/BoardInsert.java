@@ -70,7 +70,7 @@ public class BoardInsert extends HttpServlet {
 		String fileName = mr.getFilesystemName("image");
 		System.out.println("사진 이름 : " + fileName);
 
-		image = "resources/upload/imageProfile/" + fileName;
+		image = "resources/upload/imageBoard/" + fileName;
 		System.out.println("이미지 경로 : " + image);
 
 		Enumeration<String> params = mr.getParameterNames();
