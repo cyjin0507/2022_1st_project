@@ -1,16 +1,15 @@
-package userController;
+package test;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import dao.JdbcUtil;
-import dao.MemberDAO;
+import common.JdbcUtil;
 
-public class myBoard {
+public class test_2 {
+	public String[] idx_list() {
+		String[] list_idx = new String[100];
 
-	public String[] myBoardRetrun(String idx) {
-		String[] myArr = new String[1000];
 		try {
 
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -21,24 +20,24 @@ public class myBoard {
 			Statement stmt = conn.createStatement();
 
 			// 최근에 넣은 idx 값 가져 오기
-			ResultSet rs = stmt.executeQuery("select * from boardTable WHERE uidx='" + idx + "'");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM boardtable ORDER BY idx DESC");
 
 			int i = 0;
 
 			while (rs.next()) {
-				myArr[i] = rs.getString("idx");
+				list_idx[i] = rs.getString("idx");
 				i++;
 			}
-
 		} catch (Exception e) {
 		}
 
-		return myArr;
-
+		return list_idx;
 	}
+	
+	
+	public String[] uidx_list() {
+		String[] list_uidx = new String[100];
 
-	public String myboard(String idx, String keyWord) {
-		String retrunData = null;
 		try {
 
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -48,15 +47,19 @@ public class myBoard {
 
 			Statement stmt = conn.createStatement();
 
-			ResultSet rs = stmt.executeQuery("select * from boardTable WHERE idx='" + idx + "'");
+			// 최근에 넣은 idx 값 가져 오기
+			ResultSet rs = stmt.executeQuery("SELECT * FROM boardtable ORDER BY idx DESC");
+
+			int i = 0;
 
 			while (rs.next()) {
-				retrunData = rs.getString(keyWord);
+				list_uidx[i] = rs.getString("uidx");
+				i++;
 			}
+			
 		} catch (Exception e) {
 		}
 
-		return retrunData;
+		return list_uidx;
 	}
-
 }

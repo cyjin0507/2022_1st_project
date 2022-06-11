@@ -6,7 +6,6 @@
 
 <%
 HttpSession s = request.getSession();
-
 MemberDAO dao = new MemberDAO();
 %>
 

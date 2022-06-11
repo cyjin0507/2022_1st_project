@@ -1,3 +1,4 @@
+<%@page import="userController.myBoard"%>
 <%@page import="selectPackage.YourBorad"%>
 <%@page import="dao.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -15,22 +16,26 @@ MemberDAO dao = new MemberDAO();
     <section id="main-page">
     <%
             	YourBorad youB = new YourBorad();
- 				String[] boardArr = youB.yourBoardRetrun(dao.getMyData((String)s.getAttribute("logOK"), "idx"));
- 				String idx = dao.getMyData((String)s.getAttribute("logOK"), "idx");
+    			myBoard myB = new myBoard();
+    			
+ 				String[] list_youB_idx = youB.yourIdxBoardRetrun();
+ 				String[] list_youB_uidx = youB.yourUidxBoardRetrun();
+    			
  				for(int i=0; i<=100; i++) {
- 					if(boardArr[i] == null) {
+ 					if(list_youB_idx[i] == null || list_youB_uidx[i] == null) {
  					
  	 					break;
  					}
  					
  					%>
+ 					
         <div id="board-page">
             <div class="board">
                 <div class="user-info">
-                    <img src="<%= dao.getMyData(게시물 올린 사람 이름, "userprofile") %>" alt="" class="user-img">
-                    <div><%= dao.getMyData(게시물 올린 사람 이름, "username") %></div>
+                    <img src="<%= dao.getMyData(list_youB_uidx[i], "userProfile") %>" alt="올린 사람 프로필 " class="user-img">
+                    <div><%= dao.getMyData(list_youB_uidx[i], "username") %></div>
                 </div>
-                <img src="" alt="" class="board-img">
+                <img src="<%= dao.getMyData(list_youB_idx[i], "image") %>" alt="" class="board-img">
                 <div class="board-content">
                     <div class="board-icons">
                         <i class="fa-solid fa-heart"></i>
@@ -38,14 +43,10 @@ MemberDAO dao = new MemberDAO();
                     </div>
                     <div class="board-like">좋아요 934개</div>
                     <div class="content">
-                        하하하하ㅏ하ㅏ하ㅏ하하하하하 <br>
-                        하하하하ㅏ하ㅏ하ㅏ하 <br>
-                        하하하하ㅏ하ㅏ하ㅏ하하하 <br>
-                        하하하하
+                        <%= dao.getMyData(list_youB_idx[i], "userContent") %>
                     </div>
                     <div class="tage">
-                        #하하하#하하하핳<br>
-                        #하하하glglg#하하하핳
+                        <%= dao.getMyData(list_youB_idx[i], "tage") %>
                     </div>
                     <div class="comment">
                         댓글 19개 모두 보기
@@ -62,6 +63,7 @@ MemberDAO dao = new MemberDAO();
   <%
  				}
             %>
+            
 
         <div id="user-info">
             <div id="my-info">

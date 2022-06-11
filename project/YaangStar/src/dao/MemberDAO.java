@@ -269,6 +269,7 @@ public class MemberDAO {
 		return d;
 	}
 
+	/*	*/
 	public String getMyData(String idx, String keyword) {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -287,7 +288,7 @@ public class MemberDAO {
 			conn.close();
 			return returnData;
 		} catch (Exception e) {
-			System.out.println("idx (commentTable) getMydata 값 가져오기 실패");
+			System.out.println("idx (getMydata) 값 가져오기 실패");
 		}
 
 		return null;
