@@ -140,7 +140,7 @@ public class MemberDAO {
 		return c;
 	}
 
-	public int insertBoard(int idx, int uidx, String tage, String userContent, String image, Date create_date,
+	public int insertBoard(int idx, String uidx, String tage, String userContent, String image, Date create_date,
 			String reserved1, String reserved2) {
 		int c = 0;
 
@@ -155,7 +155,7 @@ public class MemberDAO {
 			System.out.println("test_insertBoard");
 
 			pstmt.setInt(1, idx);
-			pstmt.setInt(2, uidx);
+			pstmt.setString(2, uidx);
 			pstmt.setString(3, tage);
 			pstmt.setString(4, userContent);
 			pstmt.setString(5, image);

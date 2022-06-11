@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -33,11 +34,11 @@ public class BoardInsert extends HttpServlet {
 
 		PrintWriter out = response.getWriter();
 		MultipartRequest mr;
-
+		HttpSession session = request.getSession();
+		
 		String image, tage = null, userContent = null, reserved1, reserved2, name, value;
-
 		int idx;
-		int uidx = 0;
+		String uidx;
 		int c = 0;
 
 		MemberDAO dao = new MemberDAO();
@@ -45,8 +46,8 @@ public class BoardInsert extends HttpServlet {
 		create_date = dao.myDate();
 
 		idx = dao.getLastIdxBoard() + 1;
-		uidx = idx;
-
+		uidx = (String) session.getAttribute("logOK");
+		
 		/*
 		 * userContent = request.getParameter("content"); tage =
 		 * request.getParameter("tage");
@@ -95,7 +96,7 @@ public class BoardInsert extends HttpServlet {
 		if (!tage.equals(null) || !userContent.equals(null)) {
 			c = dao.insertBoard(idx, uidx, tage, userContent, image, create_date, reserved1, reserved2);
 		} else {
-			System.out.println("버그_배고파...");
+			System.out.println("버그_배고파...\n게시글 올리는거 버그");
 		}
 		if (c > 0)
 			response.sendRedirect("main.jsp");
