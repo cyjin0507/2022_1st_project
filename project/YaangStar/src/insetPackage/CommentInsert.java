@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.MemberDAO;
 
@@ -30,19 +31,20 @@ public class CommentInsert extends HttpServlet {
 
 		PrintWriter out = response.getWriter();
 		
-		int idx = 0;
-		int uidx = 0;
-		int bidx = 0;
+		String idx = null;
+		String uidx = null;
+		String bidx = null;
 		int s = 0;
 		
 		String commentContent, reserved1, reserved2;
 		MemberDAO dao = new MemberDAO();
 		Date create_date;
 		create_date = dao.myDate();
+		HttpSession session = request.getSession();
 		
-		idx = dao.getLastIdxComment() + 1;
-		uidx = idx;
-		bidx = idx;
+		idx = dao.getLastIdxComment() + 1 + "";
+		uidx = (String) session.getAttribute("logOK");
+		bidx = "여기 게시물 idx 값 가져와야됨";
 		
 		commentContent = request.getParameter("commentContent");
 		reserved1 = "";
@@ -55,7 +57,7 @@ public class CommentInsert extends HttpServlet {
 			response.sendRedirect("main.jsp");
 		else
 			out.print("버그");
-		out.print("<script> History.back() </script>");
+		out.println("<script> alert(\"내용을 입력해주세요\"); history.go(-1); </script>");
 	}
 
 }

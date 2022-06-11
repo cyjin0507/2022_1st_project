@@ -173,7 +173,7 @@ public class MemberDAO {
 		return c;
 	}
 
-	public int insertComment(int idx, int uidx, int bidx, String commentContent, Date create_date, String reserved1,
+	public int insertComment(String idx, String uidx, String bidx, String commentContent, Date create_date, String reserved1,
 			String reserved2) {
 		int c = 0;
 
@@ -187,9 +187,9 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement(sql);
 			System.out.println("test_insertComment");
 
-			pstmt.setInt(1, idx);
-			pstmt.setInt(2, uidx);
-			pstmt.setInt(3, bidx);
+			pstmt.setString(1, idx);
+			pstmt.setString(2, uidx);
+			pstmt.setString(3, bidx);
 			pstmt.setString(4, commentContent);
 			pstmt.setDate(5, (java.sql.Date) create_date);
 			pstmt.setString(6, reserved1);

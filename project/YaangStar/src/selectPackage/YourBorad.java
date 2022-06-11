@@ -11,8 +11,7 @@ import dao.JdbcUtil;
 
 public class YourBorad {
 
-	public String[] yourIdxBoardRetrun() {
-		HttpServletRequest request = null;
+	public String[] yourIdxBoardRetrun(HttpServletRequest request) {
 		String[] list_idx = new String[100];
 		HttpSession session = request.getSession();
 
@@ -43,8 +42,7 @@ public class YourBorad {
 		return list_idx;
 	}
 
-	public String[] yourUidxBoardRetrun() {
-		HttpServletRequest request = null;
+	public String[] yourUidxBoardRetrun(HttpServletRequest request) {
 		String[] list_uidx = new String[100];
 		HttpSession session = request.getSession();
 		try {
@@ -74,8 +72,7 @@ public class YourBorad {
 		return list_uidx;
 	}
 
-	public String yourBorad(String idx, String keyWord) {
-		HttpServletRequest request = null;
+	public String yourBorad(HttpServletRequest request, String idx, String keyWord) {
 		String retrunData = null;
 		HttpSession session = request.getSession();
 		try {

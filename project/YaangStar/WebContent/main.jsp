@@ -17,8 +17,8 @@ MemberDAO dao = new MemberDAO();
     <%
             	YourBorad youB = new YourBorad();
     			
- 				String[] list_youB_idx = youB.yourIdxBoardRetrun();
- 				String[] list_youB_uidx = youB.yourUidxBoardRetrun();
+ 				String[] list_youB_idx = youB.yourIdxBoardRetrun(request);
+ 				String[] list_youB_uidx = youB.yourUidxBoardRetrun(request);
     			
  				for(int i=0; i<=100; i++) {
  					if(list_youB_idx[i] == null || list_youB_uidx[i] == null) {
@@ -48,7 +48,7 @@ MemberDAO dao = new MemberDAO();
                         <%= dao.getMyDataIdx(list_youB_idx[i], "tage") %>
                     </div>
                     <div class="comment">
-                        댓글 19개 모두 보기
+                        댓글 19개 모두 보기___아직 기능 안한 댓글
                     </div>
                     <div class="time">1시간 전</div>
                     <form class="comment-area" action="/commentInsert" method="post">
@@ -56,12 +56,13 @@ MemberDAO dao = new MemberDAO();
                         <input type="text" placeholder="댓글 달기..." name="commentContent">
                         <button type="submit">게시</button>
                     </form>
+                    <br>
                 </div>
-            </div>
-         </div>
-  <%
+                 <%
  				}
             %>
+            </div>
+         </div>
             
 
         <div id="user-info">

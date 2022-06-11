@@ -100,14 +100,34 @@ public class UploadUserInformation extends HttpServlet {
 			}
 		}
 
-		if (!name.equals(null) || !userMajor.equals(null) || !userNickname.equals(null) || !userIntroduce.equals(null)
-				|| !userMail.equals(null) || !userPhoneNumber.equals(null) || !userGender.equals(null)) {
-			c = dao.updateUser(idx, proFile, fileName, userNickname, userIntroduce, userMail, userPhoneNumber,
-					userGender, userMajor);
-		} else {
-			System.out.println("버그_배고파...");
-			out.println("<script> alert(\"null 값 있음\"); history.go(-1); </script>");
+		/* 요중 null 값 있을 시 기존값 가져오기 */
+		
+		
+		if (name.equals(null)) {
+			dao.getMyData((String) session.getAttribute("logOK"), "userName");
 		}
+		if (userNickname.equals(null)) {
+			dao.getMyData((String) session.getAttribute("logOK"), "nickname");
+		}
+		if (userIntroduce.equals(null)) {
+			dao.getMyData((String) session.getAttribute("logOK"), "introduce");
+		}
+		if (userMail.equals(null)) {
+			dao.getMyData((String) session.getAttribute("logOK"), "mail");
+		}
+		if (userPhoneNumber.equals(null)) {
+			dao.getMyData((String) session.getAttribute("logOK"), "phoneNumber");
+		}
+		if (userGender.equals(null)) {
+			userGender = dao.getMyData((String) session.getAttribute("logOK"), "gender");
+		}
+		if (userMajor.equals(null)) {
+			dao.getMyData((String) session.getAttribute("logOK"), "major");
+		}
+
+		c = dao.updateUser(idx, proFile, fileName, userNickname, userIntroduce, userMail, userPhoneNumber, userGender,
+				userMajor);
+		
 		if (c > 0) {
 			out.println("<script> alert(\"정보 수정됨\");</script>");
 			response.sendRedirect("main.jsp");
