@@ -293,5 +293,30 @@ public class MemberDAO {
 
 		return null;
 	}
+	
+	/*	*/
+	public String getMyDataIdx(String idx, String keyword) {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+
+			String url = "jdbc:oracle:thin:@pukkuk.pp.ua:49161:xe";
+			Connection conn = JdbcUtil.getConnection();
+
+			Statement stmt = conn.createStatement();
+
+			// 최근에 넣은 idx 값 가져 오기
+			ResultSet rs = stmt.executeQuery("SELECT * FROM boardtable WHERE idx='" + idx + "'");
+			String returnData = null;
+			while (rs.next()) {
+				returnData = rs.getString(keyword);
+			}
+			conn.close();
+			return returnData;
+		} catch (Exception e) {
+			System.out.println("idx (getMydataBoardTable) 값 가져오기 실패");
+		}
+
+		return null;
+	}
 
 }

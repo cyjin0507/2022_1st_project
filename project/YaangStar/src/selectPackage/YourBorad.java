@@ -4,12 +4,17 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import dao.JdbcUtil;
 
 public class YourBorad {
 
 	public String[] yourIdxBoardRetrun() {
+		HttpServletRequest request = null;
 		String[] list_idx = new String[100];
+		HttpSession session = request.getSession();
 
 		try {
 
@@ -20,8 +25,11 @@ public class YourBorad {
 
 			Statement stmt = conn.createStatement();
 
+			String not = (String) session.getAttribute("logOK");
+
 			// 최근에 넣은 idx 값 가져 오기
-			ResultSet rs = stmt.executeQuery("SELECT * FROM boardtable ORDER BY idx DESC");
+			ResultSet rs = stmt.executeQuery(
+					"SELECT * FROM boardtable where idx > 0 and  uidx != '" + not + " ' ORDER BY idx DESC");
 
 			int i = 0;
 
@@ -34,10 +42,11 @@ public class YourBorad {
 
 		return list_idx;
 	}
-	
-	public String[] yourUidxBoardRetrun() {
-		String[] list_uidx = new String[100];
 
+	public String[] yourUidxBoardRetrun() {
+		HttpServletRequest request = null;
+		String[] list_uidx = new String[100];
+		HttpSession session = request.getSession();
 		try {
 
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -47,8 +56,11 @@ public class YourBorad {
 
 			Statement stmt = conn.createStatement();
 
+			String not = (String) session.getAttribute("logOK");
+
 			// 최근에 넣은 idx 값 가져 오기
-			ResultSet rs = stmt.executeQuery("SELECT * FROM boardtable ORDER BY idx DESC");
+			ResultSet rs = stmt.executeQuery(
+					"SELECT * FROM boardtable where idx > 0 and  uidx != '" + not + " ' ORDER BY idx DESC");
 
 			int i = 0;
 
@@ -63,8 +75,9 @@ public class YourBorad {
 	}
 
 	public String yourBorad(String idx, String keyWord) {
-
+		HttpServletRequest request = null;
 		String retrunData = null;
+		HttpSession session = request.getSession();
 		try {
 
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -74,7 +87,11 @@ public class YourBorad {
 
 			Statement stmt = conn.createStatement();
 
-			ResultSet rs = stmt.executeQuery("select * from boardTable WHERE idx='" + idx + "'");
+			String not = (String) session.getAttribute("logOK");
+
+			// 최근에 넣은 idx 값 가져 오기
+			ResultSet rs = stmt.executeQuery(
+					"SELECT * FROM boardtable where idx > 0 and  uidx != '" + not + " ' ORDER BY idx DESC");
 
 			while (rs.next()) {
 				retrunData = rs.getString(keyWord);

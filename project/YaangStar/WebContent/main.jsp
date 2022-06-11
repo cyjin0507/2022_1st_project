@@ -16,7 +16,6 @@ MemberDAO dao = new MemberDAO();
     <section id="main-page">
     <%
             	YourBorad youB = new YourBorad();
-    			myBoard myB = new myBoard();
     			
  				String[] list_youB_idx = youB.yourIdxBoardRetrun();
  				String[] list_youB_uidx = youB.yourUidxBoardRetrun();
@@ -35,7 +34,7 @@ MemberDAO dao = new MemberDAO();
                     <img src="<%= dao.getMyData(list_youB_uidx[i], "userProfile") %>" alt="올린 사람 프로필 " class="user-img">
                     <div><%= dao.getMyData(list_youB_uidx[i], "username") %></div>
                 </div>
-                <img src="<%= dao.getMyData(list_youB_idx[i], "image") %>" alt="" class="board-img">
+                <img src="<%= dao.getMyDataIdx(list_youB_idx[i], "image") %>" alt="" class="board-img">
                 <div class="board-content">
                     <div class="board-icons">
                         <i class="fa-solid fa-heart"></i>
@@ -43,10 +42,10 @@ MemberDAO dao = new MemberDAO();
                     </div>
                     <div class="board-like">좋아요 934개</div>
                     <div class="content">
-                        <%= dao.getMyData(list_youB_idx[i], "userContent") %>
+                        <%= dao.getMyDataIdx(list_youB_idx[i], "userContent") %>
                     </div>
                     <div class="tage">
-                        <%= dao.getMyData(list_youB_idx[i], "tage") %>
+                        <%= dao.getMyDataIdx(list_youB_idx[i], "tage") %>
                     </div>
                     <div class="comment">
                         댓글 19개 모두 보기
