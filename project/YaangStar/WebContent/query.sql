@@ -93,7 +93,7 @@ PRIMARY KEY (idx)
 
 
 select * from userTable;
-select * from friendTable;
+select * from boardTable;
 
 insert into friendTable values(2, 2, 3, 'true', '2022-02-20');
 
