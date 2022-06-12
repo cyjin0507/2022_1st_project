@@ -216,7 +216,9 @@ HttpSession s = request.getSession();
     <header>
         <div id="header">
             <a href="index.jsp"><img src="./resources/imgs/logo-b.png" alt="" id="logo"></a>
-            <input type="text" placeholder="검색어를 입력하세요.">
+           	<form action="./friendPage.jsp" method="get">
+           		<input type="text" name="keyWord" placeholder="검색어를 입력하세요.">
+           	</form>
             <nav>
                 <a href="./main.jsp"><i class="fa-solid fa-house"></i></a>
                 <a href="#pop1"><i class="fa-solid fa-square-plus"></i></a>

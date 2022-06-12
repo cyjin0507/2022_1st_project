@@ -9,6 +9,7 @@ import java.util.Date;
 
 public class MemberDAO {
 
+
 	public Date myDate() {
 
 		Date date = new Date();

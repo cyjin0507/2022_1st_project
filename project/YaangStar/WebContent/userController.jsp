@@ -6,6 +6,14 @@
 <%
 MemberDAO dao = new MemberDAO();
 HttpSession s = request.getSession();
+if(s.getAttribute("logOK") == null) {
+	%>
+	<script>
+		alert("로그인 후 이용 가능합니다.")
+		window.location.href="./login.jsp";
+	</script>
+	<%
+}
 %>
 
 <section id="userControl">
