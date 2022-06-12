@@ -173,8 +173,8 @@ public class MemberDAO {
 		return c;
 	}
 
-	public int insertComment(String idx, String uidx, String bidx, String commentContent, Date create_date, String reserved1,
-			String reserved2) {
+	public int insertComment(String idx, String uidx, String bidx, String commentContent, Date create_date,
+			String reserved1, String reserved2) {
 		int c = 0;
 
 		Connection conn = null;
@@ -205,14 +205,15 @@ public class MemberDAO {
 		return c;
 	}
 
-	public int updateUser(String idx, String proFile, String name, String userNickname, String userIntroduce,
-			String userMail, String userPhoneNumber, String userGender, String userMajor) {
+	public int updateUser(String proFile, String name, String userNickname, String userIntroduce, String userMail,
+			String userPhoneNumber, String userGender, String userMajor, String idx) {
+
 		int d = 0;
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
-		String sql = "UPDATE userTable SET UPDATE usertable SET userProfile=?, userName = ?, nickname =?, introduce = ?, mail = ?, phoneNumber = ?, gender = ?, major = ? WHERE idx = ?";
+		String sql = "UPDATE usertable SET userProfile=?, userName = ?, nickname =?, introduce = ?, mail = ?, phoneNumber = ?, gender = ?, major = ? WHERE idx = ?";
 
 		conn = JdbcUtil.getConnection();
 		try {
@@ -293,7 +294,7 @@ public class MemberDAO {
 
 		return null;
 	}
-	
+
 	/*	*/
 	public String getMyDataIdx(String idx, String keyword) {
 		try {

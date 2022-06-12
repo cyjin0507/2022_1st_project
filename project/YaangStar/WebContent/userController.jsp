@@ -15,7 +15,7 @@ HttpSession s = request.getSession();
 				src="<%= dao.getMyData((String)s.getAttribute("logOK"), "userProfile") %>" id="img-control-img" alt="">
 			<div>
 				<div> <%= dao.getMyData((String)s.getAttribute("logOK"), "username") %> </div>
-				<input type="file" id="img_control" name="proFile" style="display: none;">
+				<input type="file" id="img_control" name="proFile_" style="display: none;">
 				<label for="img_control">프로필 사진 바꾸기</label>
 			</div>
 		</div>
@@ -44,11 +44,11 @@ HttpSession s = request.getSession();
 			<div class="major-control-outer">
 				<div class="major-control">
 					<div>
-						<input type="radio" name="userGender" id="male" <%=dao.getMyData((String)s.getAttribute("logOK"), "gender") == "he" ? "checked" : ""%>> <label
+						<input type="radio" name="userGender" id="he" <%=dao.getMyData((String)s.getAttribute("logOK"), "gender") == "he" ? "checked" : ""%>> <label
 							for="male">남성</label>
 					</div>
 					<div>
-						<input type="radio" name="userGender" id="female" <%=dao.getMyData((String)s.getAttribute("logOK"), "gender") == "she" ? "checked" : ""%>> <label
+						<input type="radio" name=userGender id="female" value="she" <%=dao.getMyData((String)s.getAttribute("logOK"), "gender") == "she" ? "checked" : ""%>> <label
 							for="female">여성</label>
 					</div>
 				</div>

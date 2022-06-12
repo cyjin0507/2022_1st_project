@@ -48,9 +48,9 @@ MemberDAO dao = new MemberDAO();
                         <%= dao.getMyDataIdx(list_youB_idx[i], "tage") %>
                     </div>
                     <div class="comment">
-                        댓글 19개 모두 보기___아직 기능 안한 댓글
+                        댓글 19개 모두 보기___아직 기능 안한 거 1탄
                     </div>
-                    <div class="time">1시간 전</div>
+                    <div class="time">1시간 전__아직 기능 안한 거 2탄</div>
                     <form class="comment-area" action="/commentInsert" method="post">
                         <i class="fa-solid fa-face-smile"></i>
                         <input type="text" placeholder="댓글 달기..." name="commentContent">
