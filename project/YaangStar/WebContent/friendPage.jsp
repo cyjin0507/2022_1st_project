@@ -1,3 +1,4 @@
+<%@page import="userController.friendSelect"%>
 <%@page import="userController.myBoard"%>
 <%@page import="dao.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -7,6 +8,8 @@
 <%
 HttpSession s = request.getSession();
 MemberDAO dao = new MemberDAO();
+friendSelect fDao = new friendSelect();
+
 if(s.getAttribute("logOK") == null) {
 	%>
 	<script>
@@ -15,24 +18,36 @@ if(s.getAttribute("logOK") == null) {
 	</script>
 	<%
 }
+
+String keyWord = (String)request.getParameter("keyWord");
+
+if(fDao.friendSelect(keyWord) == -1) {
+	%>
+	<script>
+		alert("해당 유저는 존재하지 않습니다.")
+		history.back()
+		$("#header > form > input[type=text]").val("")
+	</script>
+	<%
+}
+
 %>
 
 
     <section id="myPage">
         <div id="my-detail-info">
-            <img src="<%= dao.getMyData((String)s.getAttribute("logOK"), "userprofile") %>" alt="" class="my-profile-img">
+            <img src="<%= fDao.friend(keyWord, "userProfile") %>" alt="" class="my-profile-img">
             <div>
                 <div>
-                    <div><%= dao.getMyData((String)s.getAttribute("logOK"), "username") %></div>
-                    <a href="./userController.jsp">프로필 편집</a>
+                    <div><%= fDao.friend(keyWord, "userName") %></div>
                 </div>
                 <div>
-                    <div>게시물 5</div>
-                    <div><a href="#follower">팔로워 14</a></div>
-                    <div><a href="#follow">팔로우 13</a></div>
+                    <div>게시물 14</div>
+                    <div>팔로워 14</div>
+                    <div>팔로우 13</div>
                 </div>
                 <div>
-                    <%= dao.getMyData((String)s.getAttribute("logOK"), "introduce") %>
+                    <%= fDao.friend(keyWord, "introduce") %>
                 </div>
             </div>
         </div>
@@ -41,8 +56,8 @@ if(s.getAttribute("logOK") == null) {
             <div>
             <%
             	myBoard myB = new myBoard();
- 				String[] boardArr = myB.myBoardRetrun(dao.getMyData((String)s.getAttribute("logOK"), "idx"));
- 				String idx = dao.getMyData((String)s.getAttribute("logOK"), "idx");
+ 				String[] boardArr = myB.myBoardRetrun(dao.getMyData(fDao.friend(keyWord, "idx"), "idx"));
+ 				String idx = dao.getMyData(fDao.friend(keyWord, "idx"), "idx");
  				for(int i=0; i<=100; i++) {
  					if(boardArr[i] == null) {
  	 					break;

@@ -8,13 +8,24 @@
 
 <%
 HttpSession s = request.getSession();
+if(s.getAttribute("logOK") == null) {
+	%>
+	<script>
+		alert("로그인 후 이용 가능합니다.")
+		window.location.href="./login.jsp";
+	</script>
+	<%
+}
 
 MemberDAO dao = new MemberDAO();
 %>
 
     <!-- SECTION -->
     <section id="main-page">
-    <%
+   
+ 					
+        <div id="board-page">
+         <%
             	YourBorad youB = new YourBorad();
     			
  				String[] list_youB_idx = youB.yourIdxBoardRetrun(request);
@@ -27,8 +38,6 @@ MemberDAO dao = new MemberDAO();
  					}
  					
  					%>
- 					
-        <div id="board-page">
             <div class="board">
                 <div class="user-info">
                     <img src="<%= dao.getMyData(list_youB_uidx[i], "userProfile") %>" alt="올린 사람 프로필 " class="user-img">
@@ -58,14 +67,14 @@ MemberDAO dao = new MemberDAO();
                     </form>
                     <br>
                 </div>
+            
+            </div>
                  <%
  				}
             %>
-            </div>
          </div>
-            
-
-        <div id="user-info">
+           
+           <div id="user-info">
             <div id="my-info">
                 <img src=" <%= dao.getMyData((String)s.getAttribute("logOK"), "userprofile") %> " alt="" id="my-profile">
                 <div>   
@@ -113,6 +122,8 @@ MemberDAO dao = new MemberDAO();
             </footer>
 
         </div>
+
+        
 
     </section>
 
