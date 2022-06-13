@@ -65,7 +65,12 @@ if(fDao.friendSelect(keyWord) == -1) {
  					%>
 					
 					<!-- get image -->
- 					<img src="<%= myB.myboard(boardArr[i], "image") %>" class="my-board-img" alt="">
+					<div class="board-img">
+                    	<img src="<%= myB.myboard(boardArr[i], "image") %>" class="my-board-img" alt="">
+                    	<div>
+	                        <div><%= myB.myboard(boardArr[i], "userContent") %></div>
+                    	</div>
+                	</div>
  					<%
  				}
             %>
