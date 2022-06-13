@@ -1,3 +1,4 @@
+<%@page import="comment.CommentInsert"%>
 <%@page import="userController.myBoard"%>
 <%@page import="selectPackage.YourBorad"%>
 <%@page import="dao.MemberDAO"%>
@@ -27,13 +28,12 @@ MemberDAO dao = new MemberDAO();
         <div id="board-page">
          <%
             	YourBorad youB = new YourBorad();
-    			
+         
  				String[] list_youB_idx = youB.yourIdxBoardRetrun(request);
  				String[] list_youB_uidx = youB.yourUidxBoardRetrun(request);
     			
  				for(int i=0; i<=100; i++) {
  					if(list_youB_idx[i] == null || list_youB_uidx[i] == null) {
- 					
  	 					break;
  					}
  					
@@ -62,11 +62,12 @@ MemberDAO dao = new MemberDAO();
                     <div class="time">1시간 전__아직 기능 안한 거 2탄</div>
                     <form class="comment-area" action="/commentInsert" method="post">
                         <i class="fa-solid fa-face-smile"></i>
-                        <input type="text" placeholder="댓글 달기..." name="commentContent">
+                        <input type="hidden" name="bidx" value="<%= list_youB_idx[i] %>">
+                        <input type="text" placeholder="댓글 달기..." name="commentContent" >
                         <button type="submit">게시</button>
                     </form>
                     <br>
-                </div>
+            </div>
             
             </div>
                  <%
