@@ -130,8 +130,9 @@ nav > a:hover {
 
 /* popup */
 .popup {
-    position: fixed;
+    position: relative;
     background-color: rgba(0, 0, 0, 0.7);
     height: 100vh;
     display: none;
+    z-index:1000;
 }
