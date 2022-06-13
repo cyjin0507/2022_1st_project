@@ -1,6 +1,6 @@
-<%@page import="comment.CommentInsert"%>
+<%@page import="commentController.CommentInsert"%>
 <%@page import="userController.myBoard"%>
-<%@page import="selectPackage.YourBorad"%>
+<%@page import="userController.YourBorad"%>
 <%@page import="dao.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
