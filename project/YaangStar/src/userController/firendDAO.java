@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
 
 import dao.JdbcUtil;
 import dao.MemberDAO;
@@ -18,19 +17,16 @@ public class firendDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "insert into friendTable values(?, ?, ?, ?, ?)";
+		String sql = "insert into friendTable values(?, ?, ?, ?, sysdate)";
 
 		conn = JdbcUtil.getConnection(); // JDBC 드라이버 메모리 로딩, DB연결
 		MemberDAO dao = new MemberDAO();
-		Date create_date;
-		create_date = dao.myDate();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, 1);
 			pstmt.setInt(2,1);
 			pstmt.setInt(3, userId1);
 			pstmt.setString(4, "false");
-			pstmt.setDate(5,(java.sql.Date) create_date);
 			n =pstmt.executeUpdate();
 			
 			return true;

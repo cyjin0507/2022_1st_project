@@ -2,7 +2,6 @@ package insetPackage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
 import java.util.Enumeration;
 
 import javax.servlet.ServletException;
@@ -35,19 +34,17 @@ public class BoardInsert extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		MultipartRequest mr;
 		HttpSession session = request.getSession();
-		
+
 		String image, tage = null, userContent = null, reserved1, reserved2, name, value;
 		int idx;
 		String uidx;
 		int c = 0;
 
 		MemberDAO dao = new MemberDAO();
-		Date create_date;
-		create_date = dao.myDate();
 
 		idx = dao.getLastIdxBoard() + 1;
 		uidx = (String) session.getAttribute("logOK");
-		
+
 		/*
 		 * userContent = request.getParameter("content"); tage =
 		 * request.getParameter("tage");
@@ -94,7 +91,7 @@ public class BoardInsert extends HttpServlet {
 		System.out.println("uidx : " + uidx);
 
 		if (!tage.equals(null) || !userContent.equals(null)) {
-			c = dao.insertBoard(idx, uidx, tage, userContent, image, create_date, reserved1, reserved2);
+			c = dao.insertBoard(idx, uidx, tage, userContent, image, reserved1, reserved2);
 		} else {
 			System.out.println("버그_배고파...\n게시글 올리는거 버그");
 		}

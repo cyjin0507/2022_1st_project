@@ -59,7 +59,7 @@ MemberDAO dao = new MemberDAO();
                     <div class="comment">
                         댓글 19개 모두 보기___아직 기능 안한 거 1탄
                     </div>
-                    <div class="time">1시간 전__아직 기능 안한 거 2탄</div>
+                    <div class="time"><%= dao.getMyDataIdx(list_youB_idx[i], "create_date") %></div>
                     <form class="comment-area" action="/commentInsert" method="post">
                         <i class="fa-solid fa-face-smile"></i>
                         <input type="hidden" name="bidx" value="<%= list_youB_idx[i] %>">

@@ -2,7 +2,6 @@ package loginPackage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,10 +29,9 @@ public class signUp extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		int idx = 0;
-		String userId, userPassword, userName, nickname, major, gender, reserved1, reserved2, userProfile, mail, phoneNumber, introduce;
+		String userId, userPassword, userName, nickname, major, gender, reserved1, reserved2, userProfile, mail,
+				phoneNumber, introduce;
 		MemberDAO dao = new MemberDAO();
-		Date date;
-		date = dao.myDate();
 		int c = 0;
 		idx = dao.getLastIdxUser() + 1;
 		userId = request.getParameter("userId");
@@ -49,7 +47,8 @@ public class signUp extends HttpServlet {
 		reserved2 = "";
 		userProfile = "resources/upload/imageBoard/defaultProfile.jpeg";
 
-		c = dao.insertUser(idx, userId, userPassword, userName, nickname, major, gender, date, reserved1, reserved2, userProfile, introduce, phoneNumber, mail);
+		c = dao.insertUser(idx, userId, userPassword, userName, nickname, major, gender, reserved1, reserved2,
+				userProfile, introduce, phoneNumber, mail);
 
 		if (c > 0)
 			response.sendRedirect("login.jsp");

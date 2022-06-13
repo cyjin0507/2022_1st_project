@@ -5,19 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Date;
 
 public class MemberDAO {
-
-
-	public Date myDate() {
-
-		Date date = new Date();
-		long timeINMilliSeconds = date.getTime();
-
-		java.sql.Date date1 = new java.sql.Date(timeINMilliSeconds);
-		return date1;
-	}
 
 	public int getLastIdxUser() {
 		int a = 0;
@@ -103,14 +92,14 @@ public class MemberDAO {
 	}
 
 	public int insertUser(int idx, String userId, String userPassword, String userName, String nickname, String major,
-			String gender, Date start_date, String reserved1, String reserved2, String userProfile, String introduce,
-			String phoneNumber, String mail) {
+			String gender, String reserved1, String reserved2, String userProfile, String introduce, String phoneNumber,
+			String mail) {
 		int c = 0;
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
-		String sql = "insert into userTable values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into userTable values(?,?,?,?,?,?,?,?,?,?,sysdate,?,?,?)";
 		conn = JdbcUtil.getConnection();
 
 		try {
@@ -126,10 +115,9 @@ public class MemberDAO {
 			pstmt.setString(8, mail);
 			pstmt.setString(9, major);
 			pstmt.setString(10, gender);
-			pstmt.setDate(11, (java.sql.Date) start_date);
-			pstmt.setString(12, userProfile);
-			pstmt.setString(13, reserved1);
-			pstmt.setString(14, reserved2);
+			pstmt.setString(11, userProfile);
+			pstmt.setString(12, reserved1);
+			pstmt.setString(13, reserved2);
 
 			c = pstmt.executeUpdate();
 
@@ -141,14 +129,14 @@ public class MemberDAO {
 		return c;
 	}
 
-	public int insertBoard(int idx, String uidx, String tage, String userContent, String image, Date create_date,
-			String reserved1, String reserved2) {
+	public int insertBoard(int idx, String uidx, String tage, String userContent, String image, String reserved1,
+			String reserved2) {
 		int c = 0;
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
-		String sql = "insert into boardTable values(?,?,?,?,?,?,?,?)";
+		String sql = "insert into boardTable values(?,?,?,?,?, sysdate,?,?)";
 		conn = JdbcUtil.getConnection();
 
 		try {
@@ -160,9 +148,8 @@ public class MemberDAO {
 			pstmt.setString(3, tage);
 			pstmt.setString(4, userContent);
 			pstmt.setString(5, image);
-			pstmt.setDate(6, (java.sql.Date) create_date);
-			pstmt.setString(7, reserved1);
-			pstmt.setString(8, reserved2);
+			pstmt.setString(6, reserved1);
+			pstmt.setString(7, reserved2);
 
 			c = pstmt.executeUpdate();
 
@@ -174,14 +161,14 @@ public class MemberDAO {
 		return c;
 	}
 
-	public int insertComment(String idx, String uidx, String bidx, String commentContent, Date create_date,
-			String reserved1, String reserved2) {
+	public int insertComment(String idx, String uidx, String bidx, String commentContent, String reserved1,
+			String reserved2) {
 		int c = 0;
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
-		String sql = "insert into commentTable values(?,?,?,?,?,?,?)";
+		String sql = "insert into commentTable values(?,?,?,?,sysdate,?,?)";
 		conn = JdbcUtil.getConnection();
 
 		try {
@@ -192,9 +179,8 @@ public class MemberDAO {
 			pstmt.setString(2, uidx);
 			pstmt.setString(3, bidx);
 			pstmt.setString(4, commentContent);
-			pstmt.setDate(5, (java.sql.Date) create_date);
-			pstmt.setString(6, reserved1);
-			pstmt.setString(7, reserved2);
+			pstmt.setString(5, reserved1);
+			pstmt.setString(6, reserved2);
 
 			c = pstmt.executeUpdate();
 

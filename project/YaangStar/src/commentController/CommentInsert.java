@@ -2,7 +2,6 @@ package commentController;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,8 +37,6 @@ public class CommentInsert extends HttpServlet {
 
 		String commentContent, reserved1, reserved2;
 		MemberDAO dao = new MemberDAO();
-		Date create_date;
-		create_date = dao.myDate();
 		HttpSession session = request.getSession();
 
 		idx = dao.getLastIdxComment() + 1 + "";
@@ -51,13 +48,13 @@ public class CommentInsert extends HttpServlet {
 		reserved1 = "";
 		reserved2 = "";
 		System.out.println("commentContent : " + commentContent);
-		
-		s = dao.insertComment(idx, uidx, bidx, commentContent, create_date, reserved1, reserved2);
+
+		s = dao.insertComment(idx, uidx, bidx, commentContent, reserved1, reserved2);
 
 		if (s > 0) {
 			response.sendRedirect("main.jsp");
 			out.println("<script> alert(\"댓글 작성 성공\");</script>");
-		}else
+		} else
 			out.print("버그");
 		out.println("<script> alert(\"내용을 입력해주세요\"); history.go(-1); </script>");
 	}
