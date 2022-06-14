@@ -27,3 +27,15 @@ $("#img_control").on('change',()=>{
         $('#user-pop').on('mouseleave', ()=> {
             $('#user-info-pop').css('display', 'none')
         })
+        
+        
+$('.heart').on('click', (e) => {
+            const heart = $(e.target);
+            // rgb(0, 0, 0)
+            if(heart.css('color') == "rgb(0, 0, 0)") {
+                heart.css('color', 'red')
+            } else {
+                heart.css('color', 'black')
+            }
+            
+        })
