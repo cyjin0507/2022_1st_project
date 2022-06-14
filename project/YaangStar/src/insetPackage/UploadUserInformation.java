@@ -63,7 +63,7 @@ public class UploadUserInformation extends HttpServlet {
 		 */
 
 		String url = request.getRealPath(
-				"C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/project/YaangStar/WebContent/resources/upload/imageBoard");
+				"C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/project/YaangStar/WebContent/resources/upload/imageProfile");
 		url = request.getSession().getServletContext().getRealPath("resources/upload/imageProfile");
 		mr = new MultipartRequest(request, url, 1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 		System.out.println("url : " + url);

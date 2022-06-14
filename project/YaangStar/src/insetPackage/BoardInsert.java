@@ -46,11 +46,6 @@ public class BoardInsert extends HttpServlet {
 		uidx = (String) session.getAttribute("logOK");
 
 		/*
-		 * userContent = request.getParameter("content"); tage =
-		 * request.getParameter("tage");
-		 */
-
-		/*
 		 * 지정된 경로에 이미지 넣는거 지정된 경로 :
 		 * C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/project/
 		 * YaangStar/WebContent/resources/upload/imageBoard
@@ -59,10 +54,11 @@ public class BoardInsert extends HttpServlet {
 		 * resources\\upload\\imageBoard 이 경로 버그남
 		 */
 
-		mr = new MultipartRequest(request,
-				"C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/project/YaangStar/WebContent/resources/upload/imageBoard",
-				1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
-
+		String url = request.getRealPath(
+				"C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/project/YaangStar/WebContent/resources/upload/imageBoard");
+		url = request.getSession().getServletContext().getRealPath("resources/upload/imageBoard");
+		mr = new MultipartRequest(request, url, 1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
+		System.out.println("url : " + url);
 		/* 사진 이름 불러 오기 */
 		String fileName = mr.getFilesystemName("image");
 		System.out.println("사진 이름 : " + fileName);
