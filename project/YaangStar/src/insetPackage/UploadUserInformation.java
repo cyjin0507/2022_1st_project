@@ -57,12 +57,16 @@ public class UploadUserInformation extends HttpServlet {
 		 * 지정된 경로에 이미지 넣는거 지정된 경로 :
 		 * C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/project/
 		 * YaangStar/WebContent/resources/upload/imageBoard
+		 * 
+		 * C:/Users/user/Documents/GitHub/2022_1st_project/project/YaangStar/WebContent/
+		 * resources/upload/imageProfile
 		 */
 
-		mr = new MultipartRequest(request,
-				"C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/project/YaangStar/WebContent/resources/upload/imageprofile",
-				1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
-
+		String url = request.getRealPath(
+				"C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/project/YaangStar/WebContent/resources/upload/imageBoard");
+		url = request.getSession().getServletContext().getRealPath("resources/upload/imageProfile");
+		mr = new MultipartRequest(request, url, 1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
+		System.out.println("url : " + url);
 		/* 사진 이름 불러 오기 */
 		fileName = mr.getFilesystemName("proFile_");
 		System.out.println("사진 이름 : " + fileName);
@@ -97,14 +101,13 @@ public class UploadUserInformation extends HttpServlet {
 					userGender = "he";
 				} else if (value.equals("she")) {
 					userGender = "she";
-				} else if (userMajor.equals("") || userMajor==null){
+				} else if (userMajor.equals("") || userMajor == null) {
 					userGender = dao.getMyData((String) session.getAttribute("logOK"), "gender");
 				}
-				System.out.println("userGender : " +userGender);
+				System.out.println("userGender : " + userGender);
 			} else if (name_jsp.equals("userMajor")) { // jsp 에서 userTage 의 내용 가져오기
 				if (value.equals("") || value.equals("선택")) {
 					userMajor = dao.getMyData((String) session.getAttribute("logOK"), "major");
-					System.out.println("fuck");
 				} else {
 					userMajor = value;
 				}

@@ -52,7 +52,7 @@ if(s.getAttribute("logOK") == null) {
 			<div class="major-control-outer">
 				<div class="major-control">
 					<div>
-						<input type="radio" name="userGender" id="he" <%=dao.getMyData((String)s.getAttribute("logOK"), "gender") == "he" ? "checked" : ""%>> <label
+						<input type="radio" name="userGender" id="man" value="he" <%=dao.getMyData((String)s.getAttribute("logOK"), "gender") == "he" ? "checked" : ""%>> <label
 							for="male">남성</label>
 					</div>
 					<div>
