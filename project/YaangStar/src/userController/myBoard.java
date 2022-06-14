@@ -21,7 +21,7 @@ public class myBoard {
 			Statement stmt = conn.createStatement();
 
 			// 최근에 넣은 idx 값 가져 오기
-			ResultSet rs = stmt.executeQuery("select * from boardTable WHERE uidx='" + idx + "'");
+			ResultSet rs = stmt.executeQuery("select * from boardTable WHERE uidx='" + idx + "' ORDER BY idx DESC");
 
 			int i = 0;
 

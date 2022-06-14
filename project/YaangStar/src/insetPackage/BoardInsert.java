@@ -54,8 +54,7 @@ public class BoardInsert extends HttpServlet {
 		 * resources\\upload\\imageBoard 이 경로 버그남
 		 */
 
-		String url = request.getRealPath(
-				"C:/Users/User/Desktop/TeamProject_1stSemester/2022_1st_project/project/YaangStar/WebContent/resources/upload/imageBoard");
+		String url = request.getRealPath("./resources/upload/imageProfile/");
 		url = request.getSession().getServletContext().getRealPath("resources/upload/imageBoard");
 		mr = new MultipartRequest(request, url, 1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 		System.out.println("url : " + url);
