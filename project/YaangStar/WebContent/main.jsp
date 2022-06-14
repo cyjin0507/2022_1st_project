@@ -110,7 +110,7 @@
 						alt="" class="friend-profile">
 					<div><%=dao.getMyData(list[i] + "", "username")%></div>
 				</div>
-				<a href="/friendAdd?id=13">팔로우</a>
+				<a href="/friendAdd?id=<%=dao.getMyData(list[i] + "", "idx")%>">팔로우</a>
 			</div>
 		</div>
 
