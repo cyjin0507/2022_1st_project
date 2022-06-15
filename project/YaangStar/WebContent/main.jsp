@@ -74,7 +74,6 @@
 					<div id="comment-list">
 						<div class="comment-detail other">
 							<%
-								CommentSelect comS = new CommentSelect();
 									String[] list_com = comS.CommentBidx(list_youB_idx[i]);
 									if (yes == true) {
 										for (int j = 0; j < 10; j++) {
@@ -91,12 +90,13 @@
 								<div><%=comS.comment(list_com[j], "commentContent")%></div>
 								<div><%=comS.comment(list_com[j], "create_date")%></div>
 							</div>
-						</div>
-						<%
+								<%
 							}
 									yes = false;
 								}
 						%>
+							
+						</div>
 					</div>
 				</div>
 
@@ -108,10 +108,10 @@
 					<button type="submit">게시</button>
 				</form>
 			</div>
-		</div>
 		<%
 			}
 		%>
+		</div>
 	</div>
 
 	<div id="user-info">
