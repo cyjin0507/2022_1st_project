@@ -41,7 +41,8 @@ public class CommentInsert extends HttpServlet {
 
 		idx = dao.getLastIdxComment() + 1 + ""; //가장 최근 idx 값 받아와서 + 1
 		uidx = (String) session.getAttribute("logOK"); // 로그인 한 idx 값 받아옴
-
+		
+		bidx = request.getParameter("bidx");
 		commentContent = request.getParameter("commentContent"); // 댓글 내용 받아옴
 		reserved1 = "";
 		reserved2 = "";

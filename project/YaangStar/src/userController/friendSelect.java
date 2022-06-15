@@ -35,10 +35,6 @@ public class friendSelect {
 	public String friend(String name, String keyWord) {
 
 		try {
-
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-
-			String url = "jdbc:oracle:thin:@pukkuk.pp.ua:49161:xe";
 			Connection conn = JdbcUtil.getConnection();
 
 			Statement stmt = conn.createStatement();
@@ -61,21 +57,19 @@ public class friendSelect {
 		HttpSession session = request.getSession();
 		try {
 
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-
-			String url = "jdbc:oracle:thin:@pukkuk.pp.ua:49161:xe";
 			Connection conn = JdbcUtil.getConnection();
 
 			Statement stmt = conn.createStatement();
 
 			// 최근에 넣은 idx 값 가져 오기
-			ResultSet rs = stmt.executeQuery("select idx from userTable where idx > 0 and idx != "+session.getAttribute("logOK")+" order by dbms_random.random()");
-			int i=0;
+			ResultSet rs = stmt.executeQuery("select idx from userTable where idx > 0 and idx != "
+					+ session.getAttribute("logOK") + " order by dbms_random.random()");
+			int i = 0;
 			while (rs.next()) {
 				nList[i] = rs.getString("idx");
 				i++;
 			}
-			
+
 		} catch (Exception e) {
 		}
 

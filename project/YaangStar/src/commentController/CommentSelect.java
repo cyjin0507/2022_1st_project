@@ -1,4 +1,4 @@
-package userController;
+package commentController;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -6,34 +6,33 @@ import java.sql.Statement;
 
 import dao.JdbcUtil;
 
-public class myBoard {
+public class CommentSelect {
 
-	public String[] myBoardRetrun(String idx) {
-		String[] myArr = new String[1000];
+	public String[] CommentBidx(String bidx) {
+		String[] list_bidx = new String[100000];
+
 		try {
-
 			Connection conn = JdbcUtil.getConnection();
 
 			Statement stmt = conn.createStatement();
 
 			// 최근에 넣은 idx 값 가져 오기
-			ResultSet rs = stmt.executeQuery("select * from boardTable WHERE uidx='" + idx + "' ORDER BY idx DESC");
-
+			ResultSet rs = stmt
+					.executeQuery("select * from commentTable where bidx=" + bidx + " ORDER by create_date desc");
+			
 			int i = 0;
-
 			while (rs.next()) {
-				myArr[i] = rs.getString("idx");
+				list_bidx[i] = rs.getString("uidx"); 
 				i++;
 			}
-
+			conn.close();
+			return list_bidx;
 		} catch (Exception e) {
 		}
-
-		return myArr;
-
+	return null;
 	}
-
-	public String myboard(String idx, String keyWord) {
+	
+	public String comment(String bidx, String keyWord) {
 		String retrunData = null;
 		try {
 
@@ -41,11 +40,12 @@ public class myBoard {
 
 			Statement stmt = conn.createStatement();
 
-			ResultSet rs = stmt.executeQuery("select * from boardTable WHERE idx='" + idx + "'");
+			ResultSet rs = stmt.executeQuery("select * from commenttable WHERE bidx=" + bidx + " ORDER by create_date desc");
 
 			while (rs.next()) {
 				retrunData = rs.getString(keyWord);
 			}
+			conn.close();
 		} catch (Exception e) {
 		}
 

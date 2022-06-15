@@ -35,7 +35,6 @@ public class firendDAO {
 	public boolean insertFollows(String idx, int userId1, String myIdx) {
 		int n = 0;
 		
-		// db 연동
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

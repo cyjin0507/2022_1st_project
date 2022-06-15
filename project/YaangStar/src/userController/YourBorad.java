@@ -17,9 +17,6 @@ public class YourBorad {
 
 		try {
 
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-
-			String url = "jdbc:oracle:thin:@pukkuk.pp.ua:49161:xe";
 			Connection conn = JdbcUtil.getConnection();
 
 			Statement stmt = conn.createStatement();
@@ -46,10 +43,6 @@ public class YourBorad {
 		String[] list_uidx = new String[100];
 		HttpSession session = request.getSession();
 		try {
-
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-
-			String url = "jdbc:oracle:thin:@pukkuk.pp.ua:49161:xe";
 			Connection conn = JdbcUtil.getConnection();
 
 			Statement stmt = conn.createStatement();
