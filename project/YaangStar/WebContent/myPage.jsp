@@ -43,7 +43,7 @@
 						<div><%=dao.getMyData(followers_list[i], "username")%></div>
 					</div>
 				</div>
-				<a href="">삭제</a>
+				<a href="/friendRemove?idx=<%=dao.getMyData(followers_list[i], "idx")%>">삭제</a>
 			</div>
 			<%
 				}
