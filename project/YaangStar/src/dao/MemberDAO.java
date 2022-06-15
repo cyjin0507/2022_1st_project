@@ -90,19 +90,19 @@ public class MemberDAO {
 		try {
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setInt(1, idx);
-			pstmt.setString(2, userId);
-			pstmt.setString(3, userPassword);
-			pstmt.setString(4, userName);
-			pstmt.setString(5, nickname);
-			pstmt.setString(6, introduce);
-			pstmt.setString(7, phoneNumber);
-			pstmt.setString(8, mail);
-			pstmt.setString(9, major);
-			pstmt.setString(10, gender);
-			pstmt.setString(11, userProfile);
-			pstmt.setString(12, reserved1);
-			pstmt.setString(13, reserved2);
+			pstmt.setInt(1, idx); //idx 값 넣어주기 
+			pstmt.setString(2, userId); //userId 값 넣어주기
+			pstmt.setString(3, userPassword); //userPassword 값 넣어주기
+			pstmt.setString(4, userPassword); //userPassword값 넣어주기
+			pstmt.setString(5, nickname); //nickname값 넣어주기
+			pstmt.setString(6, introduce); //introduce 값 넣어주기
+			pstmt.setString(7, phoneNumber); //phoneNumber값 넣어주기
+			pstmt.setString(8, mail); //mail값 넣어주기
+			pstmt.setString(9, major); //major값 넣어주기
+			pstmt.setString(10, gender); //gender값 넣어주기
+			pstmt.setString(11, userProfile); //userProfile값 넣어주기
+			pstmt.setString(12, reserved1); //reserved1 값 넣어주기
+			pstmt.setString(13, reserved2); //reserved2 값 넣어주기
 
 			c = pstmt.executeUpdate();
 
