@@ -23,7 +23,6 @@ public class friendAdd extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		int friendId = Integer.parseInt(request.getParameter("id"));
-
 		firendDAO friendListUpdate = new firendDAO();
 		boolean updateCheck = friendListUpdate.insertFollows(friendId);
 		

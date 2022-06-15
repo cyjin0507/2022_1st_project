@@ -24,11 +24,11 @@ public class friendSelectClass {
 			Statement stmt = conn.createStatement();
 
 			// 최근에 넣은 idx 값 가져 오기
-			ResultSet rs = stmt.executeQuery("SELECT * FROM friendTable where followers = "
+			ResultSet rs = stmt.executeQuery("SELECT * FROM friendTable where follow = "
 					+ session.getAttribute("logOK") + " and suggestion = 'true' ORDER BY idx DESC");
 			int i = 0;
 			while (rs.next()) {
-				list_followers[i] = rs.getString("follow");
+				list_followers[i] = rs.getString("followers");
 				i++;
 			}
 
@@ -51,11 +51,11 @@ public class friendSelectClass {
 			Statement stmt = conn.createStatement();
 
 			// 최근에 넣은 idx 값 가져 오기
-			ResultSet rs = stmt.executeQuery("SELECT * FROM friendTable where follow = "
+			ResultSet rs = stmt.executeQuery("SELECT * FROM friendTable where followers = "
 					+ session.getAttribute("logOK") + " and suggestion = 'true' ORDER BY idx DESC");
 			int i = 0;
 			while (rs.next()) {
-				list_follow[i] = rs.getString("followers");
+				list_follow[i] = rs.getString("follow");
 				i++;
 			}
 

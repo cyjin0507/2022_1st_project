@@ -23,9 +23,9 @@ public class firendDAO {
 		MemberDAO dao = new MemberDAO();
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, 1);
-			pstmt.setInt(2,1);
-			pstmt.setInt(3, userId1);
+			pstmt.setInt(1, 1); // idx +1 
+			pstmt.setInt(2,userId1); //
+			pstmt.setInt(3, 1);// 내 아이디 세션
 			pstmt.setString(4, "false");
 			n =pstmt.executeUpdate();
 			
