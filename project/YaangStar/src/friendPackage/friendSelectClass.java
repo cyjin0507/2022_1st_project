@@ -27,7 +27,7 @@ public class friendSelectClass {
 				list_followers[i] = rs.getString("followers");
 				i++;
 			}
-
+			conn.close();
 		} catch (Exception e) {
 		}
 
@@ -51,7 +51,7 @@ public class friendSelectClass {
 				list_follow[i] = rs.getString("follow");
 				i++;
 			}
-
+			conn.close();
 		} catch (Exception e) {
 		}
 
@@ -75,7 +75,7 @@ public class friendSelectClass {
 				list_follow[i] = rs.getString("idx");
 				i++;
 			}
-
+			conn.close();
 		} catch (Exception e) {
 		}
 

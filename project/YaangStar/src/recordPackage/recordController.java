@@ -60,11 +60,9 @@ public class recordController {
 		// db 연동
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
 		String sql = "insert into friendTable values(?, ?, ?)";
 
 		conn = JdbcUtil.getConnection(); // JDBC 드라이버 메모리 로딩, DB연결
-		MemberDAO dao = new MemberDAO();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, idx); // idx +1

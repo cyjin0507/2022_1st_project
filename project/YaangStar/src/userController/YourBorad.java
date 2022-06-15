@@ -83,7 +83,7 @@ public class YourBorad {
 			while (rs.next()) {
 				retrunData = rs.getString(keyWord);
 			}
-
+			conn.close();
 		} catch (Exception e) {
 		}
 

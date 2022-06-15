@@ -25,7 +25,7 @@ public class friendSelect {
 			while (rs.next()) {
 				return rs.getInt("idx");
 			}
-
+			conn.close();
 		} catch (Exception e) {
 		}
 
@@ -45,7 +45,7 @@ public class friendSelect {
 			while (rs.next()) {
 				return rs.getString(keyWord);
 			}
-
+			conn.close();
 		} catch (Exception e) {
 		}
 
@@ -69,7 +69,7 @@ public class friendSelect {
 				nList[i] = rs.getString("idx");
 				i++;
 			}
-
+			conn.close();
 		} catch (Exception e) {
 		}
 

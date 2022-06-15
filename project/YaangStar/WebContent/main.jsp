@@ -35,6 +35,7 @@
 			String[] list_youB_idx = youB.yourIdxBoardRetrun(request);
 			String[] list_youB_uidx = youB.yourUidxBoardRetrun(request);
 
+			boolean yes = false;
 			for (int i = 0; i <= 100; i++) {
 				if (list_youB_idx[i] == null || list_youB_uidx[i] == null) {
 					break;
@@ -62,34 +63,43 @@
 					<%=dao.getMyDataIdx(list_youB_idx[i], "tage")%>
 				</div>
 				<div class="comment">
-					<a href="#<%="comment" + i%>">댓글 19개 모두 보기</a>
+					<a href="#<%="comment" + i%>" <%yes = true;%>>댓글 19개 모두 보기</a>
 				</div>
-			
+
 				<div class="comment-popup" id="<%="comment" + i%>">
 					<div>
 						댓글 보기 <a href="#">&#10005;</a>
 					</div>
+					
 					<div id="comment-list">
 						<div class="comment-detail other">
-						<% 
-						CommentSelect comS = new CommentSelect();
-						String[] list_com = comS.CommentBidx(list_youB_idx[i]);
-						
-						for(int j = 0; j<list_com.length;j++){
-						%>
+							<%
+								CommentSelect comS = new CommentSelect();
+									String[] list_com = comS.CommentBidx(list_youB_idx[i]);
+									if (yes == true) {
+										for (int j = 0; j < 10; j++) {
+											if(list_com[j] == null){
+												break;
+											}
+							%>
 							<div>
-								<img src="<%=dao.getMyData(list_youB_uidx[i], "userProfile")%>" alt="">
+								<img src="<%=dao.getMyData(list_youB_uidx[i], "userProfile")%>"
+									alt="">
 								<div><%=dao.getMyData(list_youB_uidx[i], "username")%></div>
 							</div>
 							<div>
-								<div><%= comS.comment(list_com[i], "commentContent") %></div>
-								<div><%= comS.comment(list_com[i], "create_date") %></div>
+								<div><%=comS.comment(list_com[j], "commentContent")%></div>
+								<div><%=comS.comment(list_com[j], "create_date")%></div>
 							</div>
 						</div>
-							<% } %>
+						<%
+							}
+									yes = false;
+								}
+						%>
 					</div>
 				</div>
-				
+
 				<div class="time"><%=dao.getMyDataIdx(list_youB_idx[i], "create_date")%></div>
 				<form class="comment-area" action="/commentInsert" method="post">
 					<i class="fa-solid fa-face-smile"></i> <input type="hidden"

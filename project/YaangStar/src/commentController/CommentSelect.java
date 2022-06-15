@@ -18,18 +18,17 @@ public class CommentSelect {
 
 			// 최근에 넣은 idx 값 가져 오기
 			ResultSet rs = stmt
-					.executeQuery("select * from commentTable where bidx=" + bidx + " ORDER by create_date desc");
+					.executeQuery("select * from commentTable where bidx=" + bidx + " ORDER by idx DESC");
 			
 			int i = 0;
 			while (rs.next()) {
-				list_bidx[i] = rs.getString("uidx"); 
+				list_bidx[i] = rs.getString("idx"); 
 				i++;
 			}
 			conn.close();
-			return list_bidx;
 		} catch (Exception e) {
 		}
-	return null;
+	return list_bidx;
 	}
 	
 	public String comment(String bidx, String keyWord) {
@@ -40,7 +39,7 @@ public class CommentSelect {
 
 			Statement stmt = conn.createStatement();
 
-			ResultSet rs = stmt.executeQuery("select * from commenttable WHERE bidx=" + bidx + " ORDER by create_date desc");
+			ResultSet rs = stmt.executeQuery("select * from commenttable WHERE bidx=" + bidx + " ORDER by idx DESC");
 
 			while (rs.next()) {
 				retrunData = rs.getString(keyWord);

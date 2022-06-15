@@ -48,7 +48,6 @@ public class CommentInsert extends HttpServlet {
 		reserved2 = "";
 
 		s = dao.insertComment(idx, uidx, bidx, commentContent, reserved1, reserved2);
-
 		if (s > 0) { // 성공 시  
 			response.sendRedirect("main.jsp");
 			out.println("<script> alert(\"댓글 작성 성공\");</script>");
