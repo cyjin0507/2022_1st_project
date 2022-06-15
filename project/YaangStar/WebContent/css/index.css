@@ -1,4 +1,4 @@
-
+	
 
 /* popup */
 .popup {
@@ -145,6 +145,100 @@ a {
     border-style: none;
 }
 
+
+/* comment */
+#comment-popup {
+    position: absolute;
+    width: 550px;
+    height: 600px;
+    background-color: white;
+    overflow-y: auto;
+    border-radius: 10px;
+    overflow-x: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#comment-popup a {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+    position: absolute;
+    width: auto;
+    margin-left: 210px;
+}
+
+#comment-popup > div:nth-child(1) {
+    text-align: center;
+    line-height: 2.3;
+    border-bottom: 1px solid #aaa;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* height: 93%; */
+    /* overflow-y: auto; */
+}
+
+.comment-detail {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(229, 203, 255);
+    width: 90%;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow-x: hidden;
+}
+
+.comment-detail > div:nth-child(1) { 
+    display: flex;
+    margin-left: 30px;
+}
+
+.comment-detail > div:nth-child(1) img {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    border: 2px solid rgb(66, 66, 66);
+}
+
+.comment-detail > div:nth-child(1) > div {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.comment-detail > div:nth-child(2) {
+    width: 420px;
+    margin-top: 5px;
+    display: flex;
+    margin-left: 30px;
+}
+
+.comment-detail > div:nth-child(2) > div:nth-child(1) {
+    font-size: 16px;
+    color: rgb(73, 73, 73);
+}
+
+.comment-detail > div:nth-child(2) > div:nth-child(2) {
+    font-size: 13px;
+    color: rgb(82, 81, 81);
+    margin-top: 2px;
+    width: 100px;
+}
+
+#comment:target {
+    display: block;
+}
+
 /* section1 */
 #main-page {
     width: 42%;
@@ -243,6 +337,12 @@ a {
     margin-top: 15px;
     color: rgb(102, 102, 102);
     font-size: 15px;
+}
+
+.comment > a {
+	color: rgb(102, 102, 102);
+    font-size: 15px;
+    text-decoration :none;
 }
 
 .time {

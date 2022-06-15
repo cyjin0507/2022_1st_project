@@ -6,6 +6,104 @@
 <%@page import="dao.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	  <div class="popup" id="comment">
+        <div id="comment-popup">
+            <div>댓글 보기 <a href="#">&#10005;</a></div>
+            <div id="comment-list">
+                <div class="comment-detail other">
+                    <div>
+                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
+                        <div>dfsnblksd</div>
+                    </div>
+                    <div>
+                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
+                        <div>2022.04.02</div>
+                    </div>
+                </div>
+                <div class="comment-detail other">
+                    <div>
+                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
+                        <div>dfsnblksd</div>
+                    </div>
+                    <div>
+                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
+                        <div>2022.04.02</div>
+                    </div>
+                </div>
+                <div class="comment-detail other">
+                    <div>
+                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
+                        <div>dfsnblksd</div>
+                    </div>
+                    <div>
+                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
+                        <div>2022.04.02</div>
+                    </div>
+                </div>
+                <div class="comment-detail other">
+                    <div>
+                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
+                        <div>dfsnblksd</div>
+                    </div>
+                    <div>
+                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
+                        <div>2022.04.02</div>
+                    </div>
+                </div>
+                <div class="comment-detail other">
+                    <div>
+                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
+                        <div>dfsnblksd</div>
+                    </div>
+                    <div>
+                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
+                        <div>2022.04.02</div>
+                    </div>
+                </div>
+                <div class="comment-detail other">
+                    <div>
+                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
+                        <div>dfsnblksd</div>
+                    </div>
+                    <div>
+                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
+                        <div>2022.04.02</div>
+                    </div>
+                </div>
+                <div class="comment-detail other">
+                    <div>
+                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
+                        <div>dfsnblksd</div>
+                    </div>
+                    <div>
+                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
+                        <div>2022.04.02</div>
+                    </div>
+                </div>
+                <div class="comment-detail other">
+                    <div>
+                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
+                        <div>dfsnblksd</div>
+                    </div>
+                    <div>
+                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
+                        <div>2022.04.02</div>
+                    </div>
+                </div>
+                <div class="comment-detail other">
+                    <div>
+                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
+                        <div>dfsnblksd</div>
+                    </div>
+                    <div>
+                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
+                        <div>2022.04.02</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 <jsp:include page="./header.jsp" />
 
 
@@ -59,7 +157,7 @@
 				<div class="tage">
 					<%=dao.getMyDataIdx(list_youB_idx[i], "tage")%>
 				</div>
-				<div class="comment">댓글 19개 모두 보기___아직 기능 안한 거 1탄</div>
+				<div class="comment"><a href="#comment">댓글 19개 모두 보기___아직 기능 안한 거 1탄</a></div>
 				<div class="time"><%=dao.getMyDataIdx(list_youB_idx[i], "create_date")%></div>
 				<form class="comment-area" action="/commentInsert" method="post">
 					<i class="fa-solid fa-face-smile"></i> <input type="hidden"

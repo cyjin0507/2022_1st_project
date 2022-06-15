@@ -57,5 +57,29 @@ public class friendSelectClass {
 
 		return list_follow;
 	}
+	
+	public String[] followersIdxList(HttpServletRequest request) {
+		String list_follow[] = new String[5];
+		HttpSession session = request.getSession();
+		try {
+
+			Connection conn = JdbcUtil.getConnection();
+
+			Statement stmt = conn.createStatement();
+
+			// 최근에 넣은 idx 값 가져 오기
+			ResultSet rs = stmt.executeQuery("SELECT * FROM friendTable where followers = "
+					+ session.getAttribute("logOK") + " and suggestion = 'true' ORDER BY idx DESC");
+			int i = 0;
+			while (rs.next()) {
+				list_follow[i] = rs.getString("idx");
+				i++;
+			}
+
+		} catch (Exception e) {
+		}
+
+		return list_follow;
+	}
 
 }

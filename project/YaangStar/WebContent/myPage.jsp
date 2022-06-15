@@ -11,7 +11,7 @@
 
 	String[] followers_list = friend.followersList(request);
 	String[] follow_list = friend.followList(request);
-
+	String[] follow_idx_list = friend.followersIdxList(request);
 	int i = 0;
 %>
 
@@ -43,7 +43,7 @@
 						<div><%=dao.getMyData(followers_list[i], "username")%></div>
 					</div>
 				</div>
-				<a href="/friendRemove?idx=<%=dao.getMyData(followers_list[i], "idx")%>">삭제</a>
+				<a href="/friendRemove?idx=<%=follow_idx_list[i]%>">삭제</a>
 			</div>
 			<%
 				}
