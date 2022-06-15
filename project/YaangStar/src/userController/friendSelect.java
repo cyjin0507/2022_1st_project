@@ -27,7 +27,7 @@ public class friendSelect {
 				// 하나의 데이터만 필요하기 때문에 여기서 idx값을 리턴해준다.
 				return rs.getInt("idx");
 			}
-
+			conn.close();
 		} catch (Exception e) {
 		}
 
@@ -49,7 +49,7 @@ public class friendSelect {
 				// 원하는 값을 keyWord로 받아 리턴해준다.
 				return rs.getString(keyWord);
 			}
-
+			conn.close();
 		} catch (Exception e) {
 		}
 
@@ -76,7 +76,7 @@ public class friendSelect {
 				nList[i] = rs.getString("idx");
 				i++;
 			}
-
+			conn.close();
 		} catch (Exception e) {
 		}
 

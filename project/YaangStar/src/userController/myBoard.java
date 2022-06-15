@@ -51,6 +51,7 @@ public class myBoard {
 			while (rs.next()) {
 				retrunData = rs.getString(keyWord);
 			}
+			conn.close();
 		} catch (Exception e) {
 		}
 

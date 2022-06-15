@@ -47,7 +47,6 @@ public class MemberDAO {
 				a = rs.getInt("idx");
 			}
 			conn.close();
-			JdbcUtil.close(conn, pstmt);
 		} catch (Exception e) {
 		}
 		return a;
@@ -106,7 +105,6 @@ public class MemberDAO {
 			pstmt.setString(13, reserved2); //reserved2 값 넣어주기
 
 			c = pstmt.executeUpdate();
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -215,7 +213,7 @@ public class MemberDAO {
 		return d;
 	}
 
-	/* usertable  값 중 특정 idx 값의 정보 가져오기 */
+	/* usertable 값 중 특정 idx 값의 정보 가져오기 */
 	public String getMyData(String idx, String keyword) {
 		try {
 			Connection conn = JdbcUtil.getConnection();
@@ -235,7 +233,7 @@ public class MemberDAO {
 		return null;
 	}
 
-	/* boardtable  값 중 특정 idx 값의 정보 가져오기 */
+	/* boardtable 값 중 특정 idx 값의 정보 가져오기 */
 	public String getMyDataIdx(String idx, String keyword) {
 		try {
 			Connection conn = JdbcUtil.getConnection();
