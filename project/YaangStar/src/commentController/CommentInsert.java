@@ -21,6 +21,7 @@ public class CommentInsert extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
+	// 댓글을 삽입해주는 함수
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -48,6 +49,7 @@ public class CommentInsert extends HttpServlet {
 		reserved2 = "";
 
 		s = dao.insertComment(idx, uidx, bidx, commentContent, reserved1, reserved2);
+
 		if (s > 0) { // 성공 시  
 			response.sendRedirect("main.jsp");
 			out.println("<script> alert(\"댓글 작성 성공\");</script>");
