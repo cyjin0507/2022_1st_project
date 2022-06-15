@@ -25,6 +25,7 @@ public class BoardInsert extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
+	// 게시판 업로드 부분
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -54,8 +55,10 @@ public class BoardInsert extends HttpServlet {
 		 * resources\\upload\\imageBoard 이 경로 버그남
 		 */
 		
+		// 이미지 저장 url를 설정한다
 		String url = request.getRealPath("./resources/upload/imageProfile/");
 		url = request.getSession().getServletContext().getRealPath("resources/upload/imageBoard");
+		// 이미지 사이지 위치 등을 설정한다. 
 		mr = new MultipartRequest(request, url, 1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 		/* 사진 이름 불러 오기 */
 		String fileName = mr.getFilesystemName("image");
@@ -78,6 +81,7 @@ public class BoardInsert extends HttpServlet {
 		reserved2 = "";
 
 		if (!tage.equals(null) || !userContent.equals(null)) {
+			// 게시판 등록 함수에 파라미터를 넣어준다.
 			c = dao.insertBoard(idx, uidx, tage.replaceAll("\r\n", "<BR>"), userContent.replaceAll("\r\n", "<BR>"), image, reserved1, reserved2);
 		} else {
 		}
