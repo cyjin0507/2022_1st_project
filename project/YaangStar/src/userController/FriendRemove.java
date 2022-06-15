@@ -27,9 +27,10 @@ public class FriendRemove extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    // 팔로우 리스트에서 팔로우를 취소할 때 사용하는 함수이다.
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// friendTable의 idx값을 넘겨 받는다.
 		int idx = Integer.parseInt(request.getParameter("idx"));
-		System.out.println(idx);
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		conn = JdbcUtil.getConnection();
@@ -39,8 +40,10 @@ public class FriendRemove extends HttpServlet {
 			n = pstmt.executeUpdate();
 			
 			if(n > 0) {
+				// 성공할 시
 				response.sendRedirect("./myPage.jsp");
 			} else {
+				// 실패할 시
 				response.sendRedirect("./index.jsp");
 			}
 			

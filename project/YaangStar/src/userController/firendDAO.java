@@ -11,6 +11,7 @@ import dao.MemberDAO;
 
 public class firendDAO {
 	
+	// friendTable에 다음 idx를 리턴하는 함수 (기본키에 대한 오류)
 	public int getLastIdxFirend() {
 		int a = 0;
 
@@ -32,6 +33,8 @@ public class firendDAO {
 		return a;
 	}
 	
+	
+	// 팔로우 리스트에 담아주는 값을 담아주는 함수 
 	public boolean insertFollows(String idx, int userId1, String myIdx) {
 		int n = 0;
 		
@@ -45,19 +48,19 @@ public class firendDAO {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, idx); // idx +1 
-			pstmt.setInt(2,userId1); //
-			pstmt.setString(3, myIdx);// 내 아이디 세션
-			pstmt.setString(4, "true");
+			pstmt.setInt(2,userId1); // 친구의 idx값을 넣어준다
+			pstmt.setString(3, myIdx);// 내 idx를 넣어준다
+			pstmt.setString(4, "true"); // 기본값으로 true를 넣어준다
 			n =pstmt.executeUpdate();
 			
-			return true;
+			return true; // 성공하면 true를 반환한다
 		} catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		} finally {
 			JdbcUtil.close(conn, pstmt);
 		}
-		return false;
+		return false;  // 실패시 false를 반환한다.
 		
 	}
 
