@@ -78,7 +78,7 @@ public class BoardInsert extends HttpServlet {
 		reserved2 = "";
 
 		if (!tage.equals(null) || !userContent.equals(null)) {
-			c = dao.insertBoard(idx, uidx, tage, userContent, image, reserved1, reserved2);
+			c = dao.insertBoard(idx, uidx, tage, userContent.replaceAll("\r\n", "<BR>"), image, reserved1, reserved2);
 		} else {
 		}
 		if (c > 0)

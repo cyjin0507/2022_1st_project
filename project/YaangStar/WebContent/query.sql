@@ -1,5 +1,5 @@
 SELECT * FROM usertable;
-SELECT * FROM boardtable where uidx = 1;
+SELECT * FROM boardtable;
 SELECT * FROM commenttable;
 SELECT * FROM friendTable;
 
