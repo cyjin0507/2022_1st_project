@@ -84,7 +84,7 @@
 						<div><%=dao.getMyData(follow_list[i], "username")%></div>
 					</div>
 				</div>
-				<a href="">삭제</a>
+
 			</div>
 			<%
 				}
@@ -108,7 +108,6 @@
 <%
 	}
 %>
-
 
 
 
@@ -165,7 +164,7 @@
 				<img src="<%=myB.myboard(boardArr[i], "image")%>"
 					class="my-board-img" alt="">
 				<div>
-					<a href="">&#10005;</a>
+					<a href="/BoardRemove?idx=<%=myB.myboard(boardArr[i], "idx")%>">&#10005;</a>
 					<div><%=myB.myboard(boardArr[i], "userContent")%></div>
 				</div>
 			</div>

@@ -4,9 +4,9 @@ SELECT * FROM commenttable;
 SELECT * FROM friendTable;
 
 DELETE FROM usertable WHERE idx != 0;
-DELETE FROM boardtable;
+DELETE FROM boardtable where idx = 0;
 DELETE FROM commenttable WHERE idx != 0;
-DELETE FROM friendTable WHERE idx != 0;
+DELETE FROM friendTable WHERE idx == 0;
 
 DROP TABLE userTable;
 DROP TABLE boardtable;
