@@ -74,26 +74,27 @@
 					<div id="comment-list">
 							<%
 									String[] list_com = comS.CommentBidx(list_youB_idx[i]);
+							
 									if (yes == true) {
 										for (int j = 0; j < 10; j++) {
 											if(list_com[j] == null){
+												yes = false;
 												break;
 											}
 							%>
 							<div class="comment-detail other">
 							<div>
-								<img src="<%=dao.getMyData(list_youB_uidx[i], "userProfile")%>"
+								<img src="<%=dao.getMyData(list_com[j], "userProfile")%>"
 									alt="">
-								<div><%=dao.getMyData(list_youB_uidx[i], "username")%></div>
+								<div><%=dao.getMyData(list_com[j], "username")%></div>
 							</div>
 							<div>
-								<div><%=comS.comment(list_com[j], "commentContent")%></div>
+								<div><%=comS.comment(list_com[j],"commentcontent")%></div>
 								<div><%=comS.comment(list_com[j], "create_date")%></div>
 							</div>
 							</div>
 								<%
 							}
-									yes = false;
 								}
 						%>
 					</div>

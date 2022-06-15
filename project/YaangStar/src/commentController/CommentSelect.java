@@ -8,7 +8,6 @@ import dao.JdbcUtil;
 
 public class CommentSelect {
 
-	
 	// 댓글이 어느 게시물의 댓글인지 알려주는 함수
 	public String[] CommentBidx(String bidx) {
 		// 댓글의 갯수를 임의로 1000개라고 정한다
@@ -19,14 +18,13 @@ public class CommentSelect {
 
 			Statement stmt = conn.createStatement();
 
-			// 최근에 넣은 idx 값 가져 오기
 			ResultSet rs = stmt
 					.executeQuery("select * from commentTable where bidx=" + bidx + " ORDER by create_date desc");
-			
+
 			int i = 0;
 			while (rs.next()) {
-				// 위 배열에 값을 넣어준다. 
-				list_bidx[i] = rs.getString("uidx"); 
+				// 위 배열에 값을 넣어준다.
+				list_bidx[i] = rs.getString("uidx");
 				i++;
 			}
 			conn.close();
@@ -34,9 +32,9 @@ public class CommentSelect {
 			return list_bidx;
 		} catch (Exception e) {
 		}
-	return null;
+		return null;
 	}
-	
+
 	// 댓글에 필요한 부분을 리턴해준다.
 	public String comment(String bidx, String keyWord) {
 		String retrunData = null;
@@ -46,10 +44,14 @@ public class CommentSelect {
 
 			Statement stmt = conn.createStatement();
 
-			ResultSet rs = stmt.executeQuery("select * from commenttable WHERE bidx=" + bidx + " ORDER by create_date desc");
-
+			ResultSet rs = stmt
+					.executeQuery("select * from commentTable where idx=" + bidx + " ORDER by create_date desc");
+			System.out.println("bidx : "+bidx);
 			while (rs.next()) {
 				retrunData = rs.getString(keyWord);
+				System.out.println("keyWord : "+keyWord);
+				System.out.println("retrunData : "+retrunData);
+				System.out.println();
 			}
 			conn.close();
 		} catch (Exception e) {
