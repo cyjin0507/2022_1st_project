@@ -83,15 +83,16 @@ public class MemberDAO {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-
+		//USER테이블에 값 넣기
 		String sql = "insert into userTable values(?,?,?,?,?,?,?,?,?,?,sysdate,?,?,?)";
+		//JDBC 연결
 		conn = JdbcUtil.getConnection();
 
 		try {
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setInt(1, idx); //idx 값 넣어주기 
-			pstmt.setString(2, userId); //userId 값 넣어주기
+			pstmt.setInt(1, idx); //idx 값 넣어주기, INT형
+			pstmt.setString(2, userId); //userId 값 넣어주기, 문자형
 			pstmt.setString(3, userPassword); //userPassword 값 넣어주기
 			pstmt.setString(4, userPassword); //userPassword값 넣어주기
 			pstmt.setString(5, nickname); //nickname값 넣어주기
@@ -118,7 +119,7 @@ public class MemberDAO {
 	public int insertBoard(int idx, String uidx, String tage, String userContent, String image, String reserved1,
 			String reserved2) {
 		int c = 0;
-
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
@@ -128,7 +129,7 @@ public class MemberDAO {
 		try {
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setInt(1, idx);
+			pstmt.setInt(1, idx); 
 			pstmt.setString(2, uidx);
 			pstmt.setString(3, tage);
 			pstmt.setString(4, userContent);
