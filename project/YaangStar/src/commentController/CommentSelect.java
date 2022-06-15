@@ -69,7 +69,6 @@ public class CommentSelect {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from commentTable where idx=" + _bidx + " ORDER by idx desc");
 
-			System.out.println("bidx_com : "+_bidx);
 			while (rs.next()) {
 				retrunData = rs.getString(keyWord);
 			}

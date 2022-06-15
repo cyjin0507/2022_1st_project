@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="recordPackage.recordDAO"%>
 <%@page import="commentController.CommentSelect"%>
 <%@page import="userController.friendSelect"%>
 <%@page import="java.util.Random"%>
@@ -32,6 +34,7 @@
 		<%
 			YourBorad youB = new YourBorad();
 			CommentSelect comS = new CommentSelect();
+
 			String[] list_youB_idx = youB.yourIdxBoardRetrun(request);
 			String[] list_youB_uidx = youB.yourUidxBoardRetrun(request);
 
@@ -51,11 +54,27 @@
 				class="board-img">
 			<div class="board-content">
 				<div class="board-icons">
-					<i class="fa-solid fa-heart heart"></i> <i
-						class="fa-solid fa-comment"></i>
+					<%
+						String bidx_idx = list_youB_idx[i];
+							System.out.println("main : " + bidx_idx);
+					%>
+					<i><a href="recordController.jsp?bidx=<%=bidx_idx%>"
+						class="fa-solid fa-heart heart" style="text-decoration: none"></a></i>
+					<i class="fa-solid fa-comment"></i>
 				</div>
-
-				<div class="board-like">좋아요 934개</div>
+				<%
+					recordDAO rdao = new recordDAO();
+						int r = 0;
+						ArrayList<String> relist = rdao.record_list(list_youB_idx[i]);
+						for (r = 0; r < relist.size(); r++) {
+							if (relist.get(r) == null) {
+								break;
+							}
+						}
+				%>
+				<div class="board-like">
+					좋아요 <%=r%>개
+				</div>
 				<div class="content">
 					<%=dao.getMyDataIdx(list_youB_idx[i], "userContent")%>
 				</div>
@@ -65,7 +84,7 @@
 				<div class="comment">
 					<%
 						String[] list_com = comS.CommentBidx(list_youB_idx[i]);
-							int j=0;
+							int j = 0;
 							for (j = 0; j < 10; j++) {
 								if (list_com[j] == null) {
 									break;
@@ -73,8 +92,7 @@
 							}
 					%>
 
-					<a href="#<%="comment" + i%>" <%yes = true;%>>댓글 <%=j%>개 모두
-						보기
+					<a href="#<%="comment" + i%>" <%yes = true;%>>댓글 <%=j%>개 모두 보기
 					</a>
 				</div>
 				<div class="comment-popup" id="<%="comment" + i%>">
@@ -86,11 +104,11 @@
 						<%
 							String[] CommentIdx_list = comS.CommentIdx(list_youB_idx[i]);
 
-									for (j = 0; j < 10; j++) {
-										if (list_com[j] == null) {
-											yes = false;
-											break;
-										}
+								for (j = 0; j < 10; j++) {
+									if (list_com[j] == null) {
+										yes = false;
+										break;
+									}
 						%>
 						<div class="comment-detail other">
 							<div>
@@ -103,10 +121,10 @@
 							</div>
 						</div>
 						<%
-								}
+							}
 						%>
 					</div>
-				
+
 				</div>
 
 				<div class="time"><%=dao.getMyDataIdx(list_youB_idx[i], "create_date")%></div>
