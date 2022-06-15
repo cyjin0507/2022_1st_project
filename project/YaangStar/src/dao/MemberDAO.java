@@ -16,7 +16,7 @@ public class MemberDAO {
 
 			Statement stmt = conn.createStatement();
 
-			// 최근에 넣은 idx 값 가져 오기
+			// 최근에 넣은 usrtable idx 값 가져 오기
 			ResultSet rs = stmt
 					.executeQuery("SELECT * FROM (SELECT idx FROM usertable ORDER BY idx DESC) WHERE ROWNUM=1");
 
@@ -39,7 +39,7 @@ public class MemberDAO {
 
 			Statement stmt = conn.createStatement();
 
-			// 최근에 넣은 idx 값 가져 오기
+			// 최근에 넣은 boardTable idx 값 가져 오기
 			ResultSet rs = stmt
 					.executeQuery("SELECT * FROM (SELECT idx FROM boardTable ORDER BY idx DESC) WHERE ROWNUM=1");
 
@@ -61,7 +61,7 @@ public class MemberDAO {
 
 			Statement stmt = conn.createStatement();
 
-			// 최근에 넣은 idx 값 가져 오기
+			// 최근에 넣은 commentTable idx 값 가져 오기
 			ResultSet rs = stmt
 					.executeQuery("SELECT * FROM (SELECT idx FROM commentTable ORDER BY idx DESC) WHERE ROWNUM=1");
 
@@ -74,6 +74,7 @@ public class MemberDAO {
 		return a;
 	}
 
+	/* 회원가입 */
 	public int insertUser(int idx, String userId, String userPassword, String userName, String nickname, String major,
 			String gender, String reserved1, String reserved2, String userProfile, String introduce, String phoneNumber,
 			String mail) {
@@ -112,6 +113,7 @@ public class MemberDAO {
 		return c;
 	}
 
+	/* 게시글 등록 */
 	public int insertBoard(int idx, String uidx, String tage, String userContent, String image, String reserved1,
 			String reserved2) {
 		int c = 0;
@@ -143,6 +145,7 @@ public class MemberDAO {
 		return c;
 	}
 
+	/* 댓글 득록 */
 	public int insertComment(String idx, String uidx, String bidx, String commentContent, String reserved1,
 			String reserved2) {
 		int c = 0;
@@ -173,6 +176,7 @@ public class MemberDAO {
 		return c;
 	}
 
+	/* 프로필 정보 수정 */
 	public int updateUser(String proFile, String name, String userNickname, String userIntroduce, String userMail,
 			String userPhoneNumber, String userGender, String userMajor, String idx) {
 
@@ -209,42 +213,13 @@ public class MemberDAO {
 		return d;
 	}
 
-	public int updateContent(String userContent, String tage, int idx) {
-		int d = 0;
-
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-
-		String sql = "UPDATE boardTable SET tage = ?, userContent = ? where idx=?";
-
-		conn = JdbcUtil.getConnection();
-		try {
-			pstmt = conn.prepareStatement(sql);
-
-			pstmt.setString(1, tage);
-			pstmt.setString(2, userContent);
-			pstmt.setInt(3, idx);
-
-			d = pstmt.executeUpdate();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			JdbcUtil.close(conn, pstmt);
-			d = 1;
-		}
-
-		return d;
-	}
-
-	/*	*/
+	/* usertable  값 중 특정 idx 값의 정보 가져오기 */
 	public String getMyData(String idx, String keyword) {
 		try {
 			Connection conn = JdbcUtil.getConnection();
 
 			Statement stmt = conn.createStatement();
 
-			// 최근에 넣은 idx 값 가져 오기
 			ResultSet rs = stmt.executeQuery("SELECT * FROM userTable WHERE idx='" + idx + "'");
 			String returnData = null;
 			while (rs.next()) {
@@ -258,7 +233,7 @@ public class MemberDAO {
 		return null;
 	}
 
-	/*	*/
+	/* boardtable  값 중 특정 idx 값의 정보 가져오기 */
 	public String getMyDataIdx(String idx, String keyword) {
 		try {
 			Connection conn = JdbcUtil.getConnection();
