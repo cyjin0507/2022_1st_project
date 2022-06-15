@@ -100,14 +100,9 @@
 							<div>
 								<div><%=comS.comment(CommentIdx_list[j], "commentContent")%></div>
 								<div><%=comS.comment(CommentIdx_list[j], "create_date")%></div>
-								<% System.out.println("j : "+CommentIdx_list[j]); %>
-								<% System.out.println("날짜 : "+comS.comment(CommentIdx_list[j], "create_date")); %>
-								<% System.out.println("내영 : "+comS.comment(CommentIdx_list[j], "commentContent")); %>
-								<% System.out.println(); %>
 							</div>
 						</div>
 						<%
-							//}
 								}
 						%>
 					</div>
