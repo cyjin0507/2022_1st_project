@@ -18,7 +18,7 @@
 <div class="popup" id="follower">
 	<div class="follow-popup">
 		<div>
-			팔로워 <a href="#">&#10005;</a>
+			팔로우 <a href="#">&#10005;</a>
 		</div>
 		<div class="follow-list">
 
@@ -64,7 +64,7 @@
 			}
 		%>
 		<div>
-			팔로우 <a href="#">&#10005;</a>
+			팔로워 <a href="#">&#10005;</a>
 		</div>
 		<div class="follow-list">
 			<%
