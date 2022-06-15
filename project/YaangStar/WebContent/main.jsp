@@ -31,7 +31,7 @@
 	<div id="board-page">
 		<%
 			YourBorad youB = new YourBorad();
-		CommentSelect comS = new CommentSelect();
+			CommentSelect comS = new CommentSelect();
 			String[] list_youB_idx = youB.yourIdxBoardRetrun(request);
 			String[] list_youB_uidx = youB.yourUidxBoardRetrun(request);
 
@@ -63,9 +63,54 @@
 					<%=dao.getMyDataIdx(list_youB_idx[i], "tage")%>
 				</div>
 				<div class="comment">
-					<a href="#<%="comment" + i%>" <%yes = true;%>>댓글 19개 모두 보기</a>
+					<%
+						String[] list_com = comS.CommentBidx(list_youB_idx[i]);
+							int j=0;
+							for (j = 0; j < 10; j++) {
+								if (list_com[j] == null) {
+									break;
+								}
+							}
+					%>
+
+					<a href="#<%="comment" + i%>" <%yes = true;%>>댓글 <%=j%>개 모두
+						보기
+					</a>
 				</div>
-				
+				<div class="comment-popup" id="<%="comment" + i%>">
+					<div>
+						댓글 보기 <a href="#">&#10005;</a>
+					</div>
+
+					<div id="comment-list">
+						<%
+							String[] CommentIdx_list = comS.CommentIdx(list_youB_idx[i]);
+
+									for (j = 0; j < 10; j++) {
+										if (list_com[j] == null) {
+											yes = false;
+											break;
+										}
+						%>
+						<div class="comment-detail other">
+							<div>
+								<img src="<%=dao.getMyData(list_com[j], "userProfile")%>" alt="">
+								<div><%=dao.getMyData(list_com[j], "username")%></div>
+							</div>
+							<div>
+								<div><%=comS.comment(CommentIdx_list[j], "commentContent")%></div>
+								<div><%=comS.comment(CommentIdx_list[j], "create_date")%></div>
+								<% System.out.println("j : "+CommentIdx_list[j]); %>
+								<% System.out.println("날짜 : "+comS.comment(CommentIdx_list[j], "create_date")); %>
+								<% System.out.println("내영 : "+comS.comment(CommentIdx_list[j], "commentContent")); %>
+								<% System.out.println(); %>
+							</div>
+						</div>
+						<%
+							//}
+								}
+						%>
+					</div>
 				
 				</div>
 
@@ -77,9 +122,9 @@
 					<button type="submit">게시</button>
 				</form>
 			</div>
-		<%
-			}
-		%>
+			<%
+				}
+			%>
 		</div>
 	</div>
 
@@ -121,7 +166,7 @@
 				<a href="/friendAdd?id=<%=dao.getMyData(list[i] + "", "idx")%>">팔로우</a>
 			</div>
 		</div>
- <%
+		<%
 			}
 		%>
 		<footer> CopyRight (C) Yaang Star 2022 All Right Reserved. </footer>
