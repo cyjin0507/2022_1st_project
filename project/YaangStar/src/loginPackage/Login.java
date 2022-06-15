@@ -50,10 +50,8 @@ public class Login extends HttpServlet {
 
 			while (rs.next()) {
 				if(rs.getString("idx") != null) {
-					System.out.println("불러오기 성공");
 					String idx = rs.getString("idx");
 					session.setAttribute("logOK", idx);
-					out.print("<script>alert(\"로그인이 성공적으로 완료되었습니다.\")</script>");
 					response.sendRedirect("index.jsp");
 					break; 
 				}
@@ -64,7 +62,6 @@ public class Login extends HttpServlet {
 			conn.close();
 
 		} catch (Exception e) {
-			System.out.println("불러오기 실패\t안해");
 		}
 
 	}

@@ -57,13 +57,10 @@ public class BoardInsert extends HttpServlet {
 		String url = request.getRealPath("./resources/upload/imageProfile/");
 		url = request.getSession().getServletContext().getRealPath("resources/upload/imageBoard");
 		mr = new MultipartRequest(request, url, 1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
-		System.out.println("url : " + url);
 		/* 사진 이름 불러 오기 */
 		String fileName = mr.getFilesystemName("image");
-		System.out.println("사진 이름 : " + fileName);
 
 		image = "resources/upload/imageBoard/" + fileName;
-		System.out.println("이미지 경로 : " + image);
 
 		Enumeration<String> params = mr.getParameterNames();
 
@@ -80,15 +77,9 @@ public class BoardInsert extends HttpServlet {
 		reserved1 = "";
 		reserved2 = "";
 
-		System.out.println("tage : " + tage);
-		System.out.println("userContent : " + userContent);
-		System.out.println("idx : " + idx);
-		System.out.println("uidx : " + uidx);
-
 		if (!tage.equals(null) || !userContent.equals(null)) {
 			c = dao.insertBoard(idx, uidx, tage, userContent, image, reserved1, reserved2);
 		} else {
-			System.out.println("버그_배고파...\n게시글 올리는거 버그");
 		}
 		if (c > 0)
 			response.sendRedirect("main.jsp");

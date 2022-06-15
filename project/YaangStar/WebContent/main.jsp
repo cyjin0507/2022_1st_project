@@ -52,7 +52,7 @@
 					<i class="fa-solid fa-heart heart"></i>
 					<i class="fa-solid fa-comment"></i>
 				</div>
-				<div class="board-like">좋아요 934개</div>
+				<div class="board-like">좋아요 n 개</div>
 				<div class="content">
 					<%=dao.getMyDataIdx(list_youB_idx[i], "userContent")%>
 				</div>
@@ -116,7 +116,6 @@
 		</div>
 
 		<%
-		System.out.println(list[i]);
 			}
 		%>
 

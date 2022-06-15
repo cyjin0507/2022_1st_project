@@ -24,14 +24,11 @@ public class MemberDAO {
 					.executeQuery("SELECT * FROM (SELECT idx FROM usertable ORDER BY idx DESC) WHERE ROWNUM=1");
 
 			while (rs.next()) {
-				System.out.println("idx (userTable)  값 가져오기 성공");
 				a = rs.getInt("idx");
-				System.out.println(a);
 
 			}
 			conn.close();
 		} catch (Exception e) {
-			System.out.println("idx (userTable) 값 가져오기 실패");
 		}
 		return a;
 
@@ -53,13 +50,10 @@ public class MemberDAO {
 					.executeQuery("SELECT * FROM (SELECT idx FROM boardTable ORDER BY idx DESC) WHERE ROWNUM=1");
 
 			while (rs.next()) {
-				System.out.println("\nidx (boardTable) 값 가져오기 성공");
 				a = rs.getInt("idx");
-				System.out.println("getLastIdxBoard_idx : " + a);
 			}
 			conn.close();
 		} catch (Exception e) {
-			System.out.println("idx (boardTable) 값 가져오기 실패");
 		}
 		return a;
 
@@ -81,12 +75,10 @@ public class MemberDAO {
 					.executeQuery("SELECT * FROM (SELECT idx FROM commentTable ORDER BY idx DESC) WHERE ROWNUM=1");
 
 			while (rs.next()) {
-				System.out.println("idx (commentTable)  값 가져오기 성공");
 				a = rs.getInt("idx");
 			}
 			conn.close();
 		} catch (Exception e) {
-			System.out.println("idx (commentTable) 값 가져오기 실패");
 		}
 		return a;
 	}
@@ -141,7 +133,6 @@ public class MemberDAO {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			System.out.println("test_insertBoard");
 
 			pstmt.setInt(1, idx);
 			pstmt.setString(2, uidx);
@@ -173,7 +164,6 @@ public class MemberDAO {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			System.out.println("test_insertComment");
 
 			pstmt.setString(1, idx);
 			pstmt.setString(2, uidx);
@@ -235,7 +225,6 @@ public class MemberDAO {
 		PreparedStatement pstmt = null;
 
 		String sql = "UPDATE boardTable SET tage = ?, userContent = ? where idx=?";
-		System.out.println("test_updateContent");
 
 		conn = JdbcUtil.getConnection();
 		try {
@@ -276,7 +265,6 @@ public class MemberDAO {
 			conn.close();
 			return returnData;
 		} catch (Exception e) {
-			System.out.println("idx (getMydata) 값 가져오기 실패");
 		}
 
 		return null;
@@ -301,7 +289,6 @@ public class MemberDAO {
 			conn.close();
 			return returnData;
 		} catch (Exception e) {
-			System.out.println("idx (getMydataBoardTable) 값 가져오기 실패");
 		}
 
 		return null;

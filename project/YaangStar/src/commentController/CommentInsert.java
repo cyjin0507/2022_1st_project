@@ -42,12 +42,9 @@ public class CommentInsert extends HttpServlet {
 		idx = dao.getLastIdxComment() + 1 + "";
 		uidx = (String) session.getAttribute("logOK");
 
-		System.out.println("board_idx_insert : " + bidx);
-
 		commentContent = request.getParameter("commentContent");
 		reserved1 = "";
 		reserved2 = "";
-		System.out.println("commentContent : " + commentContent);
 
 		s = dao.insertComment(idx, uidx, bidx, commentContent, reserved1, reserved2);
 

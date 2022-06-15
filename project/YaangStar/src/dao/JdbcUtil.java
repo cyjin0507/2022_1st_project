@@ -16,7 +16,6 @@ public class JdbcUtil {
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@pukkuk.pp.ua:49161:xe", "hr", "hr");
 
 		} catch (Exception e) {
-			System.out.println("DB 연결 실패");
 			e.printStackTrace();
 		}
 
@@ -28,7 +27,6 @@ public class JdbcUtil {
 			try {
 				pstmt.close();
 			} catch (SQLException e) {
-				System.out.println("pstmt.close() 실패");
 				e.printStackTrace();
 			}
 		}
@@ -37,7 +35,6 @@ public class JdbcUtil {
 			try {
 				conn.close();
 			} catch (SQLException e) {
-				System.out.println("conn.close() 실패");
 				e.printStackTrace();
 			}
 		}
@@ -48,7 +45,6 @@ public class JdbcUtil {
 			try {
 				rs.close();
 			} catch (SQLException e) {
-				System.out.println("rs.close() 실패");
 				e.printStackTrace();
 			}
 		}

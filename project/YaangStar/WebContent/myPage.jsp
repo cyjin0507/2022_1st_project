@@ -26,10 +26,8 @@
 				int followers_i = 0;
 				for (followers_i = 0; followers_i < followers_list.length; followers_i++) {
 					if (followers_list[followers_i] == null) {
-						System.out.println("\n followers_i : " + followers_i);
 						break;
 					}
-					System.out.println("followers : " + followers_list[followers_i]);
 				}
 
 				for (i = 0; i < followers_list.length; i++) {
@@ -61,10 +59,8 @@
 			int follow_i = 0;
 			for (follow_i = 0; follow_i < follow_list.length; follow_i++) {
 				if (follow_list[follow_i] == null) {
-					System.out.println("\n follow_i : " + follow_i);
 					break;
 				}
-				System.out.println("follow : " + follow_list[follow_i]);
 			}
 		%>
 		<div>
@@ -119,7 +115,6 @@
 			String[] boardArr = myB.myBoardRetrun(dao.getMyData((String) s.getAttribute("logOK"), "idx"));
 			for (borad_i = 0; borad_i < boardArr.length; borad_i++) {
 				if (boardArr[borad_i] == null) {
-					System.out.println("borad_i : " + borad_i);
 					break;
 				}
 			}

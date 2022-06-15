@@ -48,7 +48,6 @@ public class UploadUserInformation extends HttpServlet {
 		/* 로그인시 idx > 0 이기땜에 idx < 0 == 로그인 중 X */
 		if (login_idx != null) {
 			idx = login_idx;
-			System.out.println("로그인한 idx : " + idx);
 		} else {
 			out.println("<script> alert(\"로그인 상태가 아닙니다.\"); response.sendRedirect(\"login.jsp\"); </script>");
 		}
@@ -66,19 +65,14 @@ public class UploadUserInformation extends HttpServlet {
 				"./resources/upload/imageProfile/");
 		url = request.getSession().getServletContext().getRealPath("resources/upload/imageProfile");
 		mr = new MultipartRequest(request, url, 1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
-		System.out.println("url : " + url);
 		/* 사진 이름 불러 오기 */
 		fileName = mr.getFilesystemName("proFile_");
-		System.out.println("사진 이름 : " + fileName);
 
 		if (fileName == null || fileName.equals("")) {
 			proFile = dao.getMyData((String) session.getAttribute("logOK"), "userProfile");
-			System.out.println("이미지 null 값 \t proFile : " + proFile);
 		} else {
 			proFile = "resources/upload/imageProfile/" + fileName;
 		}
-
-		System.out.println("이미지 경로 : " + proFile);
 
 		Enumeration<String> params = mr.getParameterNames();
 
@@ -104,14 +98,12 @@ public class UploadUserInformation extends HttpServlet {
 				} else if (userMajor.equals("") || userMajor == null) {
 					userGender = dao.getMyData((String) session.getAttribute("logOK"), "gender");
 				}
-				System.out.println("userGender : " + userGender);
 			} else if (name_jsp.equals("userMajor")) { // jsp 에서 userTage 의 내용 가져오기
 				if (value.equals("") || value.equals("선택")) {
 					userMajor = dao.getMyData((String) session.getAttribute("logOK"), "major");
 				} else {
 					userMajor = value;
 				}
-				System.out.println("변경 후  \t userMajor : " + userMajor);
 			}
 		}
 		c = dao.updateUser(proFile, name_, userNickname, userIntroduce, userMail, userPhoneNumber, userGender,
