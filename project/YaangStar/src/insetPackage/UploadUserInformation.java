@@ -16,7 +16,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import dao.MemberDAO;
-
+//매핑
 @WebServlet("/UploadUser")
 public class UploadUserInformation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -29,17 +29,21 @@ public class UploadUserInformation extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		//한글 설정
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-
+		
 		PrintWriter out = response.getWriter();
 		MultipartRequest mr;
+		//세션 불러오기
 		HttpSession session = request.getSession();
-
+		//회원정보 가져오기
 		String proFile, name_ = "", userNickname = "", userIntroduce = "", userMail = "", userPhoneNumber = "",
 				userGender = "", userMajor = "", fileName = "", value, name_jsp;
+		//MEMBERDAO연결
 		MemberDAO dao = new MemberDAO();
-
+		//SESSION으로 로그인 정보 가져오기
 		String login_idx = (String) session.getAttribute("logOK");
 
 		String idx = null;
@@ -67,7 +71,7 @@ public class UploadUserInformation extends HttpServlet {
 		mr = new MultipartRequest(request, url, 1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 		/* 사진 이름 불러 오기 */
 		fileName = mr.getFilesystemName("proFile_");
-
+		
 		if (fileName == null || fileName.equals("")) {
 			proFile = dao.getMyData((String) session.getAttribute("logOK"), "userProfile");
 		} else {
