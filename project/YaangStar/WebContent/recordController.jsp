@@ -18,7 +18,6 @@
 		idx = dao.getLastIdxRecord() + 1 + "";
 		uidx = (String) session.getAttribute("logOK");
 		bidx = request.getParameter("bidx");
-		System.out.println("bidx : " + bidx);
 
 		a = dao.insertRecord(idx, uidx, bidx);
 		dao.doubleCheck(uidx, bidx);
