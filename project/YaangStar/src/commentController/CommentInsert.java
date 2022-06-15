@@ -21,6 +21,7 @@ public class CommentInsert extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
+	// 댓글을 삽입해주는 함수
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
