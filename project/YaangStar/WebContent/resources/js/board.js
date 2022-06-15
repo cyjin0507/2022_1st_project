@@ -28,7 +28,7 @@ $("#img_control").on('change',()=>{
             $('#user-info-pop').css('display', 'none')
         })
         
-        
+// 좋아요 누를 때 사용
 $('.heart').on('click', (e) => {
             const heart = $(e.target);
             // rgb(0, 0, 0)

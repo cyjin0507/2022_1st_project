@@ -31,7 +31,7 @@
 	<div id="board-page">
 		<%
 			YourBorad youB = new YourBorad();
-
+		CommentSelect comS = new CommentSelect();
 			String[] list_youB_idx = youB.yourIdxBoardRetrun(request);
 			String[] list_youB_uidx = youB.yourUidxBoardRetrun(request);
 
@@ -130,7 +130,7 @@
 
 		<div id="list-info">
 			<div>회원님을 위한 추천</div>
-			<div>모두 보기</div>
+			<div>추천친구</div>
 		</div>
 		<%
 			int n = 0;

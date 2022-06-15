@@ -47,8 +47,8 @@
             </div>
             <div class="join-input">
             	<div>성별</div>
-            	<input type="radio" name="gender" value="he">남성&nbsp;
-				<input type="radio" name="gender" value="she">여성
+            	<input type="radio" name="gender" value="he" style="width:40px; margin-left:45px;"><div style="margin-left:10px;">남성</div>
+				<input type="radio" name="gender" value="she" style="width:40px; margin-left:45px;"><div style="margin-left:10px;">여성</div>
             </div>
             <div id="join-btn-group">
                 <button type="reset">다시작성</button>

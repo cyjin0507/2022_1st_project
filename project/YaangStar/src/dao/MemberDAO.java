@@ -82,32 +82,33 @@ public class MemberDAO {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-
+		//USER테이블에 값 넣기
 		String sql = "insert into userTable values(?,?,?,?,?,?,?,?,?,?,sysdate,?,?,?)";
+		//JDBC 연결
 		conn = JdbcUtil.getConnection();
 
 		try {
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setInt(1, idx);
-			pstmt.setString(2, userId);
-			pstmt.setString(3, userPassword);
-			pstmt.setString(4, userName);
-			pstmt.setString(5, nickname);
-			pstmt.setString(6, introduce);
-			pstmt.setString(7, phoneNumber);
-			pstmt.setString(8, mail);
-			pstmt.setString(9, major);
-			pstmt.setString(10, gender);
-			pstmt.setString(11, userProfile);
-			pstmt.setString(12, reserved1);
-			pstmt.setString(13, reserved2);
+			pstmt.setInt(1, idx); //idx 값 넣어주기, INT형
+			pstmt.setString(2, userId); //userId 값 넣어주기, 문자형
+			pstmt.setString(3, userPassword); //userPassword 값 넣어주기
+			pstmt.setString(4, userPassword); //userPassword값 넣어주기
+			pstmt.setString(5, nickname); //nickname값 넣어주기
+			pstmt.setString(6, introduce); //introduce 값 넣어주기
+			pstmt.setString(7, phoneNumber); //phoneNumber값 넣어주기
+			pstmt.setString(8, mail); //mail값 넣어주기
+			pstmt.setString(9, major); //major값 넣어주기
+			pstmt.setString(10, gender); //gender값 넣어주기
+			pstmt.setString(11, userProfile); //userProfile값 넣어주기
+			pstmt.setString(12, reserved1); //reserved1 값 넣어주기
+			pstmt.setString(13, reserved2); //reserved2 값 넣어주기
 
 			c = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			JdbcUtil.close(conn, pstmt);
+			JdbcUtil.close(conn, pstmt);// conn, pstmt 닫아주기 
 		}
 		return c;
 	}
@@ -116,23 +117,23 @@ public class MemberDAO {
 	public int insertBoard(int idx, String uidx, String tage, String userContent, String image, String reserved1,
 			String reserved2) {
 		int c = 0;
-
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-
+		//board 테이블에 값 넣어주기
 		String sql = "insert into boardTable values(?,?,?,?,?, sysdate,?,?)";
 		conn = JdbcUtil.getConnection();
 
 		try {
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setInt(1, idx);
-			pstmt.setString(2, uidx);
-			pstmt.setString(3, tage);
-			pstmt.setString(4, userContent);
-			pstmt.setString(5, image);
-			pstmt.setString(6, reserved1);
-			pstmt.setString(7, reserved2);
+			pstmt.setInt(1, idx); //int 형으로 idx값 넣어주기
+			pstmt.setString(2, uidx); // 문자형으로 uidx값 넣어주기
+			pstmt.setString(3, tage); // 문자형으로 tage값 넣어주기
+			pstmt.setString(4, userContent); // 문자형으로 userContent값 넣어주기
+			pstmt.setString(5, image); // 문자형으로 image값 넣어주기
+			pstmt.setString(6, reserved1); // 문자형으로 reserved1값 넣어주기
+			pstmt.setString(7, reserved2); // 문자형으로 reserved2값 넣어주기
 
 			c = pstmt.executeUpdate();
 
