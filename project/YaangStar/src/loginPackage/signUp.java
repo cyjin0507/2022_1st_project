@@ -40,8 +40,8 @@ public class signUp extends HttpServlet {
 		nickname = request.getParameter("nickname");
 		major = request.getParameter("major");
 		gender = request.getParameter("gender");
-		phoneNumber = request.getParameter("phoneNumber");
-		mail = request.getParameter("mail");
+		phoneNumber = "";
+		mail = "";
 		introduce = "야앙스타 신규 회원";
 		reserved1 = "";
 		reserved2 = "";
