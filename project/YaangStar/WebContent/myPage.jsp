@@ -18,7 +18,7 @@
 <div class="popup" id="follower">
 	<div class="follow-popup">
 		<div>
-			팔로워 <a href="#">&#10005;</a>
+			팔로우 <a href="#">&#10005;</a>
 		</div>
 		<div class="follow-list">
 
@@ -64,7 +64,7 @@
 			}
 		%>
 		<div>
-			팔로우 <a href="#">&#10005;</a>
+			팔로워 <a href="#">&#10005;</a>
 		</div>
 		<div class="follow-list">
 			<%
@@ -132,10 +132,10 @@
 					게시물
 					<%=borad_i%></div>
 				<div>
-					<a href="#follow">팔로워 <%=followers_i%></a>
+					<a href="#follow">팔로워 <%=follow_i%></a>
 				</div>
 				<div>
-					<a href="#follower">팔로우 <%=follow_i%></a>
+					<a href="#follower">팔로우 <%=followers_i%></a>
 				</div>
 			</div>
 			<div>
