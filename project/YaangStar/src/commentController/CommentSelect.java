@@ -19,7 +19,7 @@ public class CommentSelect {
 			Statement stmt = conn.createStatement();
 
 			ResultSet rs = stmt
-					.executeQuery("select * from commentTable where bidx=" + bidx + " ORDER by create_date desc");
+					.executeQuery("select * from commentTable where bidx=" + bidx + " ORDER by idx desc");
 
 			int i = 0;
 			while (rs.next()) {
@@ -36,7 +36,7 @@ public class CommentSelect {
 	}
 
 	// 댓글에 필요한 부분을 리턴해준다.
-	public String comment(String bidx, String keyWord) {
+	public String comment(String idx, String keyWord) {
 		String retrunData = null;
 		try {
 
@@ -45,13 +45,10 @@ public class CommentSelect {
 			Statement stmt = conn.createStatement();
 
 			ResultSet rs = stmt
-					.executeQuery("select * from commentTable where idx=" + bidx + " ORDER by create_date desc");
-			System.out.println("bidx : "+bidx);
+					.executeQuery("select * from commentTable where bidx=" + idx + " ORDER by idx desc");
+			
 			while (rs.next()) {
 				retrunData = rs.getString(keyWord);
-				System.out.println("keyWord : "+keyWord);
-				System.out.println("retrunData : "+retrunData);
-				System.out.println();
 			}
 			conn.close();
 		} catch (Exception e) {
