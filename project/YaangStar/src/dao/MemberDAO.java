@@ -47,6 +47,7 @@ public class MemberDAO {
 				a = rs.getInt("idx");
 			}
 			conn.close();
+			JdbcUtil.close(conn, pstmt);
 		} catch (Exception e) {
 		}
 		return a;

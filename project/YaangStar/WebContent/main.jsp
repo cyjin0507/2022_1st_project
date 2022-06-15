@@ -1,3 +1,4 @@
+<%@page import="commentController.CommentSelect"%>
 <%@page import="userController.friendSelect"%>
 <%@page import="java.util.Random"%>
 <%@page import="commentController.CommentInsert"%>
@@ -6,7 +7,7 @@
 <%@page import="dao.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:include page="./header.jsp"/>
+<jsp:include page="./header.jsp" />
 
 
 <%
@@ -40,132 +41,64 @@
 				}
 		%>
 		<div class="board">
-                <div class="user-info">
-                    <img src="<%=dao.getMyData(list_youB_uidx[i], "userProfile")%>" alt="" class="user-img">
-                    <div><%=dao.getMyData(list_youB_uidx[i], "username")%></div>
-                </div>
-                <img src="<%=dao.getMyDataIdx(list_youB_idx[i], "image")%>" alt="" class="board-img">
-                <div class="board-content">
-                    <div class="board-icons">
-                        <i class="fa-solid fa-heart heart"></i>
-                        <i class="fa-solid fa-comment"></i>
-                    </div>
+			<div class="user-info">
+				<img src="<%=dao.getMyData(list_youB_uidx[i], "userProfile")%>"
+					alt="" class="user-img">
+				<div><%=dao.getMyData(list_youB_uidx[i], "username")%></div>
+			</div>
+			<img src="<%=dao.getMyDataIdx(list_youB_idx[i], "image")%>" alt=""
+				class="board-img">
+			<div class="board-content">
+				<div class="board-icons">
+					<i class="fa-solid fa-heart heart"></i> <i
+						class="fa-solid fa-comment"></i>
+				</div>
 
-                    <div class="board-like">좋아요 934개</div>
-                    <div class="content">
-                        <%=dao.getMyDataIdx(list_youB_idx[i], "userContent")%>
-                    </div>
-                    <div class="tage">
-                        <%=dao.getMyDataIdx(list_youB_idx[i], "tage")%>
-                    </div>
-                    <div class="comment">
-                        <a href="#<%="comment" + i%>">댓글 19개 모두 보기</a>
-                    </div>
-                    <div class="comment-popup" id="<%="comment" + i%>">
-            <div>댓글 보기 <a href="#">&#10005;</a></div>
-            <div id="comment-list">
-                <div class="comment-detail other">
-                    <div>
-                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
-                        <div>dfsnblksd</div>
-                    </div>
-                    <div>
-                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
-                        <div>2022.04.02</div>
-                    </div>
-                </div>
-                <div class="comment-detail other">
-                    <div>
-                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
-                        <div>dfsnblksd</div>
-                    </div>
-                    <div>
-                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
-                        <div>2022.04.02</div>
-                    </div>
-                </div>
-                <div class="comment-detail other">
-                    <div>
-                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
-                        <div>dfsnblksd</div>
-                    </div>
-                    <div>
-                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
-                        <div>2022.04.02</div>
-                    </div>
-                </div>
-                <div class="comment-detail other">
-                    <div>
-                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
-                        <div>dfsnblksd</div>
-                    </div>
-                    <div>
-                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
-                        <div>2022.04.02</div>
-                    </div>
-                </div>
-                <div class="comment-detail other">
-                    <div>
-                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
-                        <div>dfsnblksd</div>
-                    </div>
-                    <div>
-                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
-                        <div>2022.04.02</div>
-                    </div>
-                </div>
-                <div class="comment-detail other">
-                    <div>
-                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
-                        <div>dfsnblksd</div>
-                    </div>
-                    <div>
-                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
-                        <div>2022.04.02</div>
-                    </div>
-                </div>
-                <div class="comment-detail other">
-                    <div>
-                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
-                        <div>dfsnblksd</div>
-                    </div>
-                    <div>
-                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
-                        <div>2022.04.02</div>
-                    </div>
-                </div>
-                <div class="comment-detail other">
-                    <div>
-                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
-                        <div>dfsnblksd</div>
-                    </div>
-                    <div>
-                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
-                        <div>2022.04.02</div>
-                    </div>
-                </div>
-                <div class="comment-detail other">
-                    <div>
-                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
-                        <div>dfsnblksd</div>
-                    </div>
-                    <div>
-                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
-                        <div>2022.04.02</div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-                    <div class="time"><%=dao.getMyDataIdx(list_youB_idx[i], "create_date")%></div>
+				<div class="board-like">좋아요 934개</div>
+				<div class="content">
+					<%=dao.getMyDataIdx(list_youB_idx[i], "userContent")%>
+				</div>
+				<div class="tage">
+					<%=dao.getMyDataIdx(list_youB_idx[i], "tage")%>
+				</div>
+				<div class="comment">
+					<a href="#<%="comment" + i%>">댓글 19개 모두 보기</a>
+				</div>
+			
+				<div class="comment-popup" id="<%="comment" + i%>">
+					<div>
+						댓글 보기 <a href="#">&#10005;</a>
+					</div>
+					<div id="comment-list">
+						<div class="comment-detail other">
+						<% 
+						CommentSelect comS = new CommentSelect();
+						String[] list_com = comS.CommentBidx(list_youB_idx[i]);
+						
+						for(int j = 0; j<list_com.length;j++){
+						%>
+							<div>
+								<img src="<%=dao.getMyData(list_youB_uidx[i], "userProfile")%>" alt="">
+								<div><%=dao.getMyData(list_youB_uidx[i], "username")%></div>
+							</div>
+							<div>
+								<div><%= comS.comment(list_com[i], "commentContent") %></div>
+								<div><%= comS.comment(list_com[i], "create_date") %></div>
+							</div>
+						</div>
+							<% } %>
+					</div>
+				</div>
+				
+				<div class="time"><%=dao.getMyDataIdx(list_youB_idx[i], "create_date")%></div>
 				<form class="comment-area" action="/commentInsert" method="post">
 					<i class="fa-solid fa-face-smile"></i> <input type="hidden"
 						name="bidx" value="<%=list_youB_idx[i]%>"> <input
 						type="text" placeholder="댓글 달기..." name="commentContent">
 					<button type="submit">게시</button>
 				</form>
-                </div>
-            </div>
+			</div>
+		</div>
 		<%
 			}
 		%>
@@ -195,15 +128,15 @@
 			String[] list = fr.friendList(request);
 			Random random = new Random();
 			for (int i = 0; i < 5; i++) {
-				if(list[i] == null){
+				if (list[i] == null) {
 					break;
 				}
 		%>
 		<div id="friend-list">
 			<div class="list-detail">
 				<div>
-					<img src="<%=dao.getMyData(list[i] + "", "userprofile")%>"
-						alt="" class="friend-profile">
+					<img src="<%=dao.getMyData(list[i] + "", "userprofile")%>" alt=""
+						class="friend-profile">
 					<div><%=dao.getMyData(list[i] + "", "username")%></div>
 				</div>
 				<a href="/friendAdd?id=<%=dao.getMyData(list[i] + "", "idx")%>">팔로우</a>

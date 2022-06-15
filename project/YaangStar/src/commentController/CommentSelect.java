@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import javax.servlet.http.HttpServletRequest;
-
 import dao.JdbcUtil;
 
 public class CommentSelect {
@@ -27,14 +25,14 @@ public class CommentSelect {
 				list_bidx[i] = rs.getString("uidx"); 
 				i++;
 			}
-
+			conn.close();
 			return list_bidx;
 		} catch (Exception e) {
 		}
 	return null;
 	}
 	
-	public String comment(String idx, String keyWord) {
+	public String comment(String bidx, String keyWord) {
 		String retrunData = null;
 		try {
 
@@ -42,11 +40,12 @@ public class CommentSelect {
 
 			Statement stmt = conn.createStatement();
 
-			ResultSet rs = stmt.executeQuery("select * from commenttable WHERE idx='" + idx + "'");
+			ResultSet rs = stmt.executeQuery("select * from commenttable WHERE bidx=" + bidx + " ORDER by create_date desc");
 
 			while (rs.next()) {
 				retrunData = rs.getString(keyWord);
 			}
+			conn.close();
 		} catch (Exception e) {
 		}
 
