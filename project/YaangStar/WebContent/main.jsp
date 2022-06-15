@@ -66,38 +66,7 @@
 					<a href="#<%="comment" + i%>" <%yes = true;%>>댓글 19개 모두 보기</a>
 				</div>
 
-				<div class="comment-popup" id="<%="comment" + i%>">
-					<div>
-						댓글 보기 <a href="#">&#10005;</a>
-					</div>
-					
-					<div id="comment-list">
-							<%
-									String[] list_com = comS.CommentBidx(list_youB_idx[i]);
-							
-									if (yes == true) {
-										for (int j = 0; j < 10; j++) {
-											if(list_com[j] == null){
-												yes = false;
-												break;
-											}
-							%>
-							<div class="comment-detail other">
-							<div>
-								<img src="<%=dao.getMyData(list_com[j], "userProfile")%>"
-									alt="">
-								<div><%=dao.getMyData(list_com[j], "username")%></div>
-							</div>
-							<div>
-								<div><%=comS.comment(list_com[j],"commentcontent")%></div>
-								<div><%=comS.comment(list_com[j], "create_date")%></div>
-							</div>
-							</div>
-								<%
-							}
-								}
-						%>
-					</div>
+				
 				</div>
 
 				<div class="time"><%=dao.getMyDataIdx(list_youB_idx[i], "create_date")%></div>
