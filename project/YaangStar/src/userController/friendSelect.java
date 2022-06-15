@@ -15,9 +15,6 @@ public class friendSelect {
 
 		try {
 
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-
-			String url = "jdbc:oracle:thin:@pukkuk.pp.ua:49161:xe";
 			Connection conn = JdbcUtil.getConnection();
 
 			Statement stmt = conn.createStatement();
