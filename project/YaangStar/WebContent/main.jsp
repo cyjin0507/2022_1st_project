@@ -72,7 +72,7 @@
 				</div>
 				<div class="board-like">좋아요 n 개</div>
 				<div class="content">
-					<%=dao.getMyDataIdx(list_youB_idx[i], "userContent").replaceAll("<br>", "\r\n")%>
+					<%=dao.getMyDataIdx(list_youB_idx[i], "userContent")%>
 				</div>
 				<div class="tage">
 					<%=dao.getMyDataIdx(list_youB_idx[i], "tage")%>
