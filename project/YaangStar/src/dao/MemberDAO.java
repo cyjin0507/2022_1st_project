@@ -110,7 +110,7 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			JdbcUtil.close(conn, pstmt);
+			JdbcUtil.close(conn, pstmt);// conn, pstmt 닫아주기 
 		}
 		return c;
 	}
@@ -122,20 +122,20 @@ public class MemberDAO {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-
+		//board 테이블에 값 넣어주기
 		String sql = "insert into boardTable values(?,?,?,?,?, sysdate,?,?)";
 		conn = JdbcUtil.getConnection();
 
 		try {
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setInt(1, idx); 
-			pstmt.setString(2, uidx);
-			pstmt.setString(3, tage);
-			pstmt.setString(4, userContent);
-			pstmt.setString(5, image);
-			pstmt.setString(6, reserved1);
-			pstmt.setString(7, reserved2);
+			pstmt.setInt(1, idx); //int 형으로 idx값 넣어주기
+			pstmt.setString(2, uidx); // 문자형으로 uidx값 넣어주기
+			pstmt.setString(3, tage); // 문자형으로 tage값 넣어주기
+			pstmt.setString(4, userContent); // 문자형으로 userContent값 넣어주기
+			pstmt.setString(5, image); // 문자형으로 image값 넣어주기
+			pstmt.setString(6, reserved1); // 문자형으로 reserved1값 넣어주기
+			pstmt.setString(7, reserved2); // 문자형으로 reserved2값 넣어주기
 
 			c = pstmt.executeUpdate();
 

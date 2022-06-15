@@ -45,6 +45,7 @@ public class signUp extends HttpServlet {
 		introduce = "야앙스타 신규 회원"; 
 		reserved1 = "";
 		reserved2 = "";
+		//프로필
 		userProfile = "resources/upload/imageProfile/defaultProfile.jpeg"; //이미지 불러오기
 		// 
 		c = dao.insertUser(idx, userId, userPassword, userName, nickname, major, gender, reserved1, reserved2,
