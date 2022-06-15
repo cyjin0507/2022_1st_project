@@ -106,6 +106,7 @@ public class UploadUserInformation extends HttpServlet {
 				}
 			}
 		}
+		
 		c = dao.updateUser(proFile, name_, userNickname, userIntroduce, userMail, userPhoneNumber, userGender,
 				userMajor, idx);
 
