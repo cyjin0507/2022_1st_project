@@ -61,9 +61,9 @@ public class UploadUserInformation extends HttpServlet {
 		 * resources/upload/imageProfile
 		 */
 
-		String url = request.getRealPath(
-				"./resources/upload/imageProfile/");
-		url = request.getSession().getServletContext().getRealPath("resources/upload/imageProfile");
+		/*String url = request.getRealPath(
+				"./resources/upload/imageProfile/");*/
+		String url = request.getSession().getServletContext().getRealPath("./resources/upload/imageProfile/");
 		mr = new MultipartRequest(request, url, 1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 		/* 사진 이름 불러 오기 */
 		fileName = mr.getFilesystemName("proFile_");
