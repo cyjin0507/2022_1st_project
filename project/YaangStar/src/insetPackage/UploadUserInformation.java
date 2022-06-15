@@ -26,6 +26,7 @@ public class UploadUserInformation extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
+	// 유저 정보 수정하는데 사용
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -67,6 +68,7 @@ public class UploadUserInformation extends HttpServlet {
 
 		/*String url = request.getRealPath(
 				"./resources/upload/imageProfile/");*/
+		// 이미지 경로를 설정한다.
 		String url = request.getSession().getServletContext().getRealPath("./resources/upload/imageProfile/");
 		mr = new MultipartRequest(request, url, 1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 		/* 사진 이름 불러 오기 */

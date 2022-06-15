@@ -77,7 +77,6 @@
 						보기
 					</a>
 				</div>
-
 				<div class="comment-popup" id="<%="comment" + i%>">
 					<div>
 						댓글 보기 <a href="#">&#10005;</a>
@@ -109,6 +108,7 @@
 								}
 						%>
 					</div>
+				
 				</div>
 
 				<div class="time"><%=dao.getMyDataIdx(list_youB_idx[i], "create_date")%></div>
