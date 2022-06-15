@@ -1,4 +1,4 @@
-package userController;
+package recordPackage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,22 +9,20 @@ import java.sql.Statement;
 import dao.JdbcUtil;
 import dao.MemberDAO;
 
-public class firendDAO {
+public class recordController {
 	
-	public int getLastIdxFirend() {
+	public int getLastIdxRecord() {
 		int a = 0;
 
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@pukkuk.pp.ua:49161:xe";
 			Connection conn = JdbcUtil.getConnection();
 
 			Statement stmt = conn.createStatement();
 
 			// 최근에 넣은 idx 값 가져 오기
 			ResultSet rs = stmt
-					.executeQuery("SELECT * FROM (SELECT idx FROM friendTable ORDER BY idx DESC) WHERE ROWNUM=1");
+					.executeQuery("SELECT * FROM (SELECT idx FROM recordTable ORDER BY idx DESC) WHERE ROWNUM=1");
 
 			while (rs.next()) {
 				a = rs.getInt("idx");
@@ -35,34 +33,54 @@ public class firendDAO {
 		return a;
 	}
 	
-	public boolean insertFollows(String idx, int userId1, String myIdx) {
+	public int getLastUidx() {
+		int a = 0;
+
+		try {
+			Connection conn = JdbcUtil.getConnection();
+
+			Statement stmt = conn.createStatement();
+
+			// 최근에 넣은 idx 값 가져 오기
+			ResultSet rs = stmt
+					.executeQuery("SELECT uidx FROM recordTable");
+
+			while (rs.next()) {
+				a = rs.getInt("uidx");
+			}
+			conn.close();
+		} catch (Exception e) {
+		}
+		return a;
+	}
+	
+	public int insertRecord(String idx, String uidx, String bidx) {
 		int n = 0;
 		
 		// db 연동
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "insert into friendTable values(?, ?, ?, ?, sysdate)";
+		String sql = "insert into friendTable values(?, ?, ?)";
 
 		conn = JdbcUtil.getConnection(); // JDBC 드라이버 메모리 로딩, DB연결
 		MemberDAO dao = new MemberDAO();
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, idx); // idx +1 
-			pstmt.setInt(2,userId1); //
-			pstmt.setString(3, myIdx);// 내 아이디 세션
-			pstmt.setString(4, "true");
-			n =pstmt.executeUpdate();
+			pstmt.setString(1, idx); // idx +1
+			pstmt.setString(2, uidx); // 
+			pstmt.setString(3, bidx);// 내 아이디 세션
+
+			n = pstmt.executeUpdate();
 			
-			return true;
 		} catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		} finally {
 			JdbcUtil.close(conn, pstmt);
 		}
-		return false;
+		return n;
 		
 	}
-
+	
 }
