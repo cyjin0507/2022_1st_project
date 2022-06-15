@@ -11,7 +11,7 @@ public class JdbcUtil {
 	public static Connection getConnection() {
 		Connection conn = null;
 
-		try {
+		try {// DB 연결 
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@pukkuk.pp.ua:49161:xe", "hr", "hr");
 
@@ -21,7 +21,7 @@ public class JdbcUtil {
 
 		return conn;
 	}
-
+/* pstmt or conn 열려 있으면 닫기 */
 	public static void close(Connection conn, PreparedStatement pstmt) {
 		if (pstmt != null) {
 			try {
@@ -40,6 +40,7 @@ public class JdbcUtil {
 		}
 	}
 	
+	/* rs 열려 있으면 닫기 */
 	public static void close(Connection conn, PreparedStatement pstmt, ResultSet rs) {
 		if (rs != null) {
 			try {

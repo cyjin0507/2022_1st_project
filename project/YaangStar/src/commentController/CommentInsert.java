@@ -39,20 +39,20 @@ public class CommentInsert extends HttpServlet {
 		MemberDAO dao = new MemberDAO();
 		HttpSession session = request.getSession();
 
-		idx = dao.getLastIdxComment() + 1 + "";
-		uidx = (String) session.getAttribute("logOK");
+		idx = dao.getLastIdxComment() + 1 + ""; //가장 최근 idx 값 받아와서 + 1
+		uidx = (String) session.getAttribute("logOK"); // 로그인 한 idx 값 받아옴
 
-		commentContent = request.getParameter("commentContent");
+		commentContent = request.getParameter("commentContent"); // 댓글 내용 받아옴
 		reserved1 = "";
 		reserved2 = "";
 
 		s = dao.insertComment(idx, uidx, bidx, commentContent, reserved1, reserved2);
 
-		if (s > 0) {
+		if (s > 0) { // 성공 시  
 			response.sendRedirect("main.jsp");
 			out.println("<script> alert(\"댓글 작성 성공\");</script>");
 		} else
-			out.print("버그");
+			out.print("버그"); // 성공 시 
 		out.println("<script> alert(\"내용을 입력해주세요\"); history.go(-1); </script>");
 	}
 

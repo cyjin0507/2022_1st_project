@@ -10,87 +10,7 @@
         <div id="comment-popup">
             <div>댓글 보기 <a href="#">&#10005;</a></div>
             <div id="comment-list">
-                <div class="comment-detail other">
-                    <div>
-                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
-                        <div>dfsnblksd</div>
-                    </div>
-                    <div>
-                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
-                        <div>2022.04.02</div>
-                    </div>
-                </div>
-                <div class="comment-detail other">
-                    <div>
-                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
-                        <div>dfsnblksd</div>
-                    </div>
-                    <div>
-                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
-                        <div>2022.04.02</div>
-                    </div>
-                </div>
-                <div class="comment-detail other">
-                    <div>
-                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
-                        <div>dfsnblksd</div>
-                    </div>
-                    <div>
-                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
-                        <div>2022.04.02</div>
-                    </div>
-                </div>
-                <div class="comment-detail other">
-                    <div>
-                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
-                        <div>dfsnblksd</div>
-                    </div>
-                    <div>
-                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
-                        <div>2022.04.02</div>
-                    </div>
-                </div>
-                <div class="comment-detail other">
-                    <div>
-                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
-                        <div>dfsnblksd</div>
-                    </div>
-                    <div>
-                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
-                        <div>2022.04.02</div>
-                    </div>
-                </div>
-                <div class="comment-detail other">
-                    <div>
-                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
-                        <div>dfsnblksd</div>
-                    </div>
-                    <div>
-                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
-                        <div>2022.04.02</div>
-                    </div>
-                </div>
-                <div class="comment-detail other">
-                    <div>
-                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
-                        <div>dfsnblksd</div>
-                    </div>
-                    <div>
-                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
-                        <div>2022.04.02</div>
-                    </div>
-                </div>
-                <div class="comment-detail other">
-                    <div>
-                        <img src="./resources/imgs/바이오화학과.jpg" alt="">
-                        <div>dfsnblksd</div>
-                    </div>
-                    <div>
-                        <div>sdknbbnklsfnbklsdnbklsdfnbklsfn</div>
-                        <div>2022.04.02</div>
-                    </div>
-                </div>
-                <div class="comment-detail other">
+                <div class="comment-detail"> <!-- comment-detail other -->
                     <div>
                         <img src="./resources/imgs/바이오화학과.jpg" alt="">
                         <div>dfsnblksd</div>
@@ -104,7 +24,7 @@
             </div>
         </div>
     </div>
-<jsp:include page="./header.jsp" />
+<jsp:include page="./header.jsp"/>
 
 
 <%
