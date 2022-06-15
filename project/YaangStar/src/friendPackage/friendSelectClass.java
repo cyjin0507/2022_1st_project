@@ -63,6 +63,7 @@ public class friendSelectClass {
 	}
 	
 	public String[] followersIdxList(HttpServletRequest request) {
+		// 5명의 추천친구만 불러오므로 뱌열크기를 5로 한다.
 		String list_follow[] = new String[5];
 		HttpSession session = request.getSession();
 		try {
