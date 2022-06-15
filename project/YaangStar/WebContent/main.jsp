@@ -72,7 +72,6 @@
 					</div>
 					
 					<div id="comment-list">
-						<div class="comment-detail other">
 							<%
 									String[] list_com = comS.CommentBidx(list_youB_idx[i]);
 									if (yes == true) {
@@ -81,6 +80,7 @@
 												break;
 											}
 							%>
+							<div class="comment-detail other">
 							<div>
 								<img src="<%=dao.getMyData(list_youB_uidx[i], "userProfile")%>"
 									alt="">
@@ -90,13 +90,12 @@
 								<div><%=comS.comment(list_com[j], "commentContent")%></div>
 								<div><%=comS.comment(list_com[j], "create_date")%></div>
 							</div>
+							</div>
 								<%
 							}
 									yes = false;
 								}
 						%>
-							
-						</div>
 					</div>
 				</div>
 
@@ -152,13 +151,10 @@
 				<a href="/friendAdd?id=<%=dao.getMyData(list[i] + "", "idx")%>">팔로우</a>
 			</div>
 		</div>
-
-		<%
+ <%
 			}
 		%>
-
 		<footer> CopyRight (C) Yaang Star 2022 All Right Reserved. </footer>
-
 	</div>
 
 
