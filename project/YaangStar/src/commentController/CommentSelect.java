@@ -9,7 +9,7 @@ import dao.JdbcUtil;
 public class CommentSelect {
 
 	public String[] CommentBidx(String bidx) {
-		String[] list_bidx = new String[100000];
+		String[] list_bidx = new String[1000];
 
 		try {
 			Connection conn = JdbcUtil.getConnection();

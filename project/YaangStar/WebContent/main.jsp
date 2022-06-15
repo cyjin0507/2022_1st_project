@@ -31,7 +31,7 @@
 	<div id="board-page">
 		<%
 			YourBorad youB = new YourBorad();
-
+		CommentSelect comS = new CommentSelect();
 			String[] list_youB_idx = youB.yourIdxBoardRetrun(request);
 			String[] list_youB_uidx = youB.yourUidxBoardRetrun(request);
 
@@ -69,25 +69,7 @@
 					<div>
 						댓글 보기 <a href="#">&#10005;</a>
 					</div>
-					<div id="comment-list">
-						<div class="comment-detail other">
-						<% 
-						CommentSelect comS = new CommentSelect();
-						String[] list_com = comS.CommentBidx(list_youB_idx[i]);
-						
-						for(int j = 0; j<list_com.length;j++){
-						%>
-							<div>
-								<img src="<%=dao.getMyData(list_youB_uidx[i], "userProfile")%>" alt="">
-								<div><%=dao.getMyData(list_youB_uidx[i], "username")%></div>
-							</div>
-							<div>
-								<div><%= comS.comment(list_com[i], "commentContent") %></div>
-								<div><%= comS.comment(list_com[i], "create_date") %></div>
-							</div>
-						</div>
-							<% } %>
-					</div>
+					
 				</div>
 				
 				<div class="time"><%=dao.getMyDataIdx(list_youB_idx[i], "create_date")%></div>
@@ -120,7 +102,7 @@
 
 		<div id="list-info">
 			<div>회원님을 위한 추천</div>
-			<div>모두 보기</div>
+			<div>추천친구</div>
 		</div>
 		<%
 			int n = 0;
