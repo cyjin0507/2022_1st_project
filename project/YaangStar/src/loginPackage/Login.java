@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.JdbcUtil;
-
+//매핑
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,24 +27,26 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		//한글 인코딩 설정
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-
+		
 		PrintWriter out = response.getWriter();
-
+		//세션생성
 		HttpSession session = request.getSession();
-
+		//DB에서 유저의 ID와 PASSWORD가져오기
 		String id = request.getParameter("userId");
 		String password = request.getParameter("userPassword");
 		try {
+			//JDBC연결
 			Connection conn = JdbcUtil.getConnection();
-
+			//statement 인스턴스생성
 			Statement stmt = conn.createStatement();
 			ResultSet rs;
 
 			// 최근에 넣은 idx 값 가져 오기
 			rs = stmt.executeQuery("SELECT * FROM usertable where userId ='" + id + "'and userPassword = '" + password + "'");
-
+			
 			while (rs.next()) {
 				if(rs.getString("idx") != null) {
 					String idx = rs.getString("idx");
@@ -55,7 +57,7 @@ public class Login extends HttpServlet {
 			} if(!rs.next()) {
 				out.println("<script> alert(\"로그인에 실패하였습니다.\"); history.go(-1); </script>");
 			}
-
+			//커넥션 닫기
 			conn.close();
 
 		} catch (Exception e) {

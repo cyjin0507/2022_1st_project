@@ -15,7 +15,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import dao.MemberDAO;
-
+//매핑
 @WebServlet("/boardInsert")
 public class BoardInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -39,9 +39,9 @@ public class BoardInsert extends HttpServlet {
 		int idx;
 		String uidx;
 		int c = 0;
-
+		//MEMBERDAO 연결
 		MemberDAO dao = new MemberDAO();
-
+		//
 		idx = dao.getLastIdxBoard() + 1;
 		uidx = (String) session.getAttribute("logOK");
 
@@ -53,7 +53,7 @@ public class BoardInsert extends HttpServlet {
 		 * C:\\Users\\user\\Desktop\\2022_1st_project\\project\\YaangStar\\WebContent\\
 		 * resources\\upload\\imageBoard 이 경로 버그남
 		 */
-
+		
 		String url = request.getRealPath("./resources/upload/imageProfile/");
 		url = request.getSession().getServletContext().getRealPath("resources/upload/imageBoard");
 		mr = new MultipartRequest(request, url, 1024 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
