@@ -219,6 +219,16 @@
             
         })
 
+        $('.tage-textarea').on('keydown', (e)=> {
+            let text = $(e.target).val();
+            
+            if(e.which == 13) {
+                $('.tage-textarea').val("")
+                $(e.target).val(text + "\n#")
+            }
+            
+        })
+
         
     </script>
     
