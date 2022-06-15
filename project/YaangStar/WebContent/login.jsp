@@ -28,6 +28,7 @@
             </div>
         </div>
     </form>
-    
+    <script src="./resources/js/jquery.js"></script>
+<script src="./resources/js/board.js"></script>
 </body>
 </html>
