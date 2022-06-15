@@ -26,6 +26,7 @@ public class BoardRemove extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    // 게시판 삭제하는데 사용
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int idx = Integer.parseInt(request.getParameter("idx"));
 		PrintWriter out = response.getWriter();
@@ -39,8 +40,10 @@ public class BoardRemove extends HttpServlet {
 			n = pstmt.executeUpdate();
 			
 			if(n > 0) {
+				// 성공시
 				response.sendRedirect("./myPage.jsp");
 			} else {
+				// 실패시
 				response.sendRedirect("./myPage.jsp");
 			}
 			

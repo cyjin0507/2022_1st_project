@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class MemberDAO {
-
+	// userTable에 다음 idx를 리턴하는 함수 (기본키에 대한 오류)
 	public int getLastIdxUser() {
 		int a = 0;
 
@@ -31,6 +31,7 @@ public class MemberDAO {
 
 	}
 
+	// boardTable에 다음 idx를 리턴하는 함수 (기본키에 대한 오류)
 	public int getLastIdxBoard() {
 		int a = 0;
 
@@ -53,6 +54,7 @@ public class MemberDAO {
 
 	}
 
+	// commentTable에 다음 idx를 리턴하는 함수 (기본키에 대한 오류)
 	public int getLastIdxComment() {
 		int a = 0;
 
